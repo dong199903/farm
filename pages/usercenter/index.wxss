@@ -23,6 +23,7 @@ page {
   width: 250rpx;
   height: 80rpx;
   border-radius: 10rpx;
+  line-height: 80rpx;
 }
 .me-box{
   
