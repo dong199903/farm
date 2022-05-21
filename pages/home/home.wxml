@@ -1,5 +1,5 @@
 <header title="首页"></header>
-
+<!-- 轮播图 -->
 <view>
   <t-swiper interval="3000" navigation>
     <t-swiper-item wx:for="{{background}}" wx:key="index">
@@ -9,39 +9,40 @@
     </t-swiper-item>
   </t-swiper>
 </view>
-
-<view>
-  <t-grid column="{{4}}">
-    <t-grid-item 
-      wx:for="{{category}}" 
-      wx:key="index" 
-      text="{{item.text}}"
-      >
-      <image
-        src="{{item.image}}"
-        slot="image"
-      />
-    </t-grid-item>
-  </t-grid>
+<!-- 分类列表 -->
+<view class="category">
+  <view class="item" 
+        wx:for="{{category}}" 
+        wx:key="index">
+    <image
+          src="{{item.image}}"
+          slot="image"></image>
+    <view class="text">{{item.text}}</view>
+  </view>
 </view>
-
+<!-- 搜索 -->
 <view>
-  <t-search placeholder="搜索预设文案" />
+  <t-search model:value="{{value}}" placeholder="山东甜瓜" center="{{true}}" />
 </view>
-
-<view>
-  <view wx:for="{{goods}}"> 
-    <view>
+<!-- 热门推荐 -->
+<view class="recommend">
+  <view>
+    <text class="tuijian">热门推荐</text>
+  </view>
+  <view wx:for="{{goods}}" wx:key="index" class="item"> 
+    <view class="img">
       <image src="{{item.img}}"></image>
-      <view>
+    </view>
+    <view class="detail">
+      <view class="title">
         <text>{{item.title}}</text>
       </view>
-      <view>
+      <view class="desc">
         <text>{{item.desc}}</text>
       </view>
-      <view>
-        <text>{{item.price2}}</text>
-        <text>{{item.price1}}</text>
+      <view class="price">
+        <text class="price2">{{item.price2}}</text>
+        <text class="price1">{{item.price1}}</text>
       </view>
     </view>
   </view>

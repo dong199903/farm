@@ -1,8 +1,102 @@
 .swiper-img image{
   width: 100%;
 }
+.category {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.category .item{
+  width: 150rpx;
+  height: 150rpx;
+  border: 1rpx #ced8e4 solid; 
+  border-right: 0;
+  border-radius: 20rpx; 
+  box-shadow: 0 0 10rpx 2rpx #bdcee0;
+}
+.category .item image{
+  margin: 0 25rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+.category .item .text{
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.recommend{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.recommend .tuijian{
+  font-size: 40rpx;
+}
+.recommend .item {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  width: 100%;
+  height: 300rpx;
+  border: 1rpx #ced8e4 solid; 
+  border-right: 0;
+  border-radius: 20rpx; 
+  box-shadow: 0 0 10rpx 2rpx #bdcee0;
+}
+.recommend .item .img{
+  width: 300rpx;
+}
+.recommend .item .img image{
+  width: 100%;
+  height: 100%;
+}
+.recommend .item .detail {
+  padding-left: 50rpx;
+  flex: 1;
+  height: 300rpx;
+  position: relative;
+}
+.recommend .item .detail .title{
+  position: absolute;
+  top: 50rpx;
+  width: 300rpx;
+}
+.recommend .item .detail .title text{
+  font-weight: 600;
+  font-size: 40rpx;
+  line-height: 60rpx;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.recommend .item .detail .desc{
+  position: absolute;
+  top: 140rpx;
+}
+.recommend .item .detail .desc text {
+  display: -webkit-box;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recommend .item .detail .price{
+  position: absolute;
+  bottom: 30rpx;
+}
 
-t-grid-item image {
-  width: 200rpx;
-  height: 200rpx;
+.recommend .item .detail .price .price2 {
+  color: #b22222;
+  font-size: 40rpx;
+  padding-right: 20rpx;
+}
+.recommend .item .detail .price .price1 {
+  color: 	#2f4f4f;
+  font-size: 30rpx;
+  text-decoration: line-through;
 }
