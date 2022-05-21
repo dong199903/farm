@@ -1,3 +1,4 @@
+
 /*
  * @description: 
  * @author: 董泽平
@@ -11,9 +12,19 @@ Page({
   /**
    * 页面的初始数据
    */
+
+  /**
+   * 上次图片逻辑处理
+   * 1.设置数组，大小是3.默认保存3个空元素。
+   * 2.遍历数组，如果是图像，显示。
+   * 3.如果是空的，显示上次图片的按钮
+   * 4.over
+   * 
+   */
   data: {
     originFiles: [],
-    gridConfig: {}
+    gridConfig: {},
+    uploadImgs:[null,null,null]
   },
   getInfo(e) {
     this.setData({
@@ -30,25 +41,50 @@ Page({
       phone: e.detail.value
     })
   },
-  handleSucces: function (e) {
-    console.log(e)
-    this.setData({
-      files: e.detail.files
-    })
+  
+  /**
+   * 
+   * 选择图片
+   */
+  upload(){
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original','compressed'],
+      sourceType: ['album','camera'],
+      success: (result)=>{
+        console.log(result)
+        let imgs = that.data.uploadImgs
+        //找到数组第一个非空的位置，插入
+        let index = imgs.indexOf(null)
+        imgs[index] = result.tempFilePaths[0]
+        console.log(imgs)
+        that.setData({
+          uploadImgs:imgs
+        })
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   /**上传图片 */
   uploadImg: function () {
     let imgs = []
     let that = this
-    console.log(that.data.files)
+    console.log(that.data.uploadImgs)
+    //将所有非空的图片上传
+    let success = []
+    that.data.uploadImgs.forEach(element => {
+      if(element) success.push(element)
+    });console.log(success)
     return new Promise((resolve, reject) => {
-      for (let i = 0; i < that.data.files.length; i++)
+      for (let i = 0; i < success.length; i++)
         wx.cloud.uploadFile({
           cloudPath: 'farm/' + new Date().getTime() + "_" + Math.floor(Math.random() * 1000) + ".jpg", //使用时间戳加随机数作为上传至云端的图片名称
-          filePath: that.data.files[i].url, // 本地文件路径
+          filePath: success[i], // 本地文件路径
           success: res => {
             imgs.push(res.fileID)
-            if (imgs.length === that.data.files.length) resolve(imgs)
+            if (imgs.length === success.length) resolve(imgs)
           },
           fail: function (err) {
             reject(err)

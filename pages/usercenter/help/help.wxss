@@ -18,3 +18,21 @@ textarea{
   border-radius: 15rpx;
   color: #fff;
 }
+.img_box{
+  display: flex;
+}
+.img_box_cover{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  border:1rpx solid #ccc;
+  padding: 10rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 150rpx;
+  font-size: 50rpx;
+}
+.img_box image{
+  width: 160rpx;
+  height: 160rpx;
+}
