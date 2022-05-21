@@ -34,10 +34,22 @@ Page({
       visible:true
     })
   },
-  /**注销退出 */
+  /**
+   * 注销退出 
+   * > 清空全局的userinfo.保存用户的openid
+   * > 
+   * 
+  */
   exit(){
-
+    console.log("注销操作")
+    app.globalData.userInfo = null
+    this.setData({
+      userInfo:null,
+      quit:true
+    })
   },
+
+
   onCancel(){
     console.log('cancel')
     this.setData({
@@ -68,29 +80,32 @@ Page({
 
   /** 登录-注册 */
   login() {
-    let that = this
-    wx.getUserProfile({
-      desc: '微信授权',
-      success: (res) => {
-        console.log(res)
-        app.globalData.userInfo = res.userInfo
-        that.setData({
-          userInfo: app.globalData.userInfo
-        })
-        Login(app.globalData.openid, app.globalData.userInfo)
-      }
-    })
+    if(this.data?.quit) {
+      console.log("存在")
+      //可以直接从缓存中获取用户信息
+      let {userInfo} = wx.getStorageSync('users');
+      app.globalData.userInfo = userInfo
+      this.setData({
+        userInfo
+      })
+
+    } else {
+      let that = this
+      wx.getUserProfile({
+        desc: '微信授权',
+        success: (res) => {
+          console.log(res)
+          app.globalData.userInfo = res.userInfo
+          that.setData({
+            userInfo: app.globalData.userInfo
+          })
+          Login(app.globalData.openid, app.globalData.userInfo)
+        }
+      })
+    }
+    
   },
 
-  /**
-   * 获取用户头像，并注册
-   */
-   onChooseAvatar(e){
-    const { avatarUrl } = e.detail 
-    // this.setData({
-    //   avatarUrl,
-    // })
-    console.log("选择头像",e)
-   }
+  
 
 });
