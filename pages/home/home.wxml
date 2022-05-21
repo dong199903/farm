@@ -1,33 +1,48 @@
-<!--
- * @description: 
- * @author: 董泽平
--->
-<!--搜索框-->
-
 <header title="首页"></header>
 
-<t-search placeholder="更多农产品热售中" bindtap="sub" center="{{false}}" shape='round' disabled="{{true}}"/>
-<view class="swipers">
-  <t-swiper class="swiper" current="{{0}}" autoplay="{{true}}" duration="{{500}}" interval="{{5000}}">
-    <t-swiper-item wx:for="{{items}}" wx:key="index">
-      <view class="item {{item.cls}}"><image src="{{item.image}}" class="img" /></view>
+<view>
+  <t-swiper interval="3000" navigation>
+    <t-swiper-item wx:for="{{background}}" wx:key="index">
+      <view class="swiper-img">
+        <image src="{{item.image}}" class="img" />
+      </view>
     </t-swiper-item>
-    <t-swiper-nav slot="nav" type="dots-bar" />
   </t-swiper>
 </view>
 
-<view class="command1">
-  <t-grid class="three-border" column="{{5}}">
-    <t-grid-item wx:for="{{sort}}" wx::key="{{item._id}}" class="t-grid-item" t-class-text="text">
-      <view class="box" bindtap="toSort" data-id="{{index}}" data-name="{{item.name}}">
-        <image class="" src="{{item.img}}" ></image>
-        <view class="name">{{item.name}}</view>
-      </view>
+<view>
+  <t-grid column="{{4}}">
+    <t-grid-item 
+      wx:for="{{category}}" 
+      wx:key="index" 
+      text="{{item.text}}"
+      >
+      <image
+        src="{{item.image}}"
+        slot="image"
+      />
     </t-grid-item>
-    
   </t-grid>
 </view>
 
-  
+<view>
+  <t-search placeholder="搜索预设文案" />
+</view>
 
-  
+<view>
+  <view wx:for="{{goods}}"> 
+    <view>
+      <image src="{{item.img}}"></image>
+      <view>
+        <text>{{item.title}}</text>
+      </view>
+      <view>
+        <text>{{item.desc}}</text>
+      </view>
+      <view>
+        <text>{{item.price2}}</text>
+        <text>{{item.price1}}</text>
+      </view>
+    </view>
+  </view>
+</view>
