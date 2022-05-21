@@ -1,0 +1,20 @@
+
+.submit{
+  width: 97%;
+  line-height: 80rpx;
+  background-color: #c6c6c6;
+  border-radius: 20rpx;
+  margin: 30rpx auto;
+  margin-top:70rpx;
+  text-align: center;
+  color: #fff;
+}
+.add{
+  display: flex;
+  align-items: center;
+}
+.add .iconfont{
+  
+  font-size: 40rpx;
+  color: #c6c6c6;
+}

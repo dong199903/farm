@@ -1,0 +1,18 @@
+<!--pages/usercenter/help/help.wxml-->
+<header title="帮助中心" statue="1"></header>
+<view>问题描述</view>
+<textarea placeholder='请填写...' 	bindblur='getInfo'></textarea>
+<view class="up">上传凭证</view>
+<t-upload
+  media-type="{{['image']}}"
+  bind:success="handleSucces"
+  files="{{originFiles}}"
+  gridConfig="{{gridConfig}}"
+  max = "3"
+/>
+<t-input bindblur='getName' label="联系人" placeholder="输入姓名" />
+
+<t-input bindblur='getTel' label="联系方式" placeholder="输入手机号" />
+<view bindtap="submit" class="submit">提交</view>
+
+<t-dialog id="t-dialog" />

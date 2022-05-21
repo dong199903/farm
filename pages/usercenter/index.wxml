@@ -1,0 +1,63 @@
+<header title='个人中心'></header>
+<view class="userinfo">
+  <view wx:if="{{userInfo}}">
+    <image src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-ui/components-exp/avatar/avatar-1.jpg" background-size="cover"></image>
+    <view>{{userInfo.nickName}}</view>
+  </view>  
+  <button wx:if="{{!userInfo}}" class="login" type="primary" bindtap="login">登录</button>
+</view>
+<view class="me-box">
+  <view class="me-box-top">
+    <view class="up" >
+      <view class="" >
+        我的订单
+      </view>
+       <view class="" hover-class="none" hover-stop-propagation="false">  
+        全部订单<text class="iconfont icon-youjiantou1"></text>
+       </view> 
+    </view>
+    <view class="down">
+      <view>
+        <view class="iconfont icon-daifukuan"></view>
+        <view>待付款</view>  
+      </view>
+
+      <view>
+        <view class="iconfont icon-daifahuo"></view>
+        <view>代发货</view>  
+      </view>
+
+      <view>
+        <view class="iconfont icon-daishouhuo"></view>
+        <view>待收货</view>  
+      </view>
+
+      <view>
+        <view class="iconfont icon-31daipingjia"></view>
+        <view>待评价</view>  
+      </view>
+
+      <view>
+        <view class="iconfont icon-tuikuantuihuo"></view>
+        <view>退款/售后</view>  
+      </view>
+        
+    </view>
+  </view>
+  <view class="me-box-center">
+    <view class="item" bindtap="address"><view>收货地址</view><text class="iconfont icon-youjiantou1"></text></view>
+    <view class="item" bindtap="farm"><view>农业入驻</view><text class="iconfont icon-youjiantou1"></text></view>
+    <view class="item" bindtap="zhengce"><view>惠农政策</view><text class="iconfont icon-youjiantou1"></text></view>
+  </view>
+  <view class="me-box-bot">
+    <view class="item" bindtap="help"><view>帮助中心</view><text class="iconfont icon-youjiantou1"></text></view>
+    <view class="item" bindtap="chat"><view>客服热线</view><text class="iconfont icon-kefu"></text></view>
+    <view class="item" bindtap="exit"><view>注销账号</view><text class="iconfont icon-youjiantou1"></text></view>
+  </view>
+</view>
+
+<t-action-sheet id="t-action-sheet-slot" visible="{{visible}}" bind:selected="onSelect" bind:cancel="onCancel" bind:close="onClose"  bind:visible-change="onVisibleChange">
+  <view class="slot-wrap" bindtap="phone">电话客服</view>
+  
+  <button open-type="contact" class="slot-wrap">在线客服</button>
+</t-action-sheet>

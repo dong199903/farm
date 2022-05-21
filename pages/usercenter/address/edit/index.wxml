@@ -1,0 +1,14 @@
+<header title="地址" statue="1"></header>
+<t-input label="收货人" placeholder="您的姓名" bindblur='getName' value='{{addr.userName}}'/>
+<t-input label="手机号" placeholder="联系您的手机号" bindblur='getPhone' value='{{addr.phone}}'/>
+<view class="add" >
+  <t-input bindblur='getAddress' value='{{addr.address}}' label="地区" placeholder="省/市/区" />
+  <text bindtap="map" class="iconfont icon-daohangdizhi"></text>
+</view>
+<t-input bindblur='getDor' value="{{addr.detail}}" label="详细地址" placeholder="门牌号等" />
+
+
+<view bindtap="sub" class="submit">提交</view>
+<t-toast id="t-toast" />
+<t-message id="t-message" />
+<t-dialog id="t-dialog" />

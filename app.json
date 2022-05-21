@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/usercenter/index",
+    "pages/usercenter/address/list/index",
+    "pages/usercenter/address/edit/index",
+    "pages/ke/ke",
+    "pages/usercenter/help/help",
+    "pages/goods/list/index",
+    "pages/goods/details/index",
+    "pages/goods/search/index",
+    "pages/goods/result/index",
+    "pages/cart/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#bfbfbf",
+    "selectedColor": "#000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "./style/images/home.png",
+        "selectedIconPath": "./style/images/home_s.png"
+      },
+      {
+        "pagePath": "pages/ke/ke",
+        "text": "农课堂",
+        "iconPath": "./style/images/ke.png",
+        "selectedIconPath": "./style/images/ke_s.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "./style/images/cart.png",
+        "selectedIconPath": "./style/images/cart_s.png"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "我的",
+        "iconPath": "./style/images/me.png",
+        "selectedIconPath": "./style/images/me_s.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

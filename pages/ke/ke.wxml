@@ -1,0 +1,9 @@
+
+<editor id="editor" 
+		class="ql-container" 
+		placeholder="富文本编辑器" 
+		bindstatuschange="onStatusChange"
+		 bindready="onEditorReady">
+</editor>
+
+<view class="action text-green" bindtap="getContent">发表</view>

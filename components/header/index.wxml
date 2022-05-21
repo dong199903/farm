@@ -1,0 +1,12 @@
+<view class="app-header1" wx:if="{{statue==1}}">
+
+  <text bindtap="back" class="iconfont icon-zuojiantou" ></text>
+  <view >
+    {{title}}
+  </view>
+  <view class="none"></view>
+</view>
+
+<view class="app-header2" wx:else>
+  {{title}}
+</view>

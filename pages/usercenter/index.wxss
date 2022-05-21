@@ -1,0 +1,86 @@
+page {
+  background-color: #f5f5f5;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  box-sizing: border-box;
+}
+.userinfo{
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+.userinfo>view{
+  display: flex;
+  align-items: center;
+}
+.userinfo image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 40rpx;
+}
+.userinfo .login{
+  width: 250rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+.me-box{
+  
+  font-size:32rpx;
+}
+.me-box-center{
+  margin: 30rpx 0;
+}
+.me-box-top{
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.me-box-top .up{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+.me-box-top .down{
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.me-box-top .down>view{
+  text-align: center;
+}
+.me-box-top .down>view .iconfont{
+  font-size: 48rpx;
+  margin-bottom: 30rpx;
+}
+.me-box-center .item{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  
+}
+.me-box-bot .item{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.slot-wrap{
+  background-color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  line-height: 100%;
+}

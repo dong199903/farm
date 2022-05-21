@@ -1,0 +1,18 @@
+[
+  {
+    "_id":"dksekr1fajfada",
+    "sid":"1",
+    "sname":"蔬菜",
+    "img":"http://1.jpg"
+  },
+  {
+    "_id":"dksekr1fajfada",
+    "img":"http://2.jpg",
+    "gid":"2"
+  },
+  {
+    "_id":"dksekr1fajfada",
+    "img":"http://3.jpg",
+    "gid":"3"
+  }
+]

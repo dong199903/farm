@@ -1,0 +1,19 @@
+<!--pages/goods/list/index.wxml-->
+<header title="{{title}}"></header>
+
+<!--
+  图片
+  描述2行
+  价格 购物车
+-->
+<view class="" >
+  <view class="" >
+    
+  </view>
+  <view class="" >
+    
+  </view>
+  <view class="" >
+    
+  </view>
+</view>

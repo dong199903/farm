@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "header":"/components/header/index",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-action-sheet": "tdesign-miniprogram/action-sheet/action-sheet"
+  }
+}

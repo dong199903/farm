@@ -1,0 +1,20 @@
+/* pages/usercenter/help/help.wxss */
+/* pages/usercenter/help/help.wxss */
+.up{
+  margin: 40rpx 0;
+}
+textarea{
+  margin-top: 20rpx;
+  width: 100%;
+  border: 1rpx solid #ccc;
+}
+.submit{
+  text-align: center;
+  background-color: #ccc;
+  line-height: 70rpx;
+  width: 97%;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  border-radius: 15rpx;
+  color: #fff;
+}

@@ -1,0 +1,33 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
+<!--搜索框-->
+
+<header title="首页"></header>
+
+<t-search placeholder="更多农产品热售中" bindtap="sub" center="{{false}}" shape='round' disabled="{{true}}"/>
+<view class="swipers">
+  <t-swiper class="swiper" current="{{0}}" autoplay="{{true}}" duration="{{500}}" interval="{{5000}}">
+    <t-swiper-item wx:for="{{items}}" wx:key="index">
+      <view class="item {{item.cls}}"><image src="{{item.image}}" class="img" /></view>
+    </t-swiper-item>
+    <t-swiper-nav slot="nav" type="dots-bar" />
+  </t-swiper>
+</view>
+
+<view class="command1">
+  <t-grid class="three-border" column="{{5}}">
+    <t-grid-item wx:for="{{sort}}" wx::key="{{item._id}}" class="t-grid-item" t-class-text="text">
+      <view class="box" bindtap="toSort" data-id="{{index}}" data-name="{{item.name}}">
+        <image class="" src="{{item.img}}" ></image>
+        <view class="name">{{item.name}}</view>
+      </view>
+    </t-grid-item>
+    
+  </t-grid>
+</view>
+
+  
+
+  

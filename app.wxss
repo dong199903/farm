@@ -1,0 +1,6 @@
+/**app.wxss**/
+@import 'style/iconfont.wxss';
+page,html{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
