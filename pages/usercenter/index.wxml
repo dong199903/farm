@@ -1,10 +1,14 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
 <header title='个人中心'></header>
 <view class="userinfo">
   <view wx:if="{{userInfo}}">
-    <image src="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-ui/components-exp/avatar/avatar-1.jpg" background-size="cover"></image>
+    <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <view>{{userInfo.nickName}}</view>
   </view>  
-  <button wx:if="{{!userInfo}}" class="login" type="primary" bindtap="login">登录</button>
+  <button wx:if="{{!userInfo}}" class="login" bindtap="login"  type="primary" >登录</button>
 </view>
 <view class="me-box">
   <view class="me-box-top">

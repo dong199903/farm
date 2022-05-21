@@ -1,3 +1,7 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 import Login from "./../../services/uses/login"
 const app = getApp()
 Page({
@@ -76,6 +80,17 @@ Page({
         Login(app.globalData.openid, app.globalData.userInfo)
       }
     })
-  }
+  },
+
+  /**
+   * 获取用户头像，并注册
+   */
+   onChooseAvatar(e){
+    const { avatarUrl } = e.detail 
+    // this.setData({
+    //   avatarUrl,
+    // })
+    console.log("选择头像",e)
+   }
 
 });
