@@ -4,9 +4,8 @@
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-item": "tdesign-miniprogram/swiper/swiper-item",
     "t-swiper-nav": "tdesign-miniprogram/swiper/swiper-nav",
-    "t-cell": "tdesign-miniprogram/cell/cell",
-    "t-search": "tdesign-miniprogram/search/search",
     "t-grid": "tdesign-miniprogram/grid/grid",
-    "t-grid-item": "tdesign-miniprogram/grid/grid-item"
+    "t-grid-item": "tdesign-miniprogram/grid/grid-item",
+    "t-search": "tdesign-miniprogram/search/search"
   }
 }
