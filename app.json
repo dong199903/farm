@@ -10,7 +10,8 @@
     "pages/goods/details/index",
     "pages/goods/search/index",
     "pages/goods/result/index",
-    "pages/cart/index"
+    "pages/cart/index",
+    "pages/category/category"
   ],
   "window": {
     "backgroundTextStyle": "light",
