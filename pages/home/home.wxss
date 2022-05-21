@@ -38,14 +38,14 @@
   margin-bottom: 20rpx;
   display: flex;
   width: 100%;
-  height: 300rpx;
+  height: 200rpx;
   border: 1rpx #ced8e4 solid; 
   border-right: 0;
   border-radius: 20rpx; 
   box-shadow: 0 0 10rpx 2rpx #bdcee0;
 }
 .recommend .item .img{
-  width: 300rpx;
+  width: 200rpx;
 }
 .recommend .item .img image{
   width: 100%;
@@ -54,18 +54,18 @@
 .recommend .item .detail {
   padding-left: 50rpx;
   flex: 1;
-  height: 300rpx;
+  height: 200rpx;
   position: relative;
 }
 .recommend .item .detail .title{
   position: absolute;
-  top: 50rpx;
+  top: 10rpx;
   width: 300rpx;
 }
 .recommend .item .detail .title text{
   font-weight: 600;
   font-size: 40rpx;
-  line-height: 60rpx;
+  line-height: 40rpx;
   display: block;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -73,12 +73,11 @@
 }
 .recommend .item .detail .desc{
   position: absolute;
-  top: 140rpx;
+  top: 60rpx;
 }
 .recommend .item .detail .desc text {
   display: -webkit-box;
   font-size: 30rpx;
-  line-height: 30rpx;
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -87,7 +86,7 @@
 }
 .recommend .item .detail .price{
   position: absolute;
-  bottom: 30rpx;
+  bottom: 10rpx;
 }
 
 .recommend .item .detail .price .price2 {
