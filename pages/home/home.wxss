@@ -1,101 +1,153 @@
-.swiper-img image{
-  width: 100%;
-}
-.category {
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  display: flex;
-  justify-content: space-around;
-}
-.category .item{
-  width: 150rpx;
-  height: 150rpx;
-  border: 1rpx #ced8e4 solid; 
-  border-right: 0;
-  border-radius: 20rpx; 
-  box-shadow: 0 0 10rpx 2rpx #bdcee0;
-}
-.category .item image{
-  margin: 0 25rpx;
-  width: 100rpx;
-  height: 100rpx;
-}
-.category .item .text{
-  width: 100%;
-  height: 30rpx;
-  line-height: 30rpx;
-  text-align: center;
-}
-.recommend{
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-}
-.recommend .tuijian{
-  font-size: 40rpx;
-}
-.recommend .item {
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  display: flex;
-  width: 100%;
-  height: 200rpx;
-  border: 1rpx #ced8e4 solid; 
-  border-right: 0;
-  border-radius: 20rpx; 
-  box-shadow: 0 0 10rpx 2rpx #bdcee0;
-}
-.recommend .item .img{
-  width: 200rpx;
-}
-.recommend .item .img image{
-  width: 100%;
-  height: 100%;
-}
-.recommend .item .detail {
-  padding-left: 50rpx;
-  flex: 1;
-  height: 200rpx;
+/**index.wxss**/
+
+.container {
+  background-color: #fff;
+  min-height: 100%;
+  align-items: stretch;
+  overflow-x: hidden;
   position: relative;
 }
-.recommend .item .detail .title{
-  position: absolute;
-  top: 10rpx;
-  width: 300rpx;
-}
-.recommend .item .detail .title text{
-  font-weight: 600;
-  font-size: 40rpx;
-  line-height: 40rpx;
-  display: block;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.recommend .item .detail .desc{
-  position: absolute;
-  top: 60rpx;
-}
-.recommend .item .detail .desc text {
-  display: -webkit-box;
-  font-size: 30rpx;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.recommend .item .detail .price{
-  position: absolute;
-  bottom: 10rpx;
+
+.search {
+  height: 100rpx;
+  width: 100%;
+  padding: 0 24rpx;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-.recommend .item .detail .price .price2 {
-  color: #b22222;
-  font-size: 40rpx;
-  padding-right: 20rpx;
+.search .txt {
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 28rpx;
 }
-.recommend .item .detail .price .price1 {
-  color: 	#2f4f4f;
-  font-size: 30rpx;
-  text-decoration: line-through;
+
+.banner-wrap {
+  width: 100%;
+  height: 440rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  width: 750rpx;
+  height: 440rpx;
+}
+
+.banner image {
+  width: 100%;
+  /* height: 417rpx; */
+  height: 440rpx;
+}
+
+.catalog-wrap {
+  margin: 20rpx 0;
+  width: 100%;
+  height: 144rpx;
+  box-sizing: border-box;
+}
+
+.catalog-wrap .first {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.catalog-wrap .icon-navi {
+  width: 100rpx;
+  /* height: 160rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-wrap .icon-img {
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.catalog-wrap .icon-text {
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+
+/* goods-container */
+.goods-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.goods-container .image {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 8rpx;
+  background: #f9f9f9;
+}
+
+.box {
+  height: 210rpx;
+  width: 210rpx;
+  position: relative;
+  margin-bottom: 10rpx;
+  border-radius: 4rpx;
+  /* border: 1rpx solid #eee; 
+  box-sizing: border-box; */
+}
+
+.goods-info .goods-title {
+  font-size: 24rpx;
+  color: #222;
+  margin-bottom: 6rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.goods-info .price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-info .price-container .l {
+  display: flex;
+  flex-direction: column;
+}
+
+.goods-info .price-container .l .h {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #ff3456;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+/* 没有更多  */
+
+.no-more-goods {
+  text-align: center;
+  font-size: 28rpx;
+  margin: 20rpx 0 30rpx 0;
+  color: #999;
 }

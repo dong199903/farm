@@ -11,7 +11,8 @@
     "pages/goods/search/index",
     "pages/goods/result/index",
     "pages/cart/index",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",

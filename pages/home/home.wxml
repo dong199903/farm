@@ -1,49 +1,47 @@
 <header title="首页"></header>
-<!-- 轮播图 -->
-<view>
-  <t-swiper interval="3000" navigation>
-    <t-swiper-item wx:for="{{background}}" wx:key="index">
-      <view class="swiper-img">
-        <image src="{{item.image}}" class="img" />
-      </view>
-    </t-swiper-item>
-  </t-swiper>
-</view>
-<!-- 分类列表 -->
-<view class="category">
-  <view class="item" 
-        wx:for="{{category}}" 
-        wx:key="index">
-    <image
-          src="{{item.image}}"
-          slot="image"></image>
-    <view class="text">{{item.text}}</view>
+
+<view class="container">
+  <!-- 搜索 -->
+  <view class="search" bindtap="goSearch">
+      <text class="txt">搜索,发现更多好物</text>
   </view>
-</view>
-<!-- 搜索 -->
-<view>
-  <t-search model:value="{{value}}" placeholder="山东甜瓜" center="{{true}}" />
-</view>
-<!-- 热门推荐 -->
-<view class="recommend">
-  <view>
-    <text class="tuijian">热门推荐</text>
+  <!-- 轮播图 -->
+  <view class='banner-wrap'>
+      <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
+          <swiper-item wx:for="{{banner}}" wx:key="id">
+              <navigator url="/pages/goods/goods?id={{item.gid}}">
+                  <image src="{{item.imgUrl}}" background-size="cover"></image>
+              </navigator>
+          </swiper-item>
+      </swiper>
   </view>
-  <view wx:for="{{goods}}" wx:key="index" class="item"> 
-    <view class="img">
-      <image src="{{item.img}}"></image>
-    </view>
-    <view class="detail">
-      <view class="title">
-        <text>{{item.title}}</text>
-      </view>
-      <view class="desc">
-        <text>{{item.desc}}</text>
-      </view>
-      <view class="price">
-        <text class="price2">{{item.price2}}</text>
-        <text class="price1">{{item.price1}}</text>
-      </view>
-    </view>
+  <!-- 产品分类 -->
+  <swiper class="catalog-wrap .new-box .navi-url" indicator-color="#dedede" indicator-active-color="#e00000">
+      <swiper-item class="first">
+          <view wx:for="{{channel}}" wx:key="id" class='icon-navi' data-cateid="{{item.c_id}}" bindtap="goCategory">
+              <image class='icon-img' src="{{item.img}}"></image>
+              <view class='icon-text'>{{item.name}}</view>
+          </view>
+      </swiper-item>
+  </swiper>
+  <!-- 热门推荐 -->
+  <view class="goods-container">
+    <view wx:for="{{goods}}" wx:key="id">
+              <navigator url="/pages/goods/goods?id={{item.gid}}">
+                <view class="box">
+                  <image src="{{item.imgUrl}}" class="image">
+                  </image>
+                </view>
+                <view class="goods-info">
+                    <view class="goods-title">{{item.name}}</view>
+                    <view class='price-container'>
+                        <view class='l'>
+                            <view class='h'>￥{{item.price}}</view>
+                        </view>
+                    </view>
+                </view>
+              </navigator>
+          </view>
   </view>
+  <view class="no-more-goods ">没有更多商品啦</view>
 </view>
