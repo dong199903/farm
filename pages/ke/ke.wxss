@@ -38,11 +38,11 @@ page{
   padding: 20rpx 0;
 }
 .hui .item>view:nth-child(1){
-  font-size: 34rpx;
+  font-size: 32rpx;
   margin-bottom: 15rpx;
 } 
 .hui .item>view:nth-child(2){
-  font-size: 30rpx;
+  font-size: 29rpx;
   display: flex;
 } 
 .hui .item>view:nth-child(2)>view{
@@ -51,4 +51,56 @@ page{
 
 .t-swiper{
   height: 100rpx !important;
+}
+
+.histrory{
+  background-color: #fff;
+}
+.histrory_box .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.histrory_box .item .title{
+  font-weight: normal;
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+.histrory_box .item .desc{
+  font-size: 32rpx;
+  color: #272525;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.histrory_box .item image{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  margin-right: 25rpx;
+}
+.example{
+  background-color: #fff;
+
+  margin-top: 40rpx;
+}
+
+.example .imgs{
+  display: flex;
+  
+}
+.example .item{
+  margin: 15rpx 0;
+}
+.example .item .title{
+  font-weight: normal;
+  font-size: 35rpx;
+  margin-bottom: 15rpx;
+}
+.example .imgs image{
+  max-width: 210rpx;
+  height: 140rpx;
+  margin: 0 15rpx;
 }

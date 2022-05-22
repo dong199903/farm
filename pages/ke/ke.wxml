@@ -2,10 +2,6 @@
  * @description: 
  * @author: 董泽平
 -->
-<!--
- * @description: 
- * @author: 董泽平
--->
 <header title="农课堂"></header>
 <div class="image_box">
   <image src="cloud://www-9gbp0av65043db23.7777-www-9gbp0av65043db23-1306553801/farm/6037feb8beabbc3850b5293c153adbe.png" >  </image>
@@ -42,5 +38,42 @@
 
 <view class="histrory">
   <view class="title">致富故事</view>
-  <view></view>
+  <view class="histrory_box">
+    <view class="item" >
+      <image src="./../../style/images/水果.png"></image>
+      <view class="other" >
+        <view class="title" >
+          疫情期间创奇迹
+        </view>
+        <view class="desc" >
+          大学生新农人靠电商在家乡做出一番事业
+        </view>
+      </view>
+    </view>
+
+    <view class="item" >
+      <image src="./../../style/images/水果.png"></image>
+      <view class="other" >
+        <view class="title" >
+          疫情期间创奇迹
+        </view>
+        <view class="desc" >
+          大学生新农人靠电商在家乡做出一番事业
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="example" >
+  <view class="title">农业学堂</view>
+  <view class="example_box">
+    <view class="item">
+      <view class="title">如何种植玉米水稻</view>
+      <view class="imgs">
+        <image src="./../../style/images/水果.png"></image>
+        <image src="./../../style/images/水果.png"></image>
+      </view>
+    </view>
+  </view>
 </view>

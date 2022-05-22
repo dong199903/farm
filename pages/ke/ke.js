@@ -2,10 +2,6 @@
  * @description: 
  * @author: 董泽平
  */
-/*
- * @description: 
- * @author: 董泽平
- */
 // pages/ke/ke.js
 import notice from "./../../services/notice/index";
 Page({
