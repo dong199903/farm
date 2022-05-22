@@ -1,21 +1,54 @@
-/* pages/category/category.wxss */
 .container {
-  background-color: #fff;
   min-height: 100%;
-  align-items: stretch;
-  overflow-x: hidden;
-  position: relative;
+  background-color: #fff;
 }
 
-.search {
-  height: 100rpx;
-  width: 100%;
-  padding: 0 24rpx;
-  background: #f9f9f9;
+.search-header {
+  width: 750rpx;
+  height: 92rpx;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 0 24rpx;
+  font-size: 29rpx;
+  color: #333;
   box-sizing: border-box;
+  align-items: center;
+}
+
+.search-header .input-box {
+  position: relative;
+  margin-bottom: 10rpx;
+  float: left;
+  width: 0;
+  flex: 1;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  background: #fafafa;
+}
+
+.search-header .keywrod {
+  position: absolute;
+  top: 0;
+  left: 40rpx;
+  width: 506rpx;
+  height: 70rpx;
+  padding-left: 30rpx;
+}
+
+.search-header .right {
+  margin-right: 6rpx;
+  width: 90rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  float: right;
+  text-align: right;
+  margin-bottom: 10rpx;
+}
+
+.search-result {
+  margin-top: 50rpx;
 }
 
 /* goods-container */
