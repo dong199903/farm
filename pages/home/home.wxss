@@ -89,22 +89,24 @@
 }
 
 .goods-container .image {
-  width: 210rpx;
-  height: 210rpx;
-  border-radius: 8rpx;
-  background: #f9f9f9;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 4rpx;
+  background-color: #f9f9f9;
 }
 
 .box {
-  height: 210rpx;
-  width: 210rpx;
+  width: 300rpx;
+  height: 300rpx;
   position: relative;
   margin-bottom: 10rpx;
   border-radius: 4rpx;
   /* border: 1rpx solid #eee; 
   box-sizing: border-box; */
 }
-
+.goods-info{
+  margin-bottom: 40rpx;
+}
 .goods-info .goods-title {
   font-size: 24rpx;
   color: #222;
@@ -150,4 +152,13 @@
   font-size: 28rpx;
   margin: 20rpx 0 30rpx 0;
   color: #999;
+}
+
+.title {
+  background-color: #f9f9f9;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30rpx;
 }

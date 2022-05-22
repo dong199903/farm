@@ -25,23 +25,24 @@
       </swiper-item>
   </swiper>
   <!-- 热门推荐 -->
+  <view class="title">热门推荐</view>
   <view class="goods-container">
     <view wx:for="{{goods}}" wx:key="id">
-              <navigator url="/pages/goods/goods?id={{item.gid}}">
-                <view class="box">
-                  <image src="{{item.imgUrl}}" class="image">
-                  </image>
+      <navigator url="/pages/goods/goods">
+        <view class="box">
+          <image src="{{item.imgUrl}}" class="image">
+          </image>
+        </view>
+        <view class="goods-info">
+            <view class="goods-title">{{item.name}}</view>
+            <view class='price-container'>
+                <view class='l'>
+                    <view class='h'>￥{{item.price}}</view>
                 </view>
-                <view class="goods-info">
-                    <view class="goods-title">{{item.name}}</view>
-                    <view class='price-container'>
-                        <view class='l'>
-                            <view class='h'>￥{{item.price}}</view>
-                        </view>
-                    </view>
-                </view>
-              </navigator>
-          </view>
+            </view>
+        </view>
+      </navigator>
+  </view>
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
 </view>

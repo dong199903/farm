@@ -179,7 +179,16 @@ Page({
       }
     ]
   },
-  
+  goSearch: function () {
+    wx.navigateTo({
+        url: '/pages/search/search',
+    })
+  },
+  goCategory: function (e) {
+    wx.navigateTo({
+      url: '/pages/category/category',
+  })
+  },
   categoryTap: function(e){
     wx.navigateTo({url: '../category/category'})
   }
