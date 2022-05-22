@@ -1,3 +1,6 @@
+page{
+  background-color:#f5f5f5;
+}
 .image_box{
   width: 97%;
   border-radius: 20rpx;
@@ -6,7 +9,7 @@
   width:100%;
   max-height: 300rpx;
 }
-.item{
+.swiper_item{
   border:1rpx solid #ccc;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -17,7 +20,35 @@
   color: black;
   font-weight: bold;
 }
-.item text{
+.swiper_item text{
   margin-right: 15rpx;
   font-size: 26rpx;
+}
+.hui{
+  padding: 20rpx 10rpx ;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  background-color: #fff;
+}
+.title{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.hui .item{
+  padding: 20rpx 0;
+}
+.hui .item>view:nth-child(1){
+  font-size: 34rpx;
+  margin-bottom: 15rpx;
+} 
+.hui .item>view:nth-child(2){
+  font-size: 30rpx;
+  display: flex;
+} 
+.hui .item>view:nth-child(2)>view{
+  margin-right: 20rpx;
+}
+
+.t-swiper{
+  height: 100rpx !important;
 }

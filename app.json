@@ -12,45 +12,52 @@
     "pages/goods/result/index",
     "pages/cart/index",
     "pages/category/category",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/submit/submit"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#07c160",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
   "tabBar": {
     "custom": false,
-    "color": "#bfbfbf",
-    "selectedColor": "#000",
+    "color": "#000",
+    "selectedColor": "#07c160",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "首页",
-        "iconPath": "./style/images/home.png",
-        "selectedIconPath": "./style/images/home_s.png"
+        "iconPath": "./style/images/home1.png",
+        "selectedIconPath": "./style/images/home2.png"
       },
       {
         "pagePath": "pages/ke/ke",
-        "text": "农课堂",
-        "iconPath": "./style/images/ke.png",
-        "selectedIconPath": "./style/images/ke_s.png"
+        "text": "农政策",
+        "iconPath": "./style/images/class1.png",
+        "selectedIconPath": "./style/images/class2.png"
+      },
+      {
+        "pagePath": "pages/submit/submit",
+        "text": "发布",
+        "iconPath": "./style/images/add1.png",
+        "selectedIconPath": "./style/images/add2.png"
       },
       {
         "pagePath": "pages/cart/index",
         "text": "购物车",
-        "iconPath": "./style/images/cart.png",
-        "selectedIconPath": "./style/images/cart_s.png"
+        "iconPath": "./style/images/cart1.png",
+        "selectedIconPath": "./style/images/cart2.png"
       },
       {
         "pagePath": "pages/usercenter/index",
         "text": "我的",
-        "iconPath": "./style/images/me.png",
-        "selectedIconPath": "./style/images/me_s.png"
+        "iconPath": "./style/images/me1.png",
+        "selectedIconPath": "./style/images/me2.png"
       }
     ]
   },
