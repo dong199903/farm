@@ -1,22 +1,33 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/ke/ke.js
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-
+   data: {
+    current: 1,
+    items: [
+      {
+        id:"1",
+        info:"今日发生了重大的地则会那个，我都哦调动"
+      },
+      {
+        id:"2",
+        info:"学习初夏的大啊大大啊大大"
+      }
+    ],
   },
-  //初始化富文本编辑器
- onEditorReady() {
-  const that = this
-  const query = wx.createSelectorQuery()//创建节点查询器
-  query.in(that).select('#editor').context()//选择id=editor的节点，获取节点内容信息
-  query.exec(function(res){
-      that.editorCtx = res.context
-      console.log(res.context);
-    })
- },
+  
+  onChange(e) {
+    const {
+      detail: { current, source },
+    } = e;
+    console.log(current, source)
+  },
 
 
   /**

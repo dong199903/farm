@@ -1,9 +1,19 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
+<header title="农课堂"></header>
+<div class="image_box">
+  <image src="cloud://www-9gbp0av65043db23.7777-www-9gbp0av65043db23-1306553801/farm/6037feb8beabbc3850b5293c153adbe.png" >  </image>
+</div>
 
-<editor id="editor" 
-		class="ql-container" 
-		placeholder="富文本编辑器" 
-		bindstatuschange="onStatusChange"
-		 bindready="onEditorReady">
-</editor>
+<t-swiper t-class="swiper-wrap" current="{{current}}" bindchange="onChange" navigation>
+  <t-swiper-item wx:for="{{items}}" wx:key="index">
+    <view class="item"><text class="iconfont icon-tongzhi"></text>{{item.info}}</view>
+  </t-swiper-item>
+</t-swiper>
 
-<view class="action text-green" bindtap="getContent">发表</view>
+<!--
+  国家政策
+  案例扶持
+-->

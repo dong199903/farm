@@ -1,1 +1,23 @@
-/* pages/ke/ke.wxss */
+.image_box{
+  width: 97%;
+  border-radius: 20rpx;
+}
+.image_box image{
+  width:100%;
+  max-height: 300rpx;
+}
+.item{
+  border:1rpx solid #ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  padding: 15rpx 10rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+.item text{
+  margin-right: 15rpx;
+  font-size: 26rpx;
+}
