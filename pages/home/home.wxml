@@ -25,6 +25,7 @@
       </swiper-item>
   </swiper>
   <!-- 热门推荐 -->
+  <view>热门推荐</view>
   <view class="goods-container">
     <view wx:for="{{goods}}" wx:key="id">
               <navigator url="/pages/goods/goods?id={{item.gid}}">
