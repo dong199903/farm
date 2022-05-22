@@ -1,4 +1,4 @@
-// pages/category/category.js
+// pages/search/search.js
 Page({
 
   /**
@@ -10,6 +10,7 @@ Page({
         g_id: '1',
         name: '蔬菜水果',
         imgUrl: `../../style/images/蔬菜水果.png`,
+        desc: 'miaoshuwenzi',
         price: '99'
       },{
         g_id: '1',

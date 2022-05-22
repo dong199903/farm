@@ -1,0 +1,149 @@
+/* pages/goods/goods.wxss */
+.container {
+  background-color: #fff;
+  min-height: 100%;
+  align-items: stretch;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* option */
+.option {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-around;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.option .mine{
+  width: 60rpx;
+}
+
+.option .cart{
+  width: 60rpx;
+}
+
+.option .home{
+  width: 60rpx;
+}
+
+.option .image {
+  margin-top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.option .text {
+  font-size: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+
+.option .paycart {
+  width: 200rpx;
+  border: 1px solid #fa2c19;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.option .paycart .text {
+  color: #fa2c19;
+  font-weight: 700;
+  font-size: 35rpx;
+  line-height: 40rpx;
+  margin-top: 40rpx;
+}
+
+.option .paynow {
+  width: 200rpx;
+  border-radius: 10rpx;
+  background-color: #fa2c19;
+}
+
+.option .paynow .text {
+  color: #fff;
+  font-weight: 700;
+  font-size: 35rpx;
+  line-height: 40rpx;
+  margin-top: 40rpx;
+}
+/* option */
+
+/* goods */
+.goods {
+  background-color: #fff;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.goods .image {
+  margin-bottom: 40rpx;
+  background-color: #f9f9f9;
+}
+.goods image{
+  width: 100%;
+  height: 600rpx;
+}
+.goods .price{
+  color: #fa2c19;
+  font-size: 40rpx;
+  margin-bottom: 40rpx;
+}
+.goods .title{
+  font-size: 60rpx;
+  margin-bottom: 30rpx;
+  color: #212121;
+}
+.goods .desc{
+  color: #757575;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+/* goods */
+
+/* comment */
+.comment {
+  padding: 30rpx 0;
+}
+.item {
+  padding: 30rpx 0;
+  min-width: 100%;
+  height: 300rpx;
+}
+.user {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.user .touxiang {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.user .touxiang image {
+  width: 100%;
+  height: 100%;
+}
+
+.user .mingcheng {
+  font-size: 40rpx;
+  line-height: 100rpx;
+  margin-left: 50rpx;
+}
+.content{
+  height: 200rpx;
+  padding-top: 30rpx;
+}
+.comment .title {
+  background-color: #f9f9f9;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-weight: 600;
+}
+/* comment */

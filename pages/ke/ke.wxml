@@ -12,7 +12,7 @@
 </div>
 
 <t-swiper t-class="swiper-wrap" current="{{current}}" bindchange="onChange" navigation>
-  <t-swiper-item wx:for="{{items}}" wx:key="index">
+  <t-swiper-item wx:for="{{notices}}" wx:key="index">
     <view class="swiper_item"><text class="iconfont icon-tongzhi"></text>{{item.info}}</view>
   </t-swiper-item>
 </t-swiper>
