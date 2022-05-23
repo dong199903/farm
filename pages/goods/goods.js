@@ -1,25 +1,28 @@
 // pages/goods/goods.js
+import goodByGid from "./../../services/goods/index"
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    good: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const {id} = options
+    const res = await goodByGid(id)
+    this.setData({
+      good = res.result.data
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
   },
 
   /**

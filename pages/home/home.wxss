@@ -104,6 +104,7 @@
   box-sizing: border-box; */
 }
 .goods-info{
+  width: 300rpx;
   margin-bottom: 40rpx;
 }
 .goods-info .goods-title {

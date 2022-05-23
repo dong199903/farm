@@ -9,164 +9,17 @@ Page({
     let sort = await sorts()
     //热门推荐的商品
     let commands = await command()
-    let sortUp = sort.result.data.slice(0,5)
-    console.log(swiper,sort,commands)
     this.setData({
-      banner: swiper.result.data,
-      sort:sortUp
+      swiper: swiper.result.data,
+      category: sort.result.data.slice(0,5),
+      recommend_goods: commands.result.data
     })
   },
   data: {
     current: 1,
-    banner: [],
-    channel: [
-      {
-        name: '农禽产品',
-        c_id: '1',
-        img: `../../style/images/蔬菜水果.png`
-      },
-      {
-        name: '农禽产品',
-        c_id: '1',
-        img: `../../style/images/蔬菜水果.png`
-      },
-      {
-        name: '1',
-        c_id: '1',
-        img: `../../style/images/蔬菜水果.png`
-      },{
-        name: '1',
-        c_id: '1',
-        img: `../../style/images/蔬菜水果.png`
-      },{
-        name: '1',
-        c_id: '1',
-        img: `../../style/images/蔬菜水果.png`
-      }
-    ],
-    goods: [
-      {
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      }
-    ]
+    swiper: [],
+    category: [],
+    recommend_goods: []
   },
   goSearch: function () {
     wx.navigateTo({
