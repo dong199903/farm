@@ -9,15 +9,20 @@
   <view class="search" bindtap="goSearch">
       <text class="txt">搜索,发现更多好物</text>
   </view>
+  
   <!-- 轮播图 -->
   <view class='banner-wrap'>
       <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
           <swiper-item wx:for="{{swiper}}" wx:key="index">
               <navigator url="/pages/goods/goods?id={{item.gid}}">
-                  <image src="{{item.image}}" background-size="cover"></image>
+                  <image src="{{item.img}}" background-size="cover"></image>
               </navigator>
           </swiper-item>
       </swiper>
+  </view>
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
   </view>
   <!-- 产品分类 -->
   <swiper class="catalog-wrap .new-box .navi-url" indicator-color="#dedede" indicator-active-color="#e00000">
@@ -31,22 +36,12 @@
   <!-- 热门推荐 -->
   <view class="title">热门推荐</view>
   <view class="goods-container">
-    <view wx:for="{{command}}" wx:key="index">
-      <navigator url="/pages/goods/goods">
-        <view class="box">
-          <image src="{{item.img}}" class="image">
-          </image>
-        </view>
-        <view class="goods-info">
-            <view class="goods-title">{{item.title}}</view>
-            <view class='price-container'>
-                <view class='l'>
-                    <view class='h'>￥{{item.price}}</view>
-                </view>
-            </view>
-        </view>
-      </navigator>
+    <view wx:for="{{command}}" wx:key="index" class="item" data-id="{{item._id}}" bindtap="getGoods">
+      <image src="{{item.img}}" />
+      <view class="name">{{item.title}}</view>
+      <view class="price">￥{{item.price}}</view>  
   </view>
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
 </view>
+

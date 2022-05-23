@@ -16,7 +16,7 @@ Page({
    * 页面的初始数据
    */
    data: {
-     
+     loading:true
    },
   
   onChange(e) {
@@ -61,7 +61,8 @@ Page({
       notices:notices.result.data,
       policy:arr0,
       story:arr1,
-      school:arr2
+      school:arr2,
+      loading:false
     })
   },
   write(e){

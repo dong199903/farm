@@ -109,3 +109,6 @@ page{
   height: 140rpx;
   margin: 0 15rpx;
 }
+.loading{
+  text-align: center;
+}

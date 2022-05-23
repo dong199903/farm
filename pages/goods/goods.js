@@ -1,18 +1,29 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/goods/goods.js
+import getGoodsInfo from "./../../services/goods/goodsItem"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loading:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    const {id} = options
+    let info = await getGoodsInfo(id)
+    //获取商品信息
+    this.setData({
+      goods:info.result.data[0],
+      loading:false
+    })
   },
 
   /**

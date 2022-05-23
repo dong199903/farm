@@ -2,6 +2,10 @@
  * @description: 
  * @author: 董泽平
  */
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 import swipers from "./../../services/swiper/index"
 import sorts from "./../../services/sort/index"
 import command from "./../../services/command/index"
@@ -18,11 +22,12 @@ Page({
     this.setData({
       swiper: swiper.result.data,
       sort:sortUp,
-      command:commands.result.data
+      command:commands.result.data,
+      loading:false
     })
   },
   data: {
-    
+    loading:true
   },
   goSearch: function () {
     wx.navigateTo({
@@ -36,5 +41,9 @@ Page({
   },
   categoryTap: function(e){
     wx.navigateTo({url: '../category/category'})
+  },
+  getGoods(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({url: '../goods/goods?id='+id})
   }
 })
