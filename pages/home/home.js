@@ -12,24 +12,13 @@ Page({
     let sortUp = sort.result.data.slice(0,5)
     console.log(swiper,sort,commands)
     this.setData({
-      items: swiper.result.data,
+      banner: swiper.result.data,
       sort:sortUp
     })
   },
   data: {
     current: 1,
-    banner: [
-      {
-        gid: '1',
-        imgUrl: `../../style/images/轮播图.png`,
-      },{
-        gid: '2',
-        imgUrl: `../../style/images/轮播图.png`,
-      }, {
-        gid: '3',
-        imgUrl: `../../style/images/轮播图.png`,
-      }
-    ],
+    banner: [],
     channel: [
       {
         name: '农禽产品',
