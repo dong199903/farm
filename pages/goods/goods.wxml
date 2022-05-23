@@ -1,5 +1,5 @@
 <!--pages/goods/goods.wxml-->
-<header title="商品详情页"></header>
+<header title="商品详情"  statue="1"></header>
 <view class="container">
   <view class="goods">
     <view class="image">

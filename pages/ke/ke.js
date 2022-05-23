@@ -1,29 +1,80 @@
+
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/ke/ke.js
+import notice from "./../../services/notice/index";
+import write1 from "./../../services/write/write1"
+import write2 from "./../../services/write/write2"
+import write3 from "./../../services/write/write3"
+import {srcUrl} from "./../../utils/imgs"
+import timeTool from "./../../utils/time"
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-
+   data: {
+     
+   },
+  
+  onChange(e) {
+    const {
+      detail: { current, source },
+    } = e;
+    console.log(current, source)
   },
-  //初始化富文本编辑器
- onEditorReady() {
-  const that = this
-  const query = wx.createSelectorQuery()//创建节点查询器
-  query.in(that).select('#editor').context()//选择id=editor的节点，获取节点内容信息
-  query.exec(function(res){
-      that.editorCtx = res.context
-      console.log(res.context);
-    })
- },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    /**
+     * notice:通知数据
+     * policy:政策文件，无图片
+     * story:有1张图片,直接添加属性.img
+     * school:有1-3张图片,添加属性.imgs
+     */
+    let notices = await notice()
+    let policy = await write1()
+    let story = await write2()
+    let school = await write3()
+    //policy添加时间属性
+    let arr0 = policy.result.data
+    for(let i=0;i<arr0.length;i++) {
+      arr0[i].time = timeTool(arr0[i]._updateTime)
+    }
+    //story添加img属性
+    let arr1 = story.result.data
+    for(let i=0;i<arr1.length;i++) {
+      arr1[i].img = srcUrl(arr1[i].content)[0]
+      arr1[i].time = timeTool(arr1[i]._updateTime)
+    }
+    //school添加imgs属性
+    let arr2 = school.result.data
+    for(let i=0;i<arr2.length;i++) {
+      arr2[i].imgs = srcUrl(arr2[i].content)
+    }
+    this.setData({
+      notices:notices.result.data,
+      policy:arr0,
+      story:arr1,
+      school:arr2
+    })
+  },
+  write(e){
+    let id = e.currentTarget.dataset.id
+    console.log(id)
+    wx.navigateTo({
+      url: './item/item?id='+id,
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
 
   /**

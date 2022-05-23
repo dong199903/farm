@@ -1,4 +1,4 @@
-<header title="搜索"></header>
+<header title="搜索" statue="1"></header>
 <view class="container">
   <view class="search-header">
       <view class="input-box">

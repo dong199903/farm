@@ -1,5 +1,5 @@
 <!--pages/category/category.wxml-->
-<header title="产品分类"></header>
+<header title="产品分类" statue="1"></header>
 
 <view class="container">
   <view class="search" bindtap="goSearch">
