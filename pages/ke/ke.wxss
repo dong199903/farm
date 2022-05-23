@@ -36,6 +36,7 @@ page{
 }
 .hui .item{
   padding: 20rpx 0;
+  border-bottom: 1rpx solid #ccc;
 }
 .hui .item>view:nth-child(1){
   font-size: 32rpx;
@@ -61,6 +62,8 @@ page{
   justify-content: space-between;
   align-items: center;
   margin: 15rpx 0;
+  border-bottom: 1rpx solid #ccc;
+  padding: 15rpx 0;
 }
 .histrory_box .item .title{
   font-weight: normal;
@@ -93,6 +96,8 @@ page{
 }
 .example .item{
   margin: 15rpx 0;
+  border-bottom: 1rpx solid #ccc;
+  padding: 15rpx 0;
 }
 .example .item .title{
   font-weight: normal;

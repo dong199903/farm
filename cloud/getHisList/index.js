@@ -6,6 +6,10 @@
  * @description: 
  * @author: 董泽平
  */
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
@@ -15,7 +19,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
-  return await db.collection("farm_write").where({
+  return await db.collection("farm_write").orderBy('_updateTime', 'desc').where({
     sid:2
-  }).limit(2).get()
+  }).limit(5).get()
 }

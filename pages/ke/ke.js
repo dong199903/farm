@@ -64,6 +64,18 @@ Page({
       school:arr2
     })
   },
+  write(e){
+    let id = e.currentTarget.dataset.id
+    console.log(id)
+    wx.navigateTo({
+      url: './item/item?id='+id,
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

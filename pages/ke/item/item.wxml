@@ -1,0 +1,22 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
+<!--pages/ke/item/item.wxml-->
+<header title="文章详情" statue="1"></header>
+
+<view class="info">
+  <view class="title" >
+    {{info.title}}
+  </view>
+  <view class="other">
+    <view class="" >
+      作者:{{info.author}}
+    </view>
+    <view class="" >
+      {{info.time}}
+    </view>
+  </view>
+</view>
+
+<rich-text nodes="{{info.content}}" ></rich-text>

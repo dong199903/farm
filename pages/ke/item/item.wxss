@@ -1,0 +1,18 @@
+/* pages/ke/item/item.wxss */
+.title{
+  font-size: 44rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.other{
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  color: #c5c5c5;
+  margin: 20rpx 0;
+}
+.rich-imgs{
+  text-align: center;
+  max-width: 450rpx;
+  max-height: 230rpx;
+}
