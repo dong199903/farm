@@ -1,42 +1,46 @@
 <header title="搜索" statue="1"></header>
 <view class="container">
   <view class="search-header">
-      <view class="input-box">
-          <input 
-            name="input" 
-            class="keyword" 
-            focus="true" 
-            value="{{keyword}}" 
-            confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" 
-            placeholder="搜索你想要的一切" />
+    <view class="input-box">
+      <input name="input" class="keyword" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="搜索你想要的一切" />
+    </view>
+  </view>
+  <view class="section">
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
+      <view class="picker">
+        分类：{{array1[index1]}}
       </view>
-      <view class="right" bindtap="closeSearch">取消</view>
+    </picker>
+    <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
+      <view class="picker">
+        价格：{{array2[index2]}}
+      </view>
+    </picker>
   </view>
-
-  <view class="search-result">
+  <view class="search-result" wx:if="{{searchStatus}}">
     <view class="goods-container">
-    <view wx:for="{{goods}}" wx:key="id">
-              <navigator url="/pages/goods/goods?id={{item.gid}}">
-                <view class="box">
-                  <image src="{{item.imgUrl}}" class="image">
-                  </image>
-                </view>
-                <view class="goods-info">
-                    <view class="goods-title">{{item.name}}</view>
-                    <view class='price-container'>
-                        <view class='l'>
-                            <view class='h'>￥{{item.price}}</view>
-                        </view>
-                    </view>
-                </view>
-              </navigator>
+      <view wx:for="{{showList}}" wx:key="id">
+        <navigator url="/pages/goods/goods?id={{item.gid}}">
+          <view class="box">
+            <image src="{{item.imgs[0]}}" class="image">
+            </image>
           </view>
+          <view class="goods-info">
+            <view class="goods-title">{{item.title}}</view>
+            <view class='price-container'>
+              <view class='l'>
+                <view class='h'>￥{{item.price}}</view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="no-more-goods">没有更多商品啦</view>
   </view>
-  <view class="no-more-goods ">没有更多商品啦</view>
+<!-- 修改成toast -->
+  <view wx:if="{{keywordStatus}}">
+    <text class="text">没找到，换个关键字试试</text>
   </view>
-
-  <view class="search-result-empty" wx:if="{{!goodsList.length && searchStatus}}">
-      <image class="icon" src="/images/icon/no-search.png"></image>
-      <text class="text">没找到，换个关键字试试</text>
-  </view>
+  
 </view>

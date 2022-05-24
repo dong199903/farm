@@ -13,7 +13,7 @@
           </image>
         </view>
         <view class="goods-info">
-            <view class="goods-title">{{item.name}}</view>
+            <view class="goods-title">{{item.title}}</view>
             <view class='price-container'>
                 <view class='l'>
                     <view class='h'>￥{{item.price}}</view>

@@ -17,12 +17,13 @@ Page({
     let sort = await sorts()
     //热门推荐的商品
     let commands = await command()
-    let sortUp = sort.result.data.slice(0,5)
-    console.log(swiper,sort,commands)
+    let sortUp = sort.result.data
+    console.log(commands)
     this.setData({
       swiper: swiper.result.data,
-      category: sort.result.data.slice(0,5),
-      recommend_goods: commands.result.data
+      sort: sortUp,
+      recommend_goods: commands.result.data,
+      loading: false
     })
   },
   data: {
@@ -42,7 +43,6 @@ Page({
   goCategory: function (e) {
     let id = e.currentTarget.dataset.cateid
     let title = e.currentTarget.dataset.catetitle
-    console.log(title);
     wx.navigateTo({
       url: '/pages/category/category?id=' + id + '&title=' + title
     })

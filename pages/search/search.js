@@ -1,21 +1,23 @@
 // pages/search/search.js
 import search from '../../services/search/index'
+import Toast from 'tdesign-miniprogram/toast/index';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     searchStatus: false,
+    keywordStatus: false,
     index1: 0,
     index2: 0,
     array1: ['全部', '蔬菜', '水果', '小吃', '美食', '鲜肉'],
     array2: ['全部', '0~100', '100~300', '300~500', '500~'],
+    sid: ['16db756f627f521e02a4315750125c70', '0ab5303b627f53b9037d3286620071bb', '6d85a2b9627f53ed04119fd9482d8b38', 'f6e08a64627f54270309b95f294f50b2', 'f6e08a64627f54410309c59818b94b7e'],
     goodsList: [],
-    showList: []
+    showList: [],
   },
   changeGoodsShow: function () {
     let temp = []
-    console.log('change', this.data.index1, this.data.index2);
     if (this.data.index1 == 0 && this.data.index2 == 0) {
       temp = this.data.goodsList
     } else if (this.data.index1 == 0) {
@@ -26,13 +28,13 @@ Page({
           return true
         } else if (this.data.index2 == 3 && (i.price < 300 && i.price >= 500)) {
           return true
-        } else if (this.data.index2 == 5 && (i.price > 500)) {
+        } else if (this.data.index2 == 4 && (i.price > 500)) {
           return true
-        } 
+        }
       })
     } else if (this.data.index2 == 0) {
       temp = this.data.goodsList.filter(i => {
-        if (i.sid == this.data.index1) {
+        if (i.sid == this.data.sid[this.data.index1 - 1]) {
           return true
         }
       })
@@ -53,7 +55,6 @@ Page({
         }
       })
     }
-    console.log(temp);
     this.setData({
       showList: temp
     })
@@ -64,11 +65,20 @@ Page({
       this.setData({
         goodsList: info.result.res.data,
         showList: info.result.res.data,
+        keywordStatus: false,
         searchStatus: true
       })
     }
   },
   getSearchResult: function (keyword) {
+    if(keyword == ''){
+      console.log(1);
+      this.setData({
+        keywordStatus: true,
+        searchStatus: false
+      })
+      return false
+    }
     this.setData({
       keyword: keyword,
       goodsList: []
@@ -94,6 +104,7 @@ Page({
     })
     this.changeGoodsShow()
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -102,7 +113,6 @@ Page({
       index: 0
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
