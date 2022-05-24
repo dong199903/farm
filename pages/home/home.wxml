@@ -31,7 +31,15 @@
   <!-- 产品分类 -->
   <swiper class="catalog-wrap .new-box .navi-url" indicator-color="#dedede" indicator-active-color="#e00000">
       <swiper-item class="first">
+<<<<<<< HEAD
           <view wx:for="{{sort}}" wx:key="index" class='icon-navi' data-id="{{item._id}}" bindtap="goCategory">
+=======
+<<<<<<< Updated upstream
+          <view wx:for="{{sort}}" wx:key="index" class='icon-navi' data-cateid="{{item.c_id}}" bindtap="goCategory">
+=======
+          <view wx:for="{{sort}}" wx:key="index" class='icon-navi' data-cateid="{{item.cid}}" data-catetitle="{{item.name}}" bindtap="goCategory">
+>>>>>>> Stashed changes
+>>>>>>> 2d2a8ad7e602d9d9c9152c96a7f22b2cdf9c8d54
               <image class='icon-img' src="{{item.img}}"></image>
               <view class='icon-text'>{{item.name}}</view>
           </view>
@@ -48,4 +56,3 @@
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
 </view>
-
