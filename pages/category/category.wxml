@@ -2,6 +2,10 @@
  * @description: 
  * @author: 董泽平
 -->
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
 <!--pages/category/category.wxml-->
 <header title="{{title}}" statue="1"></header>
 
@@ -17,11 +21,7 @@
     <view wx:for="{{goods}}" wx:key="index">
       <navigator url="/pages/goods/goods?id={{item._id}}">
         <view class="box">
-<<<<<<< HEAD
           <image src="{{item.imgs[0]}}" class="image">
-=======
-          <image src="{{item.img}}" class="image">
->>>>>>> 2d2a8ad7e602d9d9c9152c96a7f22b2cdf9c8d54
           </image>
         </view>
         <view class="goods-info">
