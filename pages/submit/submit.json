@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "header":"/components/header/index",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-action-sheet": "tdesign-miniprogram/action-sheet/action-sheet"
+  }
 }

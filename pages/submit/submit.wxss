@@ -1,1 +1,59 @@
 /* pages/submit/submit.wxss */
+page{
+  background-color: #fff;
+}
+.t-input{
+  background-color: #fff !important;
+  border: none;
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+.title,.desc{
+  margin-bottom: 30rpx;
+}
+.warning{
+  font-size: 30rpx;
+  color: #c5c5c5;
+  margin: 25rpx 0;
+}
+.slot-wrap{
+  text-align: center;
+  background-color: #fff;
+  padding: 32rpx 0;
+  border-bottom: 1rpx solid #ccc;
+}
+.add{
+  display: flex;
+  align-items: center;
+}
+.add .iconfont{
+  
+  font-size: 40rpx;
+  color: #c6c6c6;
+}
+.phone{
+  position:relative;
+}
+.imgShow{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+}
+.imgShow image{
+  width: 170rpx;
+  height: 170rpx;
+  margin-right: 20rpx;
+}
+.video{
+  margin: 30rpx 0;
+}
+.videoShow{
+  position: relative;
+  bottom:150rpx;
+}
+.icon-cuowuguanbiquxiao{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  background: red;
+}
