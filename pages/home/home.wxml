@@ -1,7 +1,4 @@
-<!--
- * @description: 
- * @author: 董泽平
--->
+
 <header title="首页"></header>
 
 <view class="container">
@@ -36,10 +33,9 @@
   <!-- 热门推荐 -->
   <view class="title">热门推荐</view>
   <view class="goods-container">
-    <view wx:for="{{recommend_goods}}" wx:key="id">
-      <navigator url="/pages/goods/goods">
+    <view wx:for="{{command}}" wx:key="id" class="item" data-id="{{item._id}}"  bindtap="getGoods">
         <view class="box">
-          <image src="{{item.img}}" class="image">
+          <image src="{{item.imgs[0]}}" class="image">
           </image>
         </view>
         <view class="goods-info">
@@ -50,7 +46,7 @@
                 </view>
             </view>
         </view>
-      </navigator>
+
   </view>
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
