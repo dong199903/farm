@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "header":"/components/header/index",
-    "t-divider": "tdesign-miniprogram/divider/divider"
+    "t-loading": "tdesign-miniprogram/loading/loading"
   }
 }

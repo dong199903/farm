@@ -9,6 +9,7 @@
   <view class="search" bindtap="goSearch">
       <text class="txt">搜索，发现更多好物</text>
   </view>
+  
   <!-- 轮播图 -->
   <view class='banner-wrap'>
       <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
@@ -18,6 +19,10 @@
               </navigator>
           </swiper-item>
       </swiper>
+  </view>
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
   </view>
   <!-- 产品分类 -->
   <swiper class="catalog-wrap .new-box .navi-url" indicator-color="#dedede" indicator-active-color="#e00000">
@@ -50,3 +55,4 @@
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
 </view>
+

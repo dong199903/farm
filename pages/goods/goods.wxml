@@ -1,63 +1,36 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
 <!--pages/goods/goods.wxml-->
 <header title="商品详情"  statue="1"></header>
-<view class="container">
-  <view class="goods">
-    <view class="image">
-      <image src="../../style/images/水果.png"></image>
-    </view>
-    <view class="info">
-      <view class="price">￥99</view>
-      <view class="title">title</view>
-      <view class="desc">desc</view>
-    </view>
+<view class="info">
+  <image class="" src="{{goods.img}}">
+    
+  </image>
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+  </view>
+  <view class="bao">
+    <view>买家保证</view>
+    <view>承诺在线交易</view>
+    <view>虚假价格赔偿</view>
   </view>
 
-  <t-divider></t-divider>
-
-  <view class="comment">
-    <view class="title">
-      用户评论
-    </view>
-    <view>
-      <view>
-        <view class="item">
-          <view class="user">
-            <view class="touxiang">
-              <image src="../../style/images/水果.png"></image>
-            </view>
-            <view class="mingcheng">xiaohong</view>
-          </view>
-          <view class="content">这个真的好好吃</view>
-          <t-divider></t-divider>
-        </view>
-        <view class="item">
-          <view class="user">
-            <view class="touxiang">
-              <image src="../../style/images/水果.png"></image>
-            </view>
-            <view class="mingcheng">xiaohong</view>
-          </view>
-          <view class="content">这个真的好好吃</view>
-          <t-divider></t-divider>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- option -->
-  <view class="option">
-    <view class="cart">
-      <image src="../../style/images/wode.png" class="image"></image>
-      <view class="text">我的</view>
-    </view>
-    <view class="home">
-      <image src="../../style/images/wode.png" class="image"></image>
-      <view class="text">我的</view>
-    </view>
-    <view class="paycart">
-      <view class="text">加入购物车</view>
-    </view>
-    <view class="paynow">
-      <view class="text">立即购买</view>
-    </view>
+  <view class="other">
+    <view>{{goods.desc}}</view>
+    <view class="price">限时优惠价：￥{{goods.price}}</view>
   </view>
 </view>
+
+<view class="bot" >
+  <view class="">
+    加入购物车
+  </view>
+  <view class="">
+    立即购买
+  </view>
+</view>
+
+ 

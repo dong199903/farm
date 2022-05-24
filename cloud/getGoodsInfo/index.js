@@ -2,6 +2,10 @@
  * @description: 
  * @author: 董泽平
  */
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
@@ -12,8 +16,8 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   //获取分类下
-  const {sid} = event
+  const {id} = event
   return await db.collection('farm_goods').where({
-    sid
+    _id:id
   }).get()
 }

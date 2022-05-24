@@ -2,6 +2,10 @@
  * @description: 
  * @author: 董泽平
  */
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 import swipers from "./../../services/swiper/index"
 import sorts from "./../../services/sort/index"
 import command from "./../../services/command/index"
@@ -37,5 +41,9 @@ Page({
   },
   categoryTap: function(e){
     wx.navigateTo({url: '../category/category'})
+  },
+  getGoods(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({url: '../goods/goods?id='+id})
   }
 })

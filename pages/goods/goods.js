@@ -1,21 +1,27 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/goods/goods.js
-import goodByGid from "./../../services/goods/index"
+import getGoodsInfo from "./../../services/goods/goodsItem"
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    good: {}
+    loading:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  async onLoad(options) {
     const {id} = options
-    const res = await goodByGid(id)
+    let info = await getGoodsInfo(id)
+    //获取商品信息
     this.setData({
-      good = res.result.data
+      goods:info.result.data[0],
+      loading:false
     })
   },
 

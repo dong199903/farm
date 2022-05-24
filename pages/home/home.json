@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "header":"/components/header/index",
-    "t-search": "tdesign-miniprogram/search/search"
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-loading": "tdesign-miniprogram/loading/loading"
   }
 }
