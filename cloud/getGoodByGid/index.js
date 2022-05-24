@@ -8,7 +8,7 @@ const _ = db.command
 exports.main = async (event, context) => {
   const {id} = event
   let res = await db.collection('farm_goods').where({
-    sid: id
+    _id: id
   }).get()
   return {  
     res

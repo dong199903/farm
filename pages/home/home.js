@@ -1,15 +1,3 @@
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
 import swipers from "./../../services/swiper/index"
 import sorts from "./../../services/sort/index"
 import command from "./../../services/command/index"
@@ -21,33 +9,21 @@ Page({
     let sort = await sorts()
     //热门推荐的商品
     let commands = await command()
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
+
     let sortUp = sort.result.data.slice(0,5)
->>>>>>> 2d2a8ad7e602d9d9c9152c96a7f22b2cdf9c8d54
-    console.log(swiper,sort,commands)
     this.setData({
       swiper: swiper.result.data,
-      sort:sort.result.data,
+      sort:sortUp.result.data,
       command:commands.result.data,
       loading:false
     })
   },
   data: {
-    loading:true
-=======
-    let sortUp = sort.result.data.slice(0, 5)
-    this.setData({
-      swiper: swiper.result.data,
-      sort: sortUp,
-      command: commands.result.data,
-      loading: false
-    })
-  },
-  data: {
+    current: 1,
+    swiper: [],
+    category: [],
+    recommend_goods: [],
     loading: true
->>>>>>> Stashed changes
   },
   goSearch: function () {
     wx.navigateTo({
@@ -55,17 +31,10 @@ Page({
     })
   },
   goCategory: function (e) {
-<<<<<<< HEAD
-
-    wx.navigateTo({
-      url: '/pages/category/category?_id='+e.currentTarget.dataset.id,
-=======
     let id = e.currentTarget.dataset.cateid
     let title = e.currentTarget.dataset.catetitle
-    console.log(title);
     wx.navigateTo({
       url: '/pages/category/category?id=' + id + '&title=' + title
->>>>>>> 2d2a8ad7e602d9d9c9152c96a7f22b2cdf9c8d54
     })
   },
   categoryTap: function (e) {
