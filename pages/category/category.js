@@ -1,140 +1,29 @@
 // pages/category/category.js
+import getGoodsByCid from '../../services/goods/getGoodsByCid'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goods: [
-      {
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      }
-    ]
+    
   },
-
+  goSearch: function () {
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    const {id, title} = options
+    let info = await getGoodsByCid(id)
+    console.log(info.result.res.data);
+    this.setData({
+      goods: info.result.res.data,
+      title: title
+    })
   },
 
   /**

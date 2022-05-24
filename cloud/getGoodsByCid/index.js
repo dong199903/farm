@@ -6,10 +6,11 @@ const db = cloud.database()
 const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
-  //获取热门推荐
-  return await db.collection('farm_goods').where({
-    hot:"1"
+  const {id} = event
+  let res = await db.collection('farm_goods').where({
+    cid: id
   }).get()
-  
+  return {  
+    res
+  }
 }

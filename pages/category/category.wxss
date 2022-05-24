@@ -20,6 +20,7 @@
 
 /* goods-container */
 .goods-container{
+  margin-top: 30rpx;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
