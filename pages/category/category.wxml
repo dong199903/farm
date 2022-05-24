@@ -1,5 +1,5 @@
 <!--pages/category/category.wxml-->
-<header title="产品分类" statue="1"></header>
+<header title="{{title}}" statue="1"></header>
 
 <view class="container">
   <view class="search" bindtap="goSearch">
@@ -9,7 +9,7 @@
     <view wx:for="{{goods}}" wx:key="id">
       <navigator url="/pages/goods/goods?id={{item.gid}}">
         <view class="box">
-          <image src="{{item.imgUrl}}" class="image">
+          <image src="{{item.img}}" class="image">
           </image>
         </view>
         <view class="goods-info">
@@ -23,4 +23,5 @@
       </navigator>
     </view>
   </view>
+  <view class="no-more-goods ">没有更多商品啦</view>
 </view>
