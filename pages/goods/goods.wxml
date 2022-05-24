@@ -2,10 +2,14 @@
  * @description: 
  * @author: 董泽平
 -->
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
 <!--pages/goods/goods.wxml-->
 <header title="商品详情"  statue="1"></header>
 <view class="info">
-  <image class="" src="{{goods.img}}">
+  <image class="" src="{{goods.imgs[0]}}">
     
   </image>
   <!--loading加载-->
@@ -19,11 +23,21 @@
   </view>
 
   <view class="other">
+    <view>{{goods.title}}</view>
     <view>{{goods.desc}}</view>
     <view class="price">限时优惠价：￥{{goods.price}}</view>
   </view>
 </view>
+ 
+<view class="detail" >
+  <image src="{{item}}" wx:for="{{goods.imgs}}" wx:key="index">
+    
+  </image>
 
+  <video src="{{goods.video}}" show-center-play-btn='{{false}}' 
+   show-play-btn="{{true}}" 
+   controls></video>
+</view>
 <view class="bot" >
   <view class="">
     加入购物车

@@ -43,7 +43,14 @@ page{
   width: 170rpx;
   height: 170rpx;
   margin-right: 20rpx;
+  position: relative;
 }
+.imgShow image i{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+}
+
 .video{
   margin: 30rpx 0;
 }
@@ -56,4 +63,7 @@ page{
   right: 20rpx;
   top: 20rpx;
   background: red;
+}
+.loading{
+  text-align: center;
 }

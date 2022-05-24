@@ -1,140 +1,30 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/category/category.js
+import goodsList from "./../../services/goods/goodsList"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goods: [
-      {
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      },{
-        g_id: '1',
-        name: '蔬菜水果',
-        imgUrl: `../../style/images/蔬菜水果.png`,
-        price: '99'
-      }
-    ]
+    loading:true
   },
+   
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    let _id = options._id
+    console.log(_id)
+    let goods = await goodsList(_id)
+    this.setData({
+      goods:goods.result.data,
+      loading:false
+    })
   },
 
   /**
