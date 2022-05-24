@@ -1,11 +1,3 @@
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
 import swipers from "./../../services/swiper/index"
 import sorts from "./../../services/sort/index"
 import command from "./../../services/command/index"
