@@ -1,15 +1,4 @@
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
-// pages/category/category.js
-
 import goodsList from "./../../services/goods/goodsList"
-
 Page({
 
   /**
