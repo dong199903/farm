@@ -1,28 +1,29 @@
+/*
+ * @description: 
+ * @author: 董泽平
+ */
 // pages/category/category.js
-import getGoodsByCid from '../../services/goods/getGoodsByCid'
+import goodsList from "./../../services/goods/goodsList"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    loading:true
   },
-  goSearch: function () {
-    wx.navigateTo({
-      url: '/pages/search/search'
-    })
-  },
+   
+
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    const {id, title} = options
-    let info = await getGoodsByCid(id)
-    console.log(info.result.res.data);
+    let _id = options._id
+    console.log(_id)
+    let goods = await goodsList(_id)
     this.setData({
-      goods: info.result.res.data,
-      title: title
+      goods:goods.result.data,
+      loading:false
     })
   },
 

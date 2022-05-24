@@ -2,21 +2,17 @@
  * @description: 
  * @author: 董泽平
  */
-/*
- * @description: 
- * @author: 董泽平
- */
-/**
- * 获取分类下所有商品
- * sid:分类id
- * 
- */
- export default function(sid){
+
+
+ export default function(goods){
+   let {title,desc,address,price,imgs,video,sid,num} = goods
   return new Promise((resolve,reject)=>{
     wx.cloud.callFunction({
-      name:'getGoodsList',
+      name:'subGoods',
       data:{
-        sid
+        title,
+        desc,
+        address,price,imgs,video,sid,num
       }
     }).then(msg=>{
       resolve(msg)

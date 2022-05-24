@@ -91,3 +91,6 @@
   margin: 20rpx 0 30rpx 0;
   color: #999;
 }
+.loading{
+  text-align: center;
+}

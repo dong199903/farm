@@ -1,3 +1,7 @@
+<!--
+ * @description: 
+ * @author: 董泽平
+-->
 <!--pages/category/category.wxml-->
 <header title="{{title}}" statue="1"></header>
 
@@ -5,11 +9,15 @@
   <view class="search" bindtap="goSearch">
       <text class="txt">搜索,发现更多好物</text>
   </view>
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+  </view>
   <view class="goods-container">
-    <view wx:for="{{goods}}" wx:key="id">
-      <navigator url="/pages/goods/goods?id={{item.gid}}">
+    <view wx:for="{{goods}}" wx:key="index">
+      <navigator url="/pages/goods/goods?id={{item._id}}">
         <view class="box">
-          <image src="{{item.img}}" class="image">
+          <image src="{{item.imgs[0]}}" class="image">
           </image>
         </view>
         <view class="goods-info">
