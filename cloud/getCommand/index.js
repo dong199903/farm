@@ -17,8 +17,8 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   //获取热门推荐
   return await db.collection('farm_goods').where({
-    show:true,
-    hot:true
+    show: true,
+    hot: true
   }).get()
-  
+
 }

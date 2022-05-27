@@ -1,8 +1,3 @@
-/*
- * @description: 
- * @author: 董泽平
- */
-// pages/category/category.js
 import goodsList from "./../../services/goods/goodsList"
 Page({
 
@@ -18,6 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+    
     let _id = options._id
     console.log(_id)
     let goods = await goodsList(_id)

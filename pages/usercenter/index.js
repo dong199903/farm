@@ -1,7 +1,3 @@
-/*
- * @description: 
- * @author: 董泽平
- */
 import Login from "./../../services/uses/login"
 const app = getApp()
 Page({
@@ -16,11 +12,15 @@ Page({
   },
   /**农业入驻 */
   farm(){
-
+    wx.reLaunch({
+      url: '/pages/submit/submit'
+    })
   },
   /**注册宣传 */
   zhengce(){
-    
+    wx.reLaunch({
+      url: '/pages/ke/ke'
+    })
   },
   /**帮助中心 */
   help(){

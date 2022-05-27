@@ -1,15 +1,3 @@
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
-/*
- * @description: 
- * @author: 董泽平
- */
 import swipers from "./../../services/swiper/index"
 import sorts from "./../../services/sort/index"
 import command from "./../../services/command/index"
@@ -21,7 +9,6 @@ Page({
     let sort = await sorts()
     //热门推荐的商品
     let commands = await command()
-    console.log(swiper,sort,commands)
     this.setData({
       swiper: swiper.result.data,
       sort:sort.result.data,
@@ -29,14 +16,8 @@ Page({
       loading:false
     })
   },
-  data: {
-    current: 1,
-    swiper: [],
-    category: [],
-    recommend_goods: [],
-  },
-  data: {
-    loading: true
+  data:{
+    loading:true
   },
   goSearch: function () {
     wx.navigateTo({
@@ -44,9 +25,9 @@ Page({
     })
   },
   goCategory: function (e) {
-
+    let id = e.currentTarget.dataset.cateid
     wx.navigateTo({
-      url: '/pages/category/category?_id='+e.currentTarget.dataset.id,
+      url: '/pages/category/category?_id=' + id
     })
   },
   categoryTap: function (e) {
