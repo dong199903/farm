@@ -34,6 +34,12 @@ Page({
       visible:true
     })
   },
+  /**跳转订单页面 */
+  goOrder(e){
+    wx.navigateTo({
+      url:"./../order/order?id="+e.currentTarget.dataset.id+"&title="+e.currentTarget.dataset.title
+    })
+  },
   /**
    * 注销退出 
    * > 清空全局的userinfo.保存用户的openid

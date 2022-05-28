@@ -1,0 +1,26 @@
+<!--pages/order/order.wxml-->
+<header statue="{{1}}" title="我的订单"></header>
+
+
+<t-tabs defaultValue="{{value}}" bind:change="onTabsChange">
+  <t-tab-panel wx:for="{{tarbars}}" wx:key="idnex" label="{{item.content}}" value="{{item.value}}">
+    <view class="box">
+      <view class="nav_title">
+        <view>订单号：128452038283</view><view class="nav_title_info">{{item.content}}</view>
+      </view>
+      <view class="content">
+        <image src="./../../style/images/01.png"></image>
+        <view class="content_info">
+          <view>
+            <view>标题</view>
+            <view>描述信息</view>
+          </view>
+          <view>
+            <view>￥99</view>
+            <view>x2</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </t-tab-panel>
+</t-tabs>

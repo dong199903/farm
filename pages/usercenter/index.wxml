@@ -12,7 +12,7 @@
 </view>
 <view class="me-box">
   <view class="me-box-top">
-    <view class="up" >
+    <view class="up" bindtap="goOrder" data-id="1" data-title="全部">
       <view class="" >
         我的订单
       </view>
@@ -21,27 +21,27 @@
        </view> 
     </view>
     <view class="down">
-      <view>
+      <view bindtap="goOrder" data-id="2" data-title="待付款">
         <view class="iconfont icon-daifukuan"></view>
         <view>待付款</view>  
       </view>
 
-      <view>
+      <view bindtap="goOrder" data-id="3" data-title="待发货">
         <view class="iconfont icon-daifahuo"></view>
-        <view>代发货</view>  
+        <view>待发货</view>  
       </view>
 
-      <view>
+      <view bindtap="goOrder" data-id="4" data-title="待收货">
         <view class="iconfont icon-daishouhuo"></view>
         <view>待收货</view>  
       </view>
 
-      <view>
+      <view bindtap="goOrder" data-id="5" data-title="待评价">
         <view class="iconfont icon-31daipingjia"></view>
         <view>待评价</view>  
       </view>
 
-      <view>
+      <view bindtap="goOrder" data-id="6" data-title="退款/售后">
         <view class="iconfont icon-tuikuantuihuo"></view>
         <view>退款/售后</view>  
       </view>

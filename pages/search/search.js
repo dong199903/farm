@@ -61,6 +61,7 @@ Page({
   },
   getGoodsList: async function (keyword) {
     const info = await search(keyword)
+    console.log("dzp",info)
     if (info.result.res.data.length) {
       this.setData({
         goodsList: info.result.res.data,
@@ -86,6 +87,7 @@ Page({
     this.getGoodsList(keyword);
   },
   onKeywordConfirm: function (e) {
+    console.log(e)
     this.getSearchResult(e.detail.value);
     this.setData({
       index1: 0,

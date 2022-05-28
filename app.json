@@ -16,7 +16,8 @@
     "pages/submit/submit",
     "pages/search/search",
     "pages/goods/goods",
-    "pages/ke/item/item"
+    "pages/ke/item/item",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
