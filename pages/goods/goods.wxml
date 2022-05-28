@@ -1,16 +1,7 @@
-<!--
- * @description: 
- * @author: 董泽平
--->
-<!--
- * @description: 
- * @author: 董泽平
--->
 <!--pages/goods/goods.wxml-->
 <header title="商品详情"  statue="1"></header>
 <view class="info">
-  <image class="" src="{{goods.imgs[0]}}">
-    
+  <image class="first" src="{{good.imgs[0]}}">
   </image>
   <!--loading加载-->
   <view class="loading" hover-class="none" hover-stop-propagation="false">
@@ -23,26 +14,25 @@
   </view>
 
   <view class="other">
-    <view>{{goods.title}}</view>
-    <view>{{goods.desc}}</view>
-    <view class="price">限时优惠价：￥{{goods.price}}</view>
+    <view>{{good.title}}</view>
+    <view>{{good.desc}}</view>
+    <view class="price">限时优惠价：￥{{good.price}}</view>
   </view>
 </view>
  
 <view class="detail" >
-  <image src="{{item}}" wx:for="{{goods.imgs}}" wx:key="index">
-    
+  <image src="{{item}}" wx:for="{{good.imgs}}" wx:key="index">
   </image>
 
-  <video src="{{goods.video}}" show-center-play-btn='{{false}}' 
+  <video src="{{good.video}}" show-center-play-btn='{{false}}' 
    show-play-btn="{{true}}" 
    controls></video>
 </view>
 <view class="bot" >
-  <view class="">
+  <view class="myButton" bindtap="handleCartAdd">
     加入购物车
   </view>
-  <view class="">
+  <view class="myButton" bindtap="skipToCart">
     立即购买
   </view>
 </view>

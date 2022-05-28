@@ -7,7 +7,6 @@ Page({
    */
   data: {
     searchStatus: false,
-    keywordStatus: false,
     index1: 0,
     index2: 0,
     array1: ['全部', '蔬菜', '水果', '小吃', '美食', '鲜肉'],
@@ -65,18 +64,23 @@ Page({
       this.setData({
         goodsList: info.result.res.data,
         showList: info.result.res.data,
-        keywordStatus: false,
         searchStatus: true
       })
+    } else {
+      this.setData({
+        goodsList: [],
+        showList: [],
+        searchStatus: false
+      })
+      this.showErrorToast()
     }
   },
   getSearchResult: function (keyword) {
-    if(keyword == ''){
-      console.log(1);
+    if (keyword == '') {
       this.setData({
-        keywordStatus: true,
         searchStatus: false
       })
+      this.showErrorToast()
       return false
     }
     this.setData({
@@ -104,7 +108,13 @@ Page({
     })
     this.changeGoodsShow()
   },
-  
+  showErrorToast: function () {
+    wx.showToast({
+      title: "没有查询结果",
+      icon: 'error', //图标，支持"success"、"loading" 
+      mask: true, //是否显示透明蒙层，防止触摸穿透，默认：false 
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
