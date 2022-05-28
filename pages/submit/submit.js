@@ -181,11 +181,33 @@ Page({
       })
     })
   },
+
+  /**信息校验 */
+  check(obj){
+    if(!obj.title) 
+      return {statue:404,msg:"标题不能是空"}
+    if(!obj.desc) 
+      return {statue:404,msg:"描述不能是空"}
+    if(obj.imgs.length===0)
+      return {statue:404,msg:"图片不能是空"}
+    if(!obj.video)
+      return {statue:404,msg:"视频不能是空"}
+    if(!obj.price)
+      return {statue:404,msg:"价格不能是空"}
+    if(!obj.num)
+      return {statue:404,msg:"数量不能是空"}
+    if(!obj.sid)
+      return {statue:404,msg:"分类不能是空"}
+    if(!obj.address)
+      return {statue:404,msg:"地址不能是空"}
+    return {statue:200,msg:"信息成功"}
+  },
   /**发布信息 */
   async submit(){
     this.setData({
       loading:true
     })
+    let that = this
     let title = this.data.title
     let desc = this.data.desc
     let address = this.data.address
@@ -193,36 +215,50 @@ Page({
     let video = this.data.video
     let price = this.data.price
     let num = this.data.num
-    let sid = this.data.sorts[this.data.sIndex]._id
-    console.log(title,desc,address,imgs,video,price,sid)
-    let goods = {
-      title,desc,address,imgs,video,price,sid,num
+    let sid = this.data.sorts[this.data.sIndex]?._id
+    let checkInfo = this.check({title,desc,address,imgs,video,price,num,sid})
+    console.log(checkInfo)
+    if(checkInfo.statue===404) {
+      wx.showToast({
+        title: checkInfo.msg,
+        icon: 'fail',
+        duration: 1500,
+        mask: false,
+        success: (result)=>{
+          that.setData({
+            loading:false
+          })
+        }
+      });
+    } else {
+      //信息合格
+      let goods = {
+        title,desc,address,imgs,video,price,sid,num
+      }
+      //1.上传图片和视频
+      imgs = await this.uploadImgToDatabase(imgs)
+      video = await this.uploadVideoToDatabase(video)
+      console.log(imgs,video)
+      goods.imgs = imgs
+      goods.video = video
+      //2.统一上传到后端
+      let info = await sub(goods)
+      console.log(info)
+      //4.提示发布信息,并取消加载,清空输入框
+      this.setData({
+        loading:false,
+        window:true,
+        title:"",
+        address:"",
+        price:"",
+        num:"",
+        imgs:[],
+        video:"",
+        sValue:"",
+        desc:""
+      })
     }
-    //1.上传图片和视频
-    imgs = await this.uploadImgToDatabase(imgs)
-    video = await this.uploadVideoToDatabase(video)
-    console.log(imgs,video)
-    goods.imgs = imgs
-    goods.video = video
-    //2.统一上传到后端
-    let info = await sub(goods)
-    console.log(info)
-    //3.取消加载
-    this.setData({
-      loading:false
-    })
-    //4.提示发布信息
-    this.setData({
-      window:true,
-      title:"",
-      address:"",
-      price:"",
-      num:"",
-      imgs:[],
-      video:"",
-      sValue:"",
-      desc:""
-    })
+    
 
   }
 })
