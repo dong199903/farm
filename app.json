@@ -17,7 +17,8 @@
     "pages/search/search",
     "pages/goods/goods",
     "pages/ke/item/item",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/order/order_pay/order_pay"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -52,7 +53,7 @@
         "selectedIconPath": "./style/images/add2.png"
       },
       {
-        "pagePath": "pages/cart/index",
+        "pagePath": "pages/order/order_pay/order_pay",
         "text": "购物车",
         "iconPath": "./style/images/cart1.png",
         "selectedIconPath": "./style/images/cart2.png"
