@@ -1,38 +1,24 @@
-<!--
- * @description: 
- * @author: 董泽平
--->
-<!--
- * @description: 
- * @author: 董泽平
--->
 <!--pages/category/category.wxml-->
 <header title="{{title}}" statue="1"></header>
 
 <view class="container">
-  <view class="search" bindtap="goSearch">
-      <text class="txt">搜索,发现更多好物</text>
+  <view class="search" bindtap="skipToSearch">
+    <text class="txt">搜索,发现更多好物</text>
   </view>
   <!--loading加载-->
   <view class="loading" hover-class="none" hover-stop-propagation="false">
     <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
   </view>
   <view class="goods-container">
-    <view wx:for="{{goods}}" wx:key="index">
-      <navigator url="/pages/goods/goods?id={{item._id}}">
-        <view class="box">
-          <image src="{{item.imgs[0]}}" class="image">
-          </image>
-        </view>
-        <view class="goods-info">
-            <view class="goods-title">{{item.title}}</view>
-            <view class='price-container'>
-                <view class='l'>
-                    <view class='h'>￥{{item.price}}</view>
-                </view>
-            </view>
-        </view>
-      </navigator>
+    <view wx:for="{{goodsList}}" wx:key="id" class="item" data-id="{{item._id}}" bindtap="getGoods">
+      <view class="box">
+        <image src="{{item.imgs[0]}}" class="image">
+        </image>
+      </view>
+      <view class="goods-info">
+        <view class="goods-title">{{item.title}}</view>
+        <view class='price'>￥{{item.price}}</view>
+      </view>
     </view>
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>

@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    allChecked: true, // 全选
+    allChecked: false, // 全选
     goodsList: [], // 购物车商品
     totalPrice: 0.00, // 总价格
   },
@@ -19,6 +19,11 @@ Page({
       fail: (err) => {}
     })
   },
+  // 更新缓存
+  setCartStorage: function () {
+    let goodsList = this.data.goodsList
+    wx.setStorageSync('cart', goodsList)
+  },
   // 统计总价
   getTotalPrice: function () {
     // 获取购物车列表
@@ -29,7 +34,7 @@ Page({
       // 判断选中才会计算价格
       if (goodsList[i].checked) {
         // 所有价格加起来
-        totalPrice += goodsList[i].num * goodsList[i].price
+        totalPrice += goodsList[i].count * goodsList[i].price
       }
     }
     // 赋值到data中渲染到页面
@@ -45,7 +50,8 @@ Page({
     // 获取购物车列表
     let goodsList = this.data.goodsList;
     // 获取当前商品的选中状态
-    let checked = dataArr[index].checked;
+    let checked = goodsList[index].checked;
+    console.log(checked);
     // 改变状态
     goodsList[index].checked = !checked;
     this.setData({
@@ -101,9 +107,9 @@ Page({
   addCount: function (e) {
     let index = e.currentTarget.dataset.index;
     let goodsList = this.data.goodsList;
-    let num = goodsList[index].num;
-    num = num + 1;
-    goodsList[index].num = num;
+    let count = goodsList[index].count;
+    count = count + 1;
+    goodsList[index].count = count;
     this.setData({
       goodsList: goodsList
     });
@@ -114,16 +120,16 @@ Page({
   minusCount: function (e) {
     let index = e.currentTarget.dataset.index;
     let goodsList = this.data.goodsList;
-    let num = goodsList[index].num;
-    if (num <= 1) {
+    let count = goodsList[index].count;
+    if (count <= 1) {
       wx.showToast({
         title: '宝贝不能再减少啦',
         icon: 'none'
       })
       return false;
     }
-    num = num - 1;
-    goodsList[index].num = num;
+    count = count - 1;
+    goodsList[index].count = count;
     this.setData({
       goodsList: goodsList
     });
@@ -134,8 +140,8 @@ Page({
   inputCount: function (e) {
     let index = e.currentTarget.dataset.index;
     let goodsList = this.data.goodsList;
-    let num = e.detail.value;
-    goodsList[index].num = num;
+    let count = e.detail.value;
+    goodsList[index].count = count;
     this.setData({
       goodsList: goodsList
     });
@@ -146,14 +152,14 @@ Page({
   bindblur(e) {
     let index = e.currentTarget.dataset.index;
     let goodsList = this.data.goodsList;
-    let num = e.detail.value;
-    if (num < 1) {
+    let count = e.detail.value;
+    if (count < 1) {
       wx.showToast({
         title: '数量不能小于1',
         icon: 'none'
       })
-      num = 1;
-      goodsList[index].num = num;
+      count = 1;
+      goodsList[index].count = count;
       this.setData({
         goodsList: goodsList
       });
@@ -161,13 +167,16 @@ Page({
       this.getTotalPrice();
     }
   },
-  toOrder() {
-    // 处理数据
-    // *****
-    // Author: Moss
-    // QQ: 827291427
-    // *****
-
+  handleStepperChange: function (e) {
+    let index = e.detail.index
+    let goodsList = this.data.goodsList
+    console.log(goodsList);
+    goodsList[index].count = e.detail.value
+    this.setData({
+      goodsList: goodsList
+    })
+  },
+  skipToPay: function () {
     // 跳转结算页面
     wx.navigateTo({
       url: '/pages/pay/pay'
@@ -198,7 +207,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.setCartStorage()
   },
 
   /**

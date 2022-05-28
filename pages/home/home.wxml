@@ -1,53 +1,45 @@
-
 <header title="首页"></header>
-
 <view class="container">
-  <!-- 搜索 -->
-  <view class="search" bindtap="goSearch">
-      <text class="txt">搜索，发现更多好物</text>
+  <!-- 1. 搜索 -->
+  <view class="search" bindtap="skipToSearch">
+    <text class="txt">搜索，发现更多好物</text>
   </view>
-  
-  <!-- 轮播图 -->
+  <!-- 2. 轮播图 -->
   <view class='banner-wrap'>
-      <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
-          <swiper-item wx:for="{{swiper}}" wx:key="id">
-              <navigator url="/pages/goods/goods?id={{item.gid}}">
-                  <image src="{{item.img}}" background-size="cover"></image>
-              </navigator>
-          </swiper-item>
-      </swiper>
+    <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000">
+      <swiper-item wx:for="{{swipersList}}" wx:key="id">
+        <navigator url="/pages/goods/goods?id={{item.gid}}">
+          <image src="{{item.img}}" background-size="cover"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
   </view>
-  <!--loading加载-->
+  <!-- 3. loading加载 -->
   <view class="loading" hover-class="none" hover-stop-propagation="false">
     <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
   </view>
-  <!-- 产品分类 -->
+  <!-- 4. 产品分类 -->
   <swiper class="catalog-wrap .new-box .navi-url" indicator-color="#dedede" indicator-active-color="#e00000">
-      <swiper-item class="first">
-          <view wx:for="{{sort}}" wx:key="index" class='icon-navi' data-cateid="{{item._id}}" data-catetitle="{{item.name}}" bindtap="goCategory">
-              <image class='icon-img' src="{{item.img}}"></image>
-              <view class='icon-text'>{{item.name}}</view>
-          </view>
-      </swiper-item>
+    <swiper-item class="item">
+      <view wx:for="{{sortsList}}" wx:key="index" class='icon-navi' data-cateid="{{item._id}}" data-catetitle="{{item.name}}" bindtap="skipToCategory">
+        <image class='icon-img' src="{{item.img}}"></image>
+        <view class='icon-text'>{{item.name}}</view>
+      </view>
+    </swiper-item>
   </swiper>
-  <!-- 热门推荐 -->
+  <!-- 5. 热门推荐 -->
   <view class="title">热门推荐</view>
   <view class="goods-container">
-    <view wx:for="{{command}}" wx:key="id" class="item" data-id="{{item._id}}"  bindtap="getGoods">
-        <view class="box">
-          <image src="{{item.imgs[0]}}" class="image">
-          </image>
-        </view>
-        <view class="goods-info">
-            <view class="goods-title">{{item.title}}</view>
-            <view class='price-container'>
-                <view class='l'>
-                    <view class='h'>￥{{item.price}}</view>
-                </view>
-            </view>
-        </view>
-
-  </view>
+    <view wx:for="{{commandGoodsList}}" wx:key="id" class="item" data-id="{{item._id}}" bindtap="getGoods">
+      <view class="box">
+        <image src="{{item.imgs[0]}}" class="image">
+        </image>
+      </view>
+      <view class="goods-info">
+        <view class="goods-title">{{item.title}}</view>
+        <view class='price'>￥{{item.price}}</view>
+      </view>
+    </view>
   </view>
   <view class="no-more-goods ">没有更多商品啦</view>
 </view>

@@ -3,36 +3,25 @@
   <view class="goodslist">
     <view wx:for="{{goodsList}}" wx:key="index" wx:for-item="item">
       <view class="good">
-        
-      </view>
-    </view>
-  </view>
-  <view class="list">
-    <block wx:for="{{goodsList}}" wx:key="index" wx:for-item="item">
-      <view class="li clearfix">
-        <view class="check" wx:if="{{item.checked}}" bindtap="selectList" data-index="{{index}}"><text class="iconfont icon-dagou"></text></view>
-        <view class="check" wx:else bindtap="selectList" data-index="{{index}}"><text class="iconfont icon-choose"></text></view>
-        <view class="img fl"><image src="{{item.imgs[0]}}" mode="aspectFill"></image></view>
-        <view class="right fr">
-          <view class="title ellipsis-2">{{item.title}}</view>
-          <view class="num_w clearfix">
-            <view class="fl" bindtap="minusCount" data-index="{{index}}">-</view>
-            <view class="fl num"><input type="number" value="{{item.num}}" bindinput="inputCount" bindblur="bindblur" data-index="{{index}}" /></view>
-            <view class="fl" bindtap="addCount" data-index="{{index}}">+</view>
+        <t-radio class="checkedbox" checked="{{item.checked}}" bindtap="selectList" data-index="{{index}}" />
+        <image src="{{item.imgs[0]}}"></image>
+        <view class="title">{{item.title}}</view>
+        <view class="price">{{item.price}}</view>
+        <view class="count">
+          <view bindtap="minusCount" data-index="{{index}}">-</view>
+          <view>
+            <input type="number" value="{{item.count}}" bindinput="inputCount" bindblur="bindblur" data-index="{{index}}" />
           </view>
-          <view class="price">￥{{item.price}}</view>
+          <view bindtap="addCount" data-index="{{index}}">+</view>
         </view>
       </view>
-    </block>
-  </view>
-  <view class="bottom clearfix">
-    <view class="check fl">
-      <text class="iconfont icon-dagou" wx:if="{{selectAllStatus}}" bindtap="selectAll"></text>
-      <text class="iconfont icon-choose" wx:else bindtap="selectAll"></text>
-      <text class="text">全选</text>
     </view>
-    <view class="button gradientButton fr"><button bindtap="toOrder">去结算</button></view>
-    <view class="price fr">合计：<text>￥{{totalPrice}}</text></view>
+  </view>
+  <view class="bottom">
+    <view class="checkedbox">
+      <t-radio checked="{{allChecked}}" bindtap="selectAll" data-index="{{index}}" label="全选" />
+    </view>
+    <view class="total">合计：<text>￥{{totalPrice}}</text></view>
+    <view class="pay"><button bindtap="skipToPay">去结算</button></view>
   </view>
 </view>
-
