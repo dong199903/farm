@@ -39,10 +39,10 @@
    controls></video>
 </view>
 <view class="bot" >
-  <view class="">
+  <view class="" bindtap="handleCartAdd">
     加入购物车
   </view>
-  <view class="">
+  <view class="" bindtap="handleSkipCart">
     立即购买
   </view>
 </view>
