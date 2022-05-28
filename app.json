@@ -18,11 +18,8 @@
     "pages/goods/goods",
     "pages/ke/item/item",
     "pages/order/order",
-<<<<<<< HEAD
-    "pages/order/order_pay/order_pay"
-=======
+    "pages/order/order_pay/order_pay",
     "pages/pay/pay"
->>>>>>> main
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -57,7 +54,7 @@
         "selectedIconPath": "./style/images/add2.png"
       },
       {
-        "pagePath": "pages/order/order_pay/order_pay",
+        "pagePath": "pages/cart/index",
         "text": "购物车",
         "iconPath": "./style/images/cart1.png",
         "selectedIconPath": "./style/images/cart2.png"

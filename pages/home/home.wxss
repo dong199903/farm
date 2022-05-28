@@ -10,15 +10,17 @@
 /* 搜索框样式 */
 
 .search {
-  height: 100rpx;
+  height: 80rpx;
   width: 100%;
   padding: 0 24rpx;
-  background: #f9f9f9;
+  background: #f3f3f3;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  border:1rpx solid #ccc;
 }
 
 .search .txt {

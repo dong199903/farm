@@ -1,0 +1,13 @@
+<view class="goods_info">
+  <image src="./../../style/images/01.png"></image>
+  <view class="goods_info_right">
+    <view class="left">
+      <view>标题</view>
+      <view>描述</view>
+    </view>
+    <view class="right">
+      <view>￥99</view>
+      <view class="count">x10</view>
+    </view>
+  </view>
+</view>

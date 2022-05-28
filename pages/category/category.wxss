@@ -8,7 +8,7 @@
 }
 
 .search {
-  height: 100rpx;
+  height: 80rpx;
   width: 100%;
   padding: 0 24rpx;
   background: #f9f9f9;
@@ -17,6 +17,8 @@
   align-items: center;
   box-sizing: border-box;
   margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  border:1rpx solid #ccc;
 }
 
 .search .txt {

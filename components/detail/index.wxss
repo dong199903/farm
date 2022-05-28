@@ -1,0 +1,25 @@
+.goods_info{
+  display: flex;
+}
+image{
+  margin-right: 20rpx;
+  max-width: 200rpx;
+  height: 190rpx;
+}
+.goods_info_right{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.left{
+  margin-right: 50rpx;
+  font-size: 30rpx;
+}
+.right{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.count{
+  font-weight: normal;
+  font-size: 30rpx;
+}

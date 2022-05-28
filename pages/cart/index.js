@@ -179,7 +179,7 @@ Page({
   skipToPay: function () {
     // 跳转结算页面
     wx.navigateTo({
-      url: '/pages/pay/pay'
+      url: '/pages/order/order_pay/order_pay'
     })
   },
   /**

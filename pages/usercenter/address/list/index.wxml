@@ -4,7 +4,7 @@
 <view class="empty" wx:if="{{!address.length}}">暂无收货地址，赶快添加吧</view>
 
 <view class="address-box">
-  <view class="address-item"  wx:for="{{address}}" wx:key="{{index}}">
+  <view class="address-item"  wx:for="{{address}}" wx:key="{{index}}" bindtap="back" data-index="{{index}}">
     <view class="left">
       <view class="header"><text>{{item.userName}}</text><text>{{item.phone}}</text></view>
       <view class="bottom">{{item.address}}{{item.detail}}</view>

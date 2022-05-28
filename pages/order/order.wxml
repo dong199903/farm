@@ -1,5 +1,4 @@
 <!--pages/order/order.wxml-->
-<<<<<<< HEAD
 <header statue="{{1}}" title="我的订单"></header>
 
 
@@ -25,6 +24,4 @@
     </view>
   </t-tab-panel>
 </t-tabs>
-=======
-<text>pages/order/order.wxml</text>
->>>>>>> main
+

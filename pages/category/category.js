@@ -13,4 +13,14 @@ Page({
       loading: false
     })
   },
+  skipToSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  }
 })

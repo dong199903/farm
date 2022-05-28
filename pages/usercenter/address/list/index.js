@@ -8,6 +8,27 @@
  */
 
 Page({
+  /**保存收获地址的状态*/
+  onLoad(option){
+    let {statue} = option
+    console.log(statue)
+    this.setData({
+      statue
+    })
+  },
+  /**获取地址信息 */
+  back(e){
+    let addr = wx.getStorageSync('address')[e.currentTarget.dataset.index]
+    console.log(addr)
+    if(this.data.statue){ 
+      //全局保存当前的收获地址
+      wx.setStorageSync("goods_address",addr)
+      //返回上一层
+      wx.navigateBack({
+        delta: 1
+      });
+    }
+  },
   /**跳转到编辑页面 */
   edit: function (e) {
     let id = e.currentTarget.dataset.id
