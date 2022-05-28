@@ -2,7 +2,7 @@
 <view class="container">
   <view class="search-header">
     <view class="input-box">
-      <input name="input" class="keyword" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="搜索你想要的一切" />
+      <input name="input" class="keyword" focus="true" value="{{keyword}}" confirm-type="search" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="搜索你想要的一切" />
     </view>
   </view>
   <view class="section">
@@ -19,28 +19,18 @@
   </view>
   <view class="search-result" wx:if="{{searchStatus}}">
     <view class="goods-container">
-      <view wx:for="{{showList}}" wx:key="id">
-        <navigator url="/pages/goods/goods?id={{item.gid}}">
-          <view class="box">
-            <image src="{{item.imgs[0]}}" class="image">
-            </image>
-          </view>
-          <view class="goods-info">
-            <view class="goods-title">{{item.title}}</view>
-            <view class='price-container'>
-              <view class='l'>
-                <view class='h'>￥{{item.price}}</view>
-              </view>
-            </view>
-          </view>
-        </navigator>
+      <view wx:for="{{showList}}" wx:key="id" class="item" data-id="{{item._id}}" bindtap="getGoods">
+        <view class="box">
+          <image src="{{item.imgs[0]}}" class="image">
+          </image>
+        </view>
+        <view class="goods-info">
+          <view class="goods-title">{{item.title}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
       </view>
     </view>
     <view class="no-more-goods">没有更多商品啦</view>
   </view>
-<!-- 修改成toast -->
-  <view wx:if="{{keywordStatus}}">
-    <text class="text">没找到，换个关键字试试</text>
-  </view>
-  
+
 </view>

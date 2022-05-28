@@ -1,0 +1,26 @@
+<!--pages/pay/pay.wxml-->
+<header title="支付页面" statue="1"></header>
+<view class="container">
+  <!-- 1. 地址选择 -->
+  <view class="address">
+    <view>收件人地址</view>
+  </view>
+  <!-- 2. 商品展示 -->
+  <view class="goods">
+    <view>商品信息</view>
+  </view>
+  <!-- 3. 订单信息 -->
+  <view class="order">
+    <view>商品总价</view>
+    <view>￥{{}}</view>
+    <view>快递金额</view>
+    <view>￥{{}}</view>
+    <view>合计</view>
+    <view>￥{{}}</view>
+  </view>
+  <!-- 4. 确认支付 -->
+  <view class="pay">
+    <view>实付款：￥{{}}</view>
+    <view>提交订单</view>
+  </view>
+</view>

@@ -1,45 +1,18 @@
-// pages/order/order.js
+// pages/pay/pay.js
 Page({
 
   /**
    * 页面的初始数据
    */
-<<<<<<< HEAD
-
-  data: {
-    value:"1",
-    tarbars:[
-      {value:"1",content:"全部"},
-      {value:"2",content:"待付款"},
-      {value:"3",content:"待发货"},
-      {value:"4",content:"待收货"},
-      {value:"5",content:"待评价"},
-      {value:"6",content:"退款/售后"}
-    ]
-  },
-  onTabsChange(e) {
-    console.log(e.detail.value)
-  },
-=======
   data: {
 
   },
 
->>>>>>> main
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-<<<<<<< HEAD
-    let {id} = options
-    console.log(id)
-    this.setData({
-      value:id
-    })
-    //获取所有的订单1类，然后分类5类
-=======
 
->>>>>>> main
   },
 
   /**

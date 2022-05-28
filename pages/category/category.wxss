@@ -16,71 +16,45 @@
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+
+.search .txt {
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 30rpx;
 }
 
 /* goods-container */
-.goods-container{
-  margin-top: 30rpx;
+.goods-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.goods-container .image {
-  width: 300rpx;
-  height: 300rpx;
-  border-radius: 4rpx;
-  background-color: #f9f9f9;
-}
-
-.box {
-  width: 300rpx;
-  height: 300rpx;
-  position: relative;
-  margin-bottom: 10rpx;
-  border-radius: 4rpx;
-  /* border: 1rpx solid #eee; 
-  box-sizing: border-box; */
-}
-.goods-info{
-  margin-bottom: 40rpx;
-}
-.goods-info .goods-title {
-  font-size: 24rpx;
-  color: #222;
-  margin-bottom: 6rpx;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.goods-info .price-container {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.goods-info .price-container .l {
-  display: flex;
-  flex-direction: column;
+.goods-container .item {
+  width: 47%;
+  margin-bottom: 30rpx;
 }
 
-.goods-info .price-container .l .h {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #ff3456;
+.goods-container image {
+  width: 100%;
+  max-height: 300rpx;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+.goods-container .goods-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.goods-container .price {
+  color: red;
+  font-size: 30rpx;
 }
 
 /* 没有更多  */
@@ -91,6 +65,7 @@
   margin: 20rpx 0 30rpx 0;
   color: #999;
 }
-.loading{
+
+.loading {
   text-align: center;
 }

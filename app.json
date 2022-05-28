@@ -18,7 +18,11 @@
     "pages/goods/goods",
     "pages/ke/item/item",
     "pages/order/order",
+<<<<<<< HEAD
     "pages/order/order_pay/order_pay"
+=======
+    "pages/pay/pay"
+>>>>>>> main
   ],
   "window": {
     "backgroundTextStyle": "light",
