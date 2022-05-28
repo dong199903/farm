@@ -32,7 +32,7 @@
   <view class="myButton" bindtap="handleCartAdd">
     加入购物车
   </view>
-  <view class="myButton" bindtap="skipToCart">
+  <view class="myButton" bindtap="buy" data-gid="{{good._id}}">
     立即购买
   </view>
 </view>

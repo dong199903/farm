@@ -12,19 +12,19 @@
 </view>
 
 <view class="goods_show">
-  <goods></goods>
+  <goods wx:for="{{goodsList}}" img="{{item.imgs[0]}}" wx:key="index" title="{{item.title}}" desc="{{item.desc}}" price="{{item.price}}" num="{{item.total}}"></goods>
   <view class="bot_info">
-    <view><text>商品总额</text><view>￥9999</view></view>
+    <view><text>商品总额</text><view>￥{{sum}}</view></view>
     <view><text>运费</text><view>免运费</view></view>
     <view><text>活动优惠</text><view>暂无</view></view>
     <view><text>优惠券</text><view>选择优惠卷<text class="iconfont icon-youjiantou1"></text></view></view>
     <view><text>发票</text><view>暂不开发票<text class="iconfont icon-youjiantou1"></text></view></view>
     <view><text>订单备注</text><view>请联系客服<text class="iconfont icon-youjiantou1"></text></view></view>
-    <view class="total"><view>共3件，小计<text>￥99999</text></view></view>
+    <view class="total"><view>共{{count}}件，小计<text>￥{{sum}}</text></view></view>
   </view>
 </view>
 
 <view class="sum">
-  <text>￥99999</text>
-  <view>提交订单</view>
+  <text>￥{{sum}}</text>
+  <view bindtap="sub">提交订单</view>
 </view>
