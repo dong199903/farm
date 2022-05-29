@@ -1,5 +1,26 @@
 <header title="购物车"></header>
-<view class="container">
+<view class="cart">
+  <view class="cart_item"  wx:for="{{goodsList}}" wx:key="index" >
+    <view><t-radio checked="{{item.checked}}" bind:change="selectList" data-index="{{index}}"/></view>
+    <view class="info">
+      <image  src="{{item.imgs[0]}}" ></image>
+      <view>
+        <view>{{item.title}}</view>
+        <view>{{item.desc}}</view>
+        <view class="other">
+          <text >￥{{item.price}}</text>
+          <view><t-stepper data-index="{{index}}" bind:change="handleChange" defaultValue="{{item.count}}" step="1" /></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="control">
+  <view><view><t-radio checked="{{allChecked}}" bind:change="selectAll" label="全选"/></view><view>￥{{totalPrice}}</view></view>
+  <view>去结算</view>
+</view>
+<!-- <view class="container">
   <view class="goodslist">
     <view wx:for="{{goodsList}}" wx:key="index" wx:for-item="item">
       <view class="good">
@@ -17,6 +38,7 @@
       </view>
     </view>
   </view>
+
   <view class="bottom">
     <view class="checkedbox">
       <t-radio checked="{{allChecked}}" bindtap="selectAll" data-index="{{index}}" label="全选" />
@@ -24,4 +46,4 @@
     <view class="total">合计：<text>￥{{totalPrice}}</text></view>
     <view class="pay"><button bindtap="skipToPay">去结算</button></view>
   </view>
-</view>
+</view> -->

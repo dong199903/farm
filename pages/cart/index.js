@@ -8,21 +8,30 @@ Page({
     goodsList: [], // 购物车商品
     totalPrice: 0.00, // 总价格
   },
-  getCartStorage: async function () {
-    await wx.getStorage({
-      key: 'cart',
-      success: (res) => {
-        this.setData({
-          goodsList: res.data
-        })
-      },
-      fail: (err) => {}
+  /**
+   * 获取购物车数据
+   */
+  onShow() {
+    let goodsList = wx.getStorageSync("cart") || [];
+    this.setData({
+      goodsList
     })
   },
   // 更新缓存
   setCartStorage: function () {
-    let goodsList = this.data.goodsList
+    let goodsList = this.data.goodsList 
     wx.setStorageSync('cart', goodsList)
+  },
+  /**
+   * 步进器发生改变
+   * 1.如果数量是0，删除商品
+   * 2.。。。
+   * 
+   */
+  handleChange(e){
+    let value = e.detail.value
+    let index = e.currentTarget.dataset.index
+
   },
   // 统计总价
   getTotalPrice: function () {
@@ -176,8 +185,9 @@ Page({
       goodsList: goodsList
     })
   },
+
+  /**结算页面跳转 */
   skipToPay: function () {
-    // 跳转结算页面
     wx.navigateTo({
       url: '/pages/order/order_pay/order_pay'
     })
@@ -187,54 +197,7 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    this.getCartStorage()
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-    this.setCartStorage()
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
   }
+
+  
 })
