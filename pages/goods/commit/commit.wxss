@@ -1,0 +1,38 @@
+/* pages/goods/commit/commit.wxss */
+.author{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.author>view:first-child{
+  display: flex;
+  align-items: center;
+}
+image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 15rpx;
+}
+.time{
+  color:#c1c1c1;
+}
+.info{
+  margin-top: 20rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  font-size: 32rpx;
+}
+.item{
+  margin-bottom: 20rpx;
+}
+
+.loading {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

@@ -1,30 +1,18 @@
-// pages/ke/item/item.js
-import article from "./../../../services/write/detail"
-import dealTime from "./../../../utils/time"
+// pages/goods/commit/commit.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    loading:true
+    loading: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    const {id} = options
-    //根据id获取对应的文章
-    const info = await article(id)
-    let write = info.result.data[0]
-    write.time = dealTime(write._updateTime)
-    write.content  = write.content.replace(/\<img/gi, '<img class="rich-imgs" ');
-    console.log(write)
-    this.setData({
-      info:write,
-      loading:false
-    })
+  onLoad(options) {
+
   },
 
   /**

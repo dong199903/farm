@@ -1,0 +1,10 @@
+/* pages/order/order_commit/order_commit.wxss */
+textarea{
+  border: 1rpx solid #ccc;
+}
+.sub{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

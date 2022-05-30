@@ -4,7 +4,10 @@
 -->
 <!--pages/ke/item/item.wxml-->
 <header title="文章详情" statue="1"></header>
-
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
 <view class="info">
   <view class="title" >
     {{info.title}}

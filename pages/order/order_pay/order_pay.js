@@ -1,5 +1,7 @@
 // pages/order/order_pay/order_pay.js
 import getGoodsInfo from "./../../../services/goods/goodsItem"
+import subMessage from "./../../../services/sub/index"
+import dealOrders from "./../../../services/order/item"
 Page({
 
   /**
@@ -14,12 +16,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    const {gid} = options
-    //获取商品的具体信息
+    console.log("onload")
+    const gid = options?.gid
+    //获取收获地址信息
+    let addr = wx.getStorageSync("goods_address");
+    this.setData({
+      addr,
+      gid
+    })
+    //商品的直接购买
+    console.log(gid)
     if(gid) {
       let info = await getGoodsInfo(gid)
       let data = info.result.data[0]
-      data.total = 1//货品的个数
+      data.count = 1//货品的个数
       let list = this.data.goodsList
       list.push(data)
       console.log(list)
@@ -27,41 +37,48 @@ Page({
         goodsList:list
       })
     }else {
-      //通过购物车添加
+      //商品通过购物车购买
+      let car = wx.getStorageSync("cart")
+      this.setData({
+        goodsList:car
+      })
     }
     let sum = 0
     let count = 0
     this.data.goodsList.forEach(element => {
-      sum += element.price * element.total
-      count += element.total
+      sum += element.price * element.count
+      count += element.count
     });
-    console.log(sum)
+    console.log(count,sum)
     this.setData({
       sum,
       count
     })
-
-    
   },
+  /**发布订阅消息 */
   sub(){
-    let openid = wx.getStorageSync("users").openid
-    console.log("openid",openid)
-    wx.requestSubscribeMessage({
-      tmplIds: ['aSsTGj49jKWfW3g5HLqrJkoZbWSu7wZW51tqb25dhq4'],
-      success (res) { 
-        //发布云函数的订阅
-        wx.cloud.callFunction({
-          name:"sub",
-          data:{
-            openid:openid
-          }
-        }).then(msg=>{
-          console.log(msg)
-        })
-      },
-      fail(res){
-        console.log(res)
-      }
+    //title,price,info
+    let title = this.data.goodsList[0].title+"等商品"
+    let price = this.data.sum
+    let info = "具体情况，请前往小程序查看"
+    console.log(this.data.goodsList)
+    //订单的保存
+    dealOrders(wx.getStorageSync("users").openid,this.data.goodsList)
+
+    subMessage(title,price,info)
+    //清空缓存购物车中选中的商品
+    if(!this.data.gid){
+      let car = wx.getStorageSync("cart")
+      let res = []
+      car.forEach(item=>{
+        if(item.checked===false) res.push(item) 
+      })
+      wx.setStorageSync('cart',res)
+    }
+    
+    //继续发起支付,跳转支付信息页面
+    wx.navigateTo({
+      url:"/pages/order/order_result/order_result?sum="+this.data.sum
     })
   },
 
@@ -70,60 +87,5 @@ Page({
     wx.navigateTo({
       url: './../../usercenter/address/list/index?statue=1'
     });
-  },
-  /**
-   *
-   */
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-    //获取收获地址信息
-    let addr = wx.getStorageSync("goods_address");
-    this.setData({
-      addr
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
   }
 })

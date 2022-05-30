@@ -13,8 +13,20 @@ Page({
    */
   onShow() {
     let goodsList = wx.getStorageSync("cart") || [];
+    //判断全局状态和全局金钱
+    let tmp = true
+    let sum = 0
+    for(let i=0;i<goodsList.length;i++) {
+      if(goodsList[i].checked===false) {
+        tmp = false
+      }
+      sum += goodsList[i].price
+    }
+    
     this.setData({
-      goodsList
+      goodsList,
+      allChecked:tmp,
+      totalPrice:sum
     })
   },
   // 更新缓存
@@ -25,13 +37,29 @@ Page({
   /**
    * 步进器发生改变
    * 1.如果数量是0，删除商品
-   * 2.。。。
    * 
    */
   handleChange(e){
     let value = e.detail.value
     let index = e.currentTarget.dataset.index
-
+    let goodsList = this.data.goodsList;
+    //数量是0，直接从购物车删除
+    if(value==0) goodsList.splice(index,1)
+    else goodsList[index].count = value;
+    //判断当前是否是全选的状态
+    let tmp = true//默认是全选
+    goodsList.forEach(element => {
+      if(element.checked===false) tmp = false
+    });
+    console.log(goodsList)
+    this.setData({
+      goodsList: goodsList,
+      allChecked:tmp
+    });
+    // 重新统计总价
+    this.getTotalPrice();
+    // 同步缓存
+    wx.setStorageSync("cart",goodsList)
   },
   // 统计总价
   getTotalPrice: function () {
@@ -91,8 +119,11 @@ Page({
         }
       }
     }
+    //更新缓存 
+    wx.setStorageSync("cart",this.data.goodsList)
     // 重新统计总价
     this.getTotalPrice();
+    console.log(wx.getStorageSync("cart"))
   },
 
   // 全选事件
@@ -109,88 +140,34 @@ Page({
       allChecked: allChecked,
       goodsList: goodsList
     });
+    //更新缓存 
+    wx.setStorageSync("cart",this.data.goodsList)
     // 重新统计总价
     this.getTotalPrice();
   },
-  // 增加数量
-  addCount: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let goodsList = this.data.goodsList;
-    let count = goodsList[index].count;
-    count = count + 1;
-    goodsList[index].count = count;
-    this.setData({
-      goodsList: goodsList
-    });
-    // 重新统计总价
-    this.getTotalPrice();
-  },
-  // 减少数量
-  minusCount: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let goodsList = this.data.goodsList;
-    let count = goodsList[index].count;
-    if (count <= 1) {
-      wx.showToast({
-        title: '宝贝不能再减少啦',
-        icon: 'none'
-      })
-      return false;
-    }
-    count = count - 1;
-    goodsList[index].count = count;
-    this.setData({
-      goodsList: goodsList
-    });
-    // 重新统计总价
-    this.getTotalPrice();
-  },
-  // 输入数量
-  inputCount: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let goodsList = this.data.goodsList;
-    let count = e.detail.value;
-    goodsList[index].count = count;
-    this.setData({
-      goodsList: goodsList
-    });
-    // 重新统计总价
-    this.getTotalPrice();
-  },
-  // 失去焦点时判断数量是否小于1
-  bindblur(e) {
-    let index = e.currentTarget.dataset.index;
-    let goodsList = this.data.goodsList;
-    let count = e.detail.value;
-    if (count < 1) {
-      wx.showToast({
-        title: '数量不能小于1',
-        icon: 'none'
-      })
-      count = 1;
-      goodsList[index].count = count;
-      this.setData({
-        goodsList: goodsList
-      });
-      // 重新统计总价
-      this.getTotalPrice();
-    }
-  },
-  handleStepperChange: function (e) {
-    let index = e.detail.index
-    let goodsList = this.data.goodsList
-    console.log(goodsList);
-    goodsList[index].count = e.detail.value
-    this.setData({
-      goodsList: goodsList
-    })
-  },
+  
+  
+  // handleStepperChange: function (e) {
+  //   let index = e.detail.index
+  //   let goodsList = this.data.goodsList
+  //   console.log(goodsList);
+  //   goodsList[index].count = e.detail.value
+  //   this.setData({
+  //     goodsList: goodsList
+  //   })
+  // },
 
   /**结算页面跳转 */
   skipToPay: function () {
-    wx.navigateTo({
-      url: '/pages/order/order_pay/order_pay'
-    })
+    if(parseInt(this.data.totalPrice)===0) wx.showToast({
+      title: '请添加商品',
+      icon: 'none',
+      duration: 1500
+    });
+    else 
+      wx.navigateTo({
+        url: '/pages/order/order_pay/order_pay'
+      })
   },
   /**
    * 生命周期函数--监听页面加载

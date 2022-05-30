@@ -2,8 +2,8 @@
   <image src="{{img}}"></image>
   <view class="goods_info_right">
     <view class="left">
-      <view>{{title}}</view>
-      <view>{{desc}}</view>
+      <view class="title">{{title}}</view>
+      <view class="desc">{{desc}}</view>
     </view>
     <view class="right">
       <view>￥{{price}}</view>

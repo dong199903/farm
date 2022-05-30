@@ -1,0 +1,6 @@
+<header statue="1" title="商品评价"></header>
+<view class="goods_info"></view>
+<textarea></textarea>
+<view class="sub">
+  <t-button theme="primary" size="large" block="{{true}}">提交</t-button>
+</view>

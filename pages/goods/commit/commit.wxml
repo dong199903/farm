@@ -1,0 +1,31 @@
+<!--pages/goods/commit/commit.wxml-->
+<header statue="1" title="全部评论"></header>
+<!-- 3. loading加载 -->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
+<view class="commit">
+  <view class="item">
+
+    <view class="author">
+      <view>
+        <image src="./../../../style/images/add1.png"></image><text>董泽鹏</text>
+      </view>
+      <view class="time">2020/06/16 20:32</view>
+    </view>
+
+    <view class="info">动则啊大大大大答复虽然它是博士生导师日服三次大苏打</view>
+  </view>
+
+  <view class="item">
+
+    <view class="author">
+      <view>
+        <image src="./../../../style/images/add1.png"></image><text>董泽鹏</text>
+      </view>
+      <view class="time">2020/06/16 20:32</view>
+    </view>
+
+    <view class="info">动则啊大大大大答复虽然它是博士生导师日服三次大苏打</view>
+  </view>
+</view>

@@ -55,7 +55,7 @@ page{
 }.sum>view{
   text-align: center;
   padding: 30rpx;
-  background-color: #c1c1c1;
+  background-color: #fa4126;
   border-radius: 40rpx;
 }
 .address-item{

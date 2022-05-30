@@ -1,0 +1,8 @@
+<header title="支付详情"></header>
+<view class="box">
+  <view class="info1"><view><t-icon color='green' size='80rpx' name="check-circle" /></view><view>支付成功</view></view>
+  <view class="info2">微信支付<text>￥{{sum}}</text></view>
+  <view class="info3">
+    <view bindtap="viewTips">查看订单</view><view bindtap="backHome">返回首页</view>
+  </view>
+</view>

@@ -28,3 +28,23 @@ page{
   display: flex;
   justify-content: space-between;
 }
+.desc{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2
+}
+.price{
+  font-size: 40rpx;
+  color:red;
+}
+.commit{
+  width: 90rpx;
+  padding: 10rpx 15rpx;
+  border-radius: 15rpx;
+  color: #fff;
+  background-color: red;
+  text-align: center;
+  font-size: 27rpx;
+  margin-left: 30rpx;
+}

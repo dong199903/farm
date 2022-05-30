@@ -1,6 +1,6 @@
 /**index.wxss**/
 .container {
-  background-color: #fff;
+  background-color: #f5f5f5;
   min-height: 100%;
   align-items: stretch;
   overflow-x: hidden;
@@ -62,13 +62,17 @@
   box-sizing: border-box;
   margin-bottom: 30rpx;
 }
-
+.box{
+  border-radius: 20rpx!important;
+  overflow: hidden;
+}
 .catalog-wrap .item {
   width: 100%;
   box-sizing: border-box;
   padding: 0 30rpx;
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
 }
 
 .catalog-wrap .icon-navi {

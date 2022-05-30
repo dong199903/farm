@@ -8,19 +8,28 @@
     <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
   </view>
   <view class="bao">
-    <view>买家保证</view>
-    <view>承诺在线交易</view>
-    <view>虚假价格赔偿</view>
+    <view class="bao1"><view>￥<text>{{good.price}}</text>起</view><view>热售中...</view></view>
+    <view class="bao2">
+      <view>
+        <text>满减</text><text>满减</text><text>满减</text><text>满减</text>
+      </view>
+   </view>
+    <view class="bao3"><view>{{good.title}}{{good.desc}}</view><button open-type="share"><view class="iconfont icon-fenxiang"></view><view>分享</view></button></view>
   </view>
 
+  <!--商品评价--->
   <view class="other">
-    <view>{{good.title}}</view>
-    <view>{{good.desc}}</view>
-    <view class="price">限时优惠价：￥{{good.price}}</view>
+    <view class="commit_top"><view>商品评价</view><view bindtap="goCommit">97%好评<text class="iconfont icon-youjiantou1"></text></view></view>
+    <view class="commit_author">
+      <image src="./../../style/images/add1.png"></image>
+      <text>董泽鹏</text>
+    </view>
+    <view class="commit_info">收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!</view>
   </view>
 </view>
  
 <view class="detail" >
+  <view class="top">详情介绍</view>
   <image src="{{item}}" wx:for="{{good.imgs}}" wx:key="index">
   </image>
 

@@ -2,16 +2,75 @@
   width: 100%;
 }
 page{
+  padding: 0;
   background: #f1ecec;
   padding-bottom: 200rpx;
+  
+}
+.info{
+  margin-bottom: 20rpx;
 }
 .bao{
+  background-color: #fff;
+  padding: 30rpx;
+}
+.bao>view{
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
-  padding: 20rpx 15rpx;
+  align-items: center;
+}
+.bao1{
   font-size: 30rpx;
-  border-radius: 15rpx;
+  color: #fa4126;
+}
+.bao1>view:last-child{
+  color: #c1c1c1;
+}
+.bao1 text{
+  font-size: 70rpx;
+  font-weight: bold;
+  margin: 0 5rpx;
+}
+.bao2{
+  margin: 10rpx 0 30rpx 0;
+}
+.bao2 text{
+  display: inline-block;
+  padding: 5rpx 10rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  color: #fa4126;
+  font-size: 27rpx;
+  background-color: #ffece9;
+}
+.bao3>view{
+  font-size: 32rpx;
+}
+button::after {
+  border: none;
+}
+button{
+  border-radius: 0;
+  background: transparent;
+  padding-left: 80rpx;
+}
+
+.bao3 button view{
+  font-size: 30rpx;
+}
+.bao3 button>view:first-child{
+  position: relative;
+  top: 20rpx;
+}
+.bao3>view:first-child{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2
+}
+.bao3 button>view:last-child{
+  position: relative;
+  bottom: 20rpx;
 }
 .other{
   background-color: #fff;
@@ -21,7 +80,7 @@ page{
   border-radius: 15rpx;
 }
 .price{
-  color: red;
+  color: #fa4126;
   font-size: 40rpx;
   margin-top: 15rpx;
 }
@@ -57,16 +116,59 @@ page{
 }
 
 .myButton {
-	box-shadow:inset 0px 39px 0px -24px #e67a73;
-	background-color:#e4685d;
-	border-radius:4px;
-	border:1px solid #ffffff;
+
+	background-color:#fa4126;
+	border-radius:10rpx;
+	border:1rpx solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
+	font-size:32rpx;
+	padding:20rpx 25rpx;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+
+}
+.commit_top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 33rpx;
+  margin-bottom: 30rpx;
+}
+.commit_top>view:last-child{
+  font-size: 30rpx;
+  color: #c1c1c1;
+}
+.commit_author{
+  display: flex;
+  align-items: center;
+}
+.commit_author image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.commit_author text{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.commit_info{
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2
+}
+.detail{
+  padding-top: 30rpx;
+  background-color: #fff;
+}
+.detail .top{
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.detail image{
+  margin-bottom: 20rpx;
 }

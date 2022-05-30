@@ -1,11 +1,6 @@
 // pages/order/order.js
+import OrderList from "./../../services/order/getOrderList"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-<<<<<<< HEAD
-
   data: {
     value:"1",
     tarbars:[
@@ -17,29 +12,47 @@ Page({
       {value:"6",content:"退款/售后"}
     ]
   },
+  /**跳转评价 */
+  goCommit(e){
+    //图片，标题，描述
+    
+    // wx.navigateTo({
+    //   url: '/pages/order/order_commit/order_commit?img='
+    // });
+  },
   onTabsChange(e) {
     console.log(e.detail.value)
   },
-=======
-  data: {
-
+  /**返回对应商品 */
+  findGoods(goods,gid){
+    for(let i=0;i<goods.length;i++) {
+      if(goods[i]._id===gid) return goods[i]
+    }
   },
-
->>>>>>> main
   /**
-   * 生命周期函数--监听页面加载
+   * 获取所有的订单
    */
-  onLoad(options) {
-<<<<<<< HEAD
-    let {id} = options
-    console.log(id)
-    this.setData({
-      value:id
+  async onLoad(options) {
+    //1.获取用户的openid
+    let orders = await OrderList(wx.getStorageSync("users").openid)
+    console.log(orders)
+    let goods = orders.result.goods.data//商品信息
+    let orderList = orders.result.orders.list//所有的订单详情
+    console.log(goods,orderList)
+    orderList.forEach(item=>{
+      //具体的商品的所有订单
+      let orderItems = item.OrderList
+      orderItems.forEach(itm=>{
+        //单个商品的订单
+        let gid = itm.gid
+        itm.goods = this.findGoods(goods,gid)
+      })
     })
-    //获取所有的订单1类，然后分类5类
-=======
+    //最终的订单数据
 
->>>>>>> main
+    this.setData({
+      orderList
+    })
   },
 
   /**

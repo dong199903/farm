@@ -6,10 +6,6 @@
     "pages/usercenter/address/edit/index",
     "pages/ke/ke",
     "pages/usercenter/help/help",
-    "pages/goods/list/index",
-    "pages/goods/details/index",
-    "pages/goods/search/index",
-    "pages/goods/result/index",
     "pages/cart/index",
     "pages/category/category",
     "pages/list/list",
@@ -19,7 +15,9 @@
     "pages/ke/item/item",
     "pages/order/order",
     "pages/order/order_pay/order_pay",
-    "pages/pay/pay"
+    "pages/order/order_result/order_result",
+    "pages/goods/commit/commit",
+    "pages/order/order_commit/order_commit"
   ],
   "window": {
     "backgroundTextStyle": "light",

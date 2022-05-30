@@ -1,0 +1,41 @@
+/* pages/order/order_result/order_result.wxss */
+.box{
+  margin-top: 150rpx;
+}
+.info1{
+  justify-content: center;
+  display: flex;
+
+}
+.info1 view{
+  margin: 0 15rpx;
+}
+.info1>view:last-child{
+  font-size: 45rpx;
+  position: relative;
+  top: 10rpx;
+}
+.info2{
+  text-align: center;
+  margin-top: 50rpx;
+  font-size: 35rpx;
+}
+.info2 text{
+  font-size: 40rpx;
+  color: #fa4126;
+}
+.info3{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60rpx;
+}
+.info3>view{
+  width: 280rpx;
+  line-height: 40rpx;
+  border:1rpx solid #fa4126;
+  padding: 20rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  color:#fa4126;
+  font-size: 32rpx;
+}

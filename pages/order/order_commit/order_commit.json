@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header":"/components/header/index",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-button-group": "tdesign-miniprogram/button-group/button-group",
+    "t-input": "tdesign-miniprogram/input/input"
+  }
+}

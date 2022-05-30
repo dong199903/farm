@@ -6,6 +6,16 @@ Page({
     loading: true,
     good: {}
   },
+  /**分享按钮点击 */
+  onShareAppMessage(e){
+    console.log("分享按钮点击",e)
+  },
+  /**跳转评论页面 */
+  goCommit(){
+    wx.navigateTo({
+      url:"/pages/goods/commit/commit"
+    })
+  },
   handleCartAdd: function () {
     // 1. 获取当前good对象
     let goodsObj = this.data.good

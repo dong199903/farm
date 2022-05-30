@@ -1,10 +1,12 @@
 .cart_item{
   display: flex;
+  margin-bottom: 30rpx;
 
 }
 .info image{
   width: 200rpx;
   height: 180rpx;
+  margin-right: 20rpx;
 }
 .info{
   flex:1;
@@ -13,6 +15,10 @@
 .other{
   display: flex;
   justify-content: space-between;
+  margin-top: 15rpx;
+}
+.other text{
+  color: #fa4126;
 }
 .info>view{
   flex: 1;
@@ -42,4 +48,14 @@
   background-color: #fa4126;
   color:#fff;
   border-radius: 20rpx;
+}
+.title{
+  font-size: 32rpx;
+}
+.desc{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  font-size: 30rpx;
 }

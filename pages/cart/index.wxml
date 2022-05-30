@@ -5,11 +5,11 @@
     <view class="info">
       <image  src="{{item.imgs[0]}}" ></image>
       <view>
-        <view>{{item.title}}</view>
-        <view>{{item.desc}}</view>
+        <view class="title">{{item.title}}</view>
+        <view class="desc">{{item.desc}}</view>
         <view class="other">
           <text >￥{{item.price}}</text>
-          <view><t-stepper data-index="{{index}}" bind:change="handleChange" defaultValue="{{item.count}}" step="1" /></view>
+          <view><t-stepper data-index="{{index}}" bind:change="handleChange" value="{{item.count}}" step="1" /></view>
         </view>
       </view>
     </view>
@@ -18,7 +18,7 @@
 
 <view class="control">
   <view><view><t-radio checked="{{allChecked}}" bind:change="selectAll" label="全选"/></view><view>￥{{totalPrice}}</view></view>
-  <view>去结算</view>
+  <view bindtap="skipToPay">去结算</view>
 </view>
 <!-- <view class="container">
   <view class="goodslist">

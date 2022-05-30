@@ -12,7 +12,7 @@
 </view>
 
 <view class="goods_show">
-  <goods wx:for="{{goodsList}}" img="{{item.imgs[0]}}" wx:key="index" title="{{item.title}}" desc="{{item.desc}}" price="{{item.price}}" num="{{item.total}}"></goods>
+  <goods wx:for="{{goodsList}}" img="{{item.imgs[0]}}" wx:key="index" title="{{item.title}}" desc="{{item.desc}}" price="{{item.price}}" num="{{item.count}}"></goods>
   <view class="bot_info">
     <view><text>商品总额</text><view>￥{{sum}}</view></view>
     <view><text>运费</text><view>免运费</view></view>
