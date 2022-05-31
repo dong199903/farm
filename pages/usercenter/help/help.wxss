@@ -3,6 +3,9 @@
 .up{
   margin: 40rpx 0;
 }
+.container{
+  padding: 0 30rpx;
+}
 textarea{
   margin-top: 20rpx;
   width: 100%;

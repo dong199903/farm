@@ -1,4 +1,7 @@
 /* pages/ke/item/item.wxss */
+.container{
+  padding: 0 30rpx;
+}
 .title{
   font-size: 44rpx;
   font-weight: bold;

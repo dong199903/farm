@@ -1,6 +1,8 @@
 
 <header title="地址" statue="1"></header>
-<!--展示所有地址,遍历取出来-->
+
+<view class="container">
+  <!--展示所有地址,遍历取出来-->
 <view class="empty" wx:if="{{!address.length}}">暂无收货地址，赶快添加吧</view>
 
 <view class="address-box">
@@ -17,4 +19,5 @@
 <view class="bottom-address">
   <view bindtap="wechatAdd"><text class="iconfont icon-weixin"></text>微信地址导入</view>
   <view bindtap="createAddr"><text class="iconfont icon-jia"></text>新建收货地址</view>
+</view>
 </view>

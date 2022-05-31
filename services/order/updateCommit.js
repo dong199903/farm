@@ -1,15 +1,12 @@
 /**
- * 发布评论
+ * 更新评论状态
  */
- export default function(info){
+ export default function(_id){
   return new Promise((resolve,reject)=>{
     wx.cloud.callFunction({
-      name:'addCommit',
+      name:'updateCommit',
       data:{
-        openid:info.openid,
-        value:info.value,
-        time:Date.now(),
-        gid:info.gid
+        _id
       }
     }).then(msg=>{
       resolve(msg)

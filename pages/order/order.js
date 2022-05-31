@@ -2,6 +2,7 @@
 import OrderList from "./../../services/order/getOrderList"
 Page({
   data: {
+    loading:true,
     value:"1",
     tarbars:[
       {value:"1",content:"全部"},
@@ -15,10 +16,16 @@ Page({
   /**跳转评价 */
   goCommit(e){
     //图片，标题，描述
-    
-    // wx.navigateTo({
-    //   url: '/pages/order/order_commit/order_commit?img='
-    // });
+    let index1 = e.currentTarget.dataset.index1
+    let index2 = e.currentTarget.dataset.index2
+    console.log(index1,index2)
+    //获取对应商品信息
+    console.log(this.data.orderList)
+    let gid = this.data.orderList[index1].OrderList[index2].gid
+    let id = this.data.orderList[index1].OrderList[index2]._id
+    wx.navigateTo({
+      url: '/pages/order/order_commit/order_commit?gid='+gid+"&id="+id
+    });
   },
   onTabsChange(e) {
     console.log(e.detail.value)
@@ -32,7 +39,7 @@ Page({
   /**
    * 获取所有的订单
    */
-  async onLoad(options) {
+  async onShow(options) {
     //1.获取用户的openid
     let orders = await OrderList(wx.getStorageSync("users").openid)
     console.log(orders)
@@ -51,7 +58,8 @@ Page({
     //最终的订单数据
 
     this.setData({
-      orderList
+      orderList,
+      loading:false
     })
   },
 
@@ -62,12 +70,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

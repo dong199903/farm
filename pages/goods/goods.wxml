@@ -14,17 +14,17 @@
         <text>满减</text><text>满减</text><text>满减</text><text>满减</text>
       </view>
    </view>
-    <view class="bao3"><view>{{good.title}}{{good.desc}}</view><button open-type="share"><view class="iconfont icon-fenxiang"></view><view>分享</view></button></view>
+    <view class="bao3"><view>{{good.title}}{{good.desc}}</view><button open-type="share"><view class="iconfont icon-fenxiang"></view></button></view>
   </view>
 
   <!--商品评价--->
   <view class="other">
     <view class="commit_top"><view>商品评价</view><view bindtap="goCommit">97%好评<text class="iconfont icon-youjiantou1"></text></view></view>
     <view class="commit_author">
-      <image src="./../../style/images/add1.png"></image>
-      <text>董泽鹏</text>
+      <image src="{{commit.userInfo[0].userInfo.avatarUrl}}"></image>
+      <text>{{commit.userInfo[0].userInfo.nickName}}</text>
     </view>
-    <view class="commit_info">收到货了，第一时间试了一下，很漂亮特别喜欢，大爱大爱，颜色也很好看。棒棒!</view>
+    <view class="commit_info">{{commit.value}}</view>
   </view>
 </view>
  

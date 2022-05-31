@@ -1,15 +1,13 @@
+
 /**
- * 发布评论
+ * 获取对应商品的所有评论
  */
- export default function(info){
+ export default function(gid){
   return new Promise((resolve,reject)=>{
     wx.cloud.callFunction({
-      name:'addCommit',
+      name:'getCommentAll',
       data:{
-        openid:info.openid,
-        value:info.value,
-        time:Date.now(),
-        gid:info.gid
+        gid
       }
     }).then(msg=>{
       resolve(msg)

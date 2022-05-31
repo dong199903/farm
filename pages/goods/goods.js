@@ -1,6 +1,6 @@
 // pages/goods/goods.js
 import getGoodsInfo from "./../../services/goods/goodsItem"
-
+import getCommitOne from "./../../services/comment/getCommentOne"
 Page({
   data: {
     loading: true,
@@ -13,7 +13,7 @@ Page({
   /**跳转评论页面 */
   goCommit(){
     wx.navigateTo({
-      url:"/pages/goods/commit/commit"
+      url:"/pages/goods/commit/commit?gid="+this.data.gid
     })
   },
   handleCartAdd: function () {
@@ -62,10 +62,14 @@ Page({
     } = options
     let info = await getGoodsInfo(id)
     console.log(info.result.data[0]);
+    let commitOne = await getCommitOne(id)
+    console.log(commitOne)
     //获取商品信息
     this.setData({
       good: info.result.data[0],
-      loading: false
+      loading: false,
+      gid:id,
+      commit:commitOne.result.list[0]
     })
   },
 })

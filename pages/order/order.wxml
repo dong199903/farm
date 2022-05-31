@@ -1,20 +1,23 @@
 <!--pages/order/order.wxml-->
 <header statue="{{1}}" title="我的订单"></header>
 
-
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
 <t-tabs defaultValue="{{value}}" bind:change="onTabsChange">
   <t-tab-panel wx:for="{{tarbars}}" wx:key="idnex" label="{{item.content}}" value="{{item.value}}">
-    <view class="box" wx:for="{{orderList}}" wx:key="index"  wx:for-item="itm">
+    <view class="box" wx:for="{{orderList}}" wx:for-index="index1" wx:key="index"  wx:for-item="itm">
       <view class="nav_title">
         <view>订单号：{{itm._id}}</view>
       </view>
-      <view class="content" wx:for="{{itm.OrderList}}" wx:for-item="itm2">
+      <view class="content" wx:for="{{itm.OrderList}}" wx:for-index="index2" wx:for-item="itm2">
         <image src="{{itm2.goods.imgs[0]}}"></image>
         <view class="content_info">
           <view>
             <view>{{itm2.goods.title}}</view>
             <view class="desc">{{itm2.goods.desc}}</view>
-            <view bindtap="goCommit" class="commit" wx:if="{{!itm2.commit}}">评价</view>
+            <view data-index1="{{index1}}" data-index2="{{index2}}" bindtap="goCommit" class="commit" wx:if="{{!itm2.commit}}">评价</view>
           </view>
           <view>
             <view class="price">￥{{itm2.goods.price}}</view>

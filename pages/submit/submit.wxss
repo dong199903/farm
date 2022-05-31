@@ -2,6 +2,9 @@
 page{
   background-color: #fff;
 }
+.container{
+  padding: 0 30rpx;
+}
 .t-input{
   background-color: #fff !important;
   border: none;

@@ -1,51 +1,54 @@
 <header title="农课堂"></header>
-<div class="image_box">
-  <image src="cloud://www-9gbp0av65043db23.7777-www-9gbp0av65043db23-1306553801/farm/6037feb8beabbc3850b5293c153adbe.png" >  </image>
-</div>
-
-<t-swiper t-class="swiper-wrap" current="{{current}}" bindchange="onChange" navigation>
-  <t-swiper-item wx:for="{{notices}}" wx:key="key">
-    <view class="swiper_item"><text class="iconfont icon-tongzhi"></text>{{item.info}}</view>
-  </t-swiper-item>
-</t-swiper>
-<!--loading加载-->
-<view class="loading" hover-class="none" hover-stop-propagation="false">
-  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
-</view>
-<view class="hui">
-  <view class="title">惠农政策</view>
-  <view class="hui_box" wx:for="{{policy}}" wx:key="key">
-    <view class="item" bindtap="write" data-id="{{item._id}}">
-      <view>{{item.title}}</view>
-      <view>
-        <view>{{item.author}}</view><view>{{item.time}}</view>
-      </view>
-    </view>
+<view class="container">
+  <view class="image_box">
+    <image src="cloud://www-9gbp0av65043db23.7777-www-9gbp0av65043db23-1306553801/farm/6037feb8beabbc3850b5293c153adbe.png" >  </image>
   </view>
-</view>
-
-<view class="histrory">
-  <view class="title">致富故事</view>
-  <view class="histrory_box" wx:for="{{story}}" wx:key="key">
-    <view class="item" bindtap="write" data-id="{{item._id}}">
-      <image src="{{item.img}}"></image>
-      <view class="other" >
-        <view class="title" >
-          {{item.title}}
+  
+  <t-swiper t-class="swiper-wrap" current="{{current}}" bindchange="onChange" navigation>
+    <t-swiper-item wx:for="{{notices}}" wx:key="key">
+      <view class="swiper_item"><text class="iconfont icon-tongzhi"></text>{{item.info}}</view>
+    </t-swiper-item>
+  </t-swiper>
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+  </view>
+  <view class="hui">
+    <view class="title">惠农政策</view>
+    <view class="hui_box" wx:for="{{policy}}" wx:key="key">
+      <view class="item" bindtap="write" data-id="{{item._id}}">
+        <view>{{item.title}}</view>
+        <view>
+          <view>{{item.author}}</view><view>{{item.time}}</view>
         </view>
       </view>
     </view>
   </view>
-</view>
-
-<view class="example">
-  <view class="title">农业学堂</view>
-  <view class="example_box" wx:for="{{school}}" wx:key="key">
-    <view class="item" bindtap="write" data-id="{{item._id}}">
-      <view class="title">{{item.title}}</view>
-      <view class="imgs" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="itemImg">
-        <image src="{{itemImg}}"></image>
+  
+  <view class="histrory">
+    <view class="title">致富故事</view>
+    <view class="histrory_box" wx:for="{{story}}" wx:key="key">
+      <view class="item" bindtap="write" data-id="{{item._id}}">
+        <image src="{{item.img}}"></image>
+        <view class="other" >
+          <view class="title" >
+            {{item.title}}
+          </view>
+        </view>
       </view>
     </view>
   </view>
+  
+  <view class="example">
+    <view class="title">农业学堂</view>
+    <view class="example_box" wx:for="{{school}}" wx:key="key">
+      <view class="item" bindtap="write" data-id="{{item._id}}">
+        <view class="title">{{item.title}}</view>
+        <view class="imgs" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="itemImg">
+          <image src="{{itemImg}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  
 </view>

@@ -7,6 +7,7 @@ page{
   padding-bottom: 200rpx;
   
 }
+
 .info{
   margin-bottom: 20rpx;
 }
@@ -53,10 +54,6 @@ button{
   border-radius: 0;
   background: transparent;
   padding-left: 80rpx;
-}
-
-.bao3 button view{
-  font-size: 30rpx;
 }
 .bao3 button>view:first-child{
   position: relative;
@@ -171,4 +168,13 @@ button{
 }
 .detail image{
   margin-bottom: 20rpx;
+}
+video{
+  width: 100%;
+  margin: 0 auto;
+}
+.icon-fenxiang{
+  font-size: 45rpx;
+  position: relative;
+  bottom: 20rpx;
 }

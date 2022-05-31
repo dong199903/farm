@@ -1,10 +1,14 @@
 /**index.wxss**/
+page{
+  padding-left: 0;
+  padding-right: 0;
+}
 .container {
-  background-color: #f5f5f5;
   min-height: 100%;
   align-items: stretch;
   overflow-x: hidden;
   position: relative;
+  padding: 0 30rpx;
 }
 
 /* 搜索框样式 */

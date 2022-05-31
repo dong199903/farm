@@ -4,7 +4,9 @@
 -->
 <!--pages/usercenter/help/help.wxml-->
 <header title="帮助中心" statue="1"></header>
-<view>问题描述</view>
+
+<view class="container">
+  <view>问题描述</view>
 <textarea placeholder='请填写...' 	bindblur='getInfo'></textarea>
 <view class="up">上传凭证</view>
 
@@ -23,3 +25,6 @@
 <view bindtap="submit" class="submit">提交</view>
 
 <t-dialog id="t-dialog" />
+</view>
+
+

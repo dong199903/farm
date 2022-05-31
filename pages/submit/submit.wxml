@@ -8,88 +8,91 @@
 -->
 <!--pages/submit/submit.wxml-->
 <header title="发布商品"></header>
-<view class="title">
-  <view>商品标题</view>
-  <t-input bindblur="getTitle" value="{{title}}" placeholder="请输入文字" />
-</view>
-
-<view class="desc">
-  <view>商品详细描述</view>
-  <t-input bindblur="getDesc" value="{{desc}}"  placeholder="货品描述请严格遵守相关规定" />
-</view>
-
-<view class="phone">
-  <view >货品主图</view>
-  <view class="warning">请上传图片完整清晰不变形的图片</view>
-  <t-upload
-  media-type="{{['image']}}"
-  bind:remove="handleRemove"
-  bind:success="imgSuccess"
-  files="{{originFiles}}"
-  gridConfig="{{gridConfig}}"
-  max="3"
-/>
- <view class="imgShow" wx:if="{{imgs.length}}">
-   <image class="" src="{{item.url}}" wx:for="{{imgs}}" wx:key="index">
-    <i class="iconfont icon-cuowuguanbiquxiao" data-index="{{index}}" bindtap="cacelImg"></i>
-   </image>
-   
- </view>
-</view>
-
-<view class="video">
-  <view >货品视频</view>
-  <view class="warning">请上传清晰完整的视频</view>
-  <t-upload
-  media-type="{{['video']}}"
-  bind:remove="remove"
-  bind:success="videoSucces"
-  files="{{originFiles}}"
-  gridConfig="{{gridConfig}}"
-  max="1"
-/>
-
-
- <view class="videoShow" wx:if="{{video}}">
-   <video src="{{video}}" show-center-play-btn='{{false}}' 
-   show-play-btn="{{true}}" 
-   controls></video>
-   <i bindtap="cancelVideo" class="iconfont icon-cuowuguanbiquxiao"></i>
- </view>
-</view>
-
-<!--loading加载-->
-<view class="loading" hover-class="none" hover-stop-propagation="false">
-  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
-</view>
-
-<view>
-  <t-input bindblur="getPrice" value="{{price}}" label="货品价格" placeholder="请输入文字" />
-</view>
-
-<view>
-  <t-input bindblur="getNum" value="{{num}}" label="货品库存量" placeholder="请输入文字" />
-</view>
-
-<view bindtap="choiceSort">
-  <t-input  value="{{sValue}}" label="货品分类" placeholder="请选择分类" disabled="{{true}}" />
-</view>
+<view class="container">
+  <view class="title">
+    <view>商品标题</view>
+    <t-input bindblur="getTitle" value="{{title}}" placeholder="请输入文字" />
+  </view>
   
-
-<view class="add" >
-  <t-input  bindblur='getAddress' value='{{address}}' label="发货地址" placeholder="请选择发货地址" />
-  <text bindtap="map" class="iconfont icon-daohangdizhi"></text>
-</view>
-
-
-<view>
-  <t-action-sheet id="t-action-sheet-slot" visible="{{visible}}" bind:selected="onSelect" bind:cancel="onCancel" bind:close="onClose"  bind:visible-change="onVisibleChange">
-    <view bindtap="choiceRes" class="slot-wrap" data-id="{{index}}" wx:for="{{sorts}}" wx:key="index">{{item.name}}</view>
+  <view class="desc">
+    <view>商品详细描述</view>
+    <t-input bindblur="getDesc" value="{{desc}}"  placeholder="货品描述请严格遵守相关规定" />
+  </view>
+  
+  <view class="phone">
+    <view >货品主图</view>
+    <view class="warning">请上传图片完整清晰不变形的图片</view>
+    <t-upload
+    media-type="{{['image']}}"
+    bind:remove="handleRemove"
+    bind:success="imgSuccess"
+    files="{{originFiles}}"
+    gridConfig="{{gridConfig}}"
+    max="3"
+  />
+   <view class="imgShow" wx:if="{{imgs.length}}">
+     <image class="" src="{{item.url}}" wx:for="{{imgs}}" wx:key="index">
+      <i class="iconfont icon-cuowuguanbiquxiao" data-index="{{index}}" bindtap="cacelImg"></i>
+     </image>
+     
+   </view>
+  </view>
+  
+  <view class="video">
+    <view >货品视频</view>
+    <view class="warning">请上传清晰完整的视频</view>
+    <t-upload
+    media-type="{{['video']}}"
+    bind:remove="remove"
+    bind:success="videoSucces"
+    files="{{originFiles}}"
+    gridConfig="{{gridConfig}}"
+    max="1"
+  />
+  
+  
+   <view class="videoShow" wx:if="{{video}}">
+     <video src="{{video}}" show-center-play-btn='{{false}}' 
+     show-play-btn="{{true}}" 
+     controls></video>
+     <i bindtap="cancelVideo" class="iconfont icon-cuowuguanbiquxiao"></i>
+   </view>
+  </view>
+  
+  <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+  </view>
+  
+  <view>
+    <t-input bindblur="getPrice" value="{{price}}" label="货品价格" placeholder="请输入文字" />
+  </view>
+  
+  <view>
+    <t-input bindblur="getNum" value="{{num}}" label="货品库存量" placeholder="请输入文字" />
+  </view>
+  
+  <view bindtap="choiceSort">
+    <t-input  value="{{sValue}}" label="货品分类" placeholder="请选择分类" disabled="{{true}}" />
+  </view>
     
-  </t-action-sheet>
+  
+  <view class="add" >
+    <t-input  bindblur='getAddress' value='{{address}}' label="发货地址" placeholder="请选择发货地址" />
+    <text bindtap="map" class="iconfont icon-daohangdizhi"></text>
+  </view>
+  
+  
+  <view>
+    <t-action-sheet id="t-action-sheet-slot" visible="{{visible}}" bind:selected="onSelect" bind:cancel="onCancel" bind:close="onClose"  bind:visible-change="onVisibleChange">
+      <view bindtap="choiceRes" class="slot-wrap" data-id="{{index}}" wx:for="{{sorts}}" wx:key="index">{{item.name}}</view>
+      
+    </t-action-sheet>
+  </view>
+  
+  <t-button bindtap="submit" block="true" theme="primary" size="large">发布商品</t-button>
+  
+  <t-dialog visible="{{window}}" title="发布成功" confirm-btn="确定" bind:confirm="confirmHandle"> </t-dialog>
+  
+  
 </view>
-
-<t-button bindtap="submit" block="true" theme="primary" size="large">发布商品</t-button>
-
-<t-dialog visible="{{window}}" title="发布成功" confirm-btn="确定" bind:confirm="confirmHandle"> </t-dialog>
-

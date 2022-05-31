@@ -1,7 +1,9 @@
 .cart_item{
   display: flex;
   margin-bottom: 30rpx;
-
+}
+.container{
+  padding: 0 30rpx;
 }
 .info image{
   width: 200rpx;

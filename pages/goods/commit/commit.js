@@ -1,18 +1,35 @@
 // pages/goods/commit/commit.js
+import getComments from "./../../../services/comment/getCommentAll"
+import timeDeal from "./../../../utils/timeDeal"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    loading: false
+    loading: true
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 获取对应商品的所有评论+个人信息
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    const {gid} = options
+    console.log(gid)
+    //加载所有评论
+    let info = await getComments(gid)
+    console.log(info)
+    let infos = info.result.list
+    //处理所有的时间
+    infos.forEach(item=>{
+      let {year,month,day,hour,minutes} = timeDeal(item.time)
+      item.time = `${year}/${month}/${day} ${hour}:${minutes}`
+    })
+    console.log(infos)
+    this.setData({
+      commit:infos,
+      loading:false
+    })
   },
 
   /**

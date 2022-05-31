@@ -5,6 +5,7 @@
   align-items: stretch;
   overflow-x: hidden;
   position: relative;
+  padding: 0 30rpx;
 }
 
 .search {

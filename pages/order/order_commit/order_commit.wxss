@@ -8,3 +8,26 @@ textarea{
   bottom: 0;
   left: 0;
 }
+.goods_info{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.goods_info>view:first-child{
+  width: 200rpx;
+  margin-right: 15rpx;
+}
+.title{
+  font-size: 30rpx;
+}
+.desc{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  font-size: 30rpx;
+}
+image{
+  width: 200rpx!important;
+  height: 180rpx;
+}

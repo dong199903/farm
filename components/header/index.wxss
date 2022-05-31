@@ -3,8 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50rpx;
-  
+  margin-bottom: 20rpx;
+  background-color: #39bf3e;
+  padding-bottom: 15rpx;
 }
 .app-header1 text{
   font-size: 40rpx;
@@ -16,6 +17,7 @@
 .app-header2{
   padding-top: 80rpx!important;
   text-align: center;
-  margin-bottom: 50rpx;
-  
+  margin-bottom: 20rpx;
+  background-color: #39bf3e;
+  padding-bottom: 15rpx;
 }
