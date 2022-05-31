@@ -13,6 +13,14 @@ Page({
       loading: false
     })
   },
+  /**查看具体的商品 */
+  getGoods(e){
+    let _id = e.currentTarget.dataset.id
+    console.log(_id)
+    wx.navigateTo({
+      url:"/pages/goods/goods?id="+_id
+    })
+  },
   skipToSearch(){
     wx.navigateTo({
       url: '/pages/search/search',

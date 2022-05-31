@@ -15,6 +15,14 @@ Page({
     goodsList: [],
     showList: [],
   },
+  /**获取商品的信息 */
+  getGoods(e){
+    let _id = e.currentTarget.dataset.id
+    console.log(_id)
+    wx.navigateTo({
+      url:"/pages/goods/goods?id="+_id
+    })
+  },
   changeGoodsShow: function () {
     let temp = []
     if (this.data.index1 == 0 && this.data.index2 == 0) {

@@ -6,27 +6,75 @@ Page({
   },
   /**我的地址 */
   address(){
-    wx.navigateTo({
-      url: './address/list/index'
-    });
+    if(!app.globalData.userInfo) {
+      //提示进行登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false
+      });
+    } else {
+      wx.navigateTo({
+        url: './address/list/index'
+      });
+    } 
+    
   },
   /**农业入驻 */
   farm(){
-    wx.reLaunch({
-      url: '/pages/submit/submit'
-    })
+    if(!app.globalData.userInfo) {
+      //提示进行登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false
+      });
+    } else {
+      wx.reLaunch({
+        url: '/pages/submit/submit'
+      })
+    }
+    
   },
-  /**注册宣传 */
+  /**政策宣传 */
   zhengce(){
-    wx.reLaunch({
-      url: '/pages/ke/ke'
-    })
+    if(!app.globalData.userInfo) {
+      //提示进行登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false
+      });
+    } else {
+      wx.reLaunch({
+        url: '/pages/ke/ke'
+      })
+    }
+    
   },
   /**帮助中心 */
   help(){
-    wx.navigateTo({
-      url: './help/help'
-    });
+    if(!app.globalData.userInfo) {
+      //提示进行登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false
+      });
+    } else {
+      wx.navigateTo({
+        url: './help/help'
+      });
+    }
+    
   },
   /**电话热线 */
   chat(){
@@ -36,9 +84,21 @@ Page({
   },
   /**跳转订单页面 */
   goOrder(e){
-    wx.navigateTo({
-      url:"./../order/order?id="+e.currentTarget.dataset.id+"&title="+e.currentTarget.dataset.title
-    })
+    if(!app.globalData.userInfo) {
+      //提示进行登录
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false
+      });
+    } else {
+      wx.navigateTo({
+        url:"./../order/order?id="+e.currentTarget.dataset.id+"&title="+e.currentTarget.dataset.title
+      })
+    }
+    
   },
   /**
    * 注销退出 
@@ -87,7 +147,6 @@ Page({
   /** 登录-注册 */
   login() {
     if(this.data?.quit) {
-      console.log("存在")
       //可以直接从缓存中获取用户信息
       let {userInfo} = wx.getStorageSync('users');
       app.globalData.userInfo = userInfo

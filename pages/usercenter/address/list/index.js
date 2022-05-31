@@ -6,7 +6,6 @@
  * 账户信息userinfo openid都保存在localstorage中
  * 
  */
-
 Page({
   /**保存收获地址的状态*/
   onLoad(option){

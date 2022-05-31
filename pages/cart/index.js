@@ -1,4 +1,5 @@
 // pages/cart/index.js
+let app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -12,6 +13,11 @@ Page({
    * 获取购物车数据
    */
   onShow() {
+    if(!app.globalData.userInfo) {
+      wx.reLaunch({
+        url: '/pages/usercenter/index',
+      })
+    }
     let goodsList = wx.getStorageSync("cart") || [];
     //判断全局状态和全局金钱
     let tmp = true

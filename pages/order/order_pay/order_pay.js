@@ -19,9 +19,8 @@ Page({
     console.log("onload")
     const gid = options?.gid
     //获取收获地址信息
-    let addr = wx.getStorageSync("goods_address");
+    
     this.setData({
-      addr,
       gid
     })
     //商品的直接购买
@@ -53,6 +52,14 @@ Page({
     this.setData({
       sum,
       count
+    })
+  },
+
+  /**处理地址 */
+  onShow(){
+    let addr = wx.getStorageSync("goods_address");
+    this.setData({
+      addr
     })
   },
   /**发布订阅消息 */

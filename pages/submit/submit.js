@@ -5,8 +5,17 @@
 // pages/submit/submit.js
 import sortAll from "./../../services/sort/index"
 import sub from "./../../services/goods/subGoods"
+const app = getApp()
 Page({
 
+  /**判断是登录 */
+  onShow(){
+    if(!app.globalData.userInfo) {
+      wx.reLaunch({
+        url: '/pages/usercenter/index',
+      })
+    }
+  },
   /**
    * 页面的初始数据
    */
