@@ -7,9 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loading:true
+    loading:true,statue:false//是否播放
   },
 
+  listen(){
+    if(this.data.statue) {
+      this.setData({
+        statue:false
+      })
+      this.pause()
+    } else {
+      this.setData({
+        statue:true
+      })
+      this.show()
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,54 +38,39 @@ Page({
       info:write,
       loading:false
     })
+    const innerAudioContext = wx.createInnerAudioContext()
+    innerAudioContext.autoplay = false
+    innerAudioContext.src = this.data.info.video
+    innerAudioContext.onPlay(()=>{
+      console.log("播放")
+    })
+    innerAudioContext.onPause(()=>{
+      console.log("暂停")
+    })
+    this.setData({
+      audio:innerAudioContext
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  /**播放*/
+  show(){
+    this.data.audio.play()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  /**暂停 */
+  pause(){
+    this.data.audio.pause()
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-
+   onHide() {
+    console.log("页面隐藏")
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 页面退出时，暂停语音
    */
   onUnload() {
-
+    this.data.audio.pause()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

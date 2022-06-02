@@ -20,6 +20,7 @@
     <view class="" >
       {{info.time}}
     </view>
+    <view class="audio"><text wx:if="{{!statue}}" class="iconfont icon-bofang" bindtap="listen"></text><text wx:else class="iconfont icon-zanting" bindtap="listen"></text>听语音</view>
   </view>
 </view>
 

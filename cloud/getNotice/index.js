@@ -11,5 +11,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
-  return await db.collection('farm_notice').get()
+  return Promise.all([db.collection('farm_notice').get(),db.collection("farm_write").orderBy("_updateTime","desc").where({
+    hot:true
+  }).limit(20).get()])
 }

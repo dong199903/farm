@@ -16,7 +16,8 @@
     "pages/order/order_pay/order_pay",
     "pages/order/order_result/order_result",
     "pages/goods/commit/commit",
-    "pages/order/order_commit/order_commit"
+    "pages/order/order_commit/order_commit",
+    "pages/ke/ke_search/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -40,7 +41,7 @@
       },
       {
         "pagePath": "pages/ke/ke",
-        "text": "农政策",
+        "text": "农学堂",
         "iconPath": "./style/images/class1.png",
         "selectedIconPath": "./style/images/class2.png"
       },
