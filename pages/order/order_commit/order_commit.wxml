@@ -1,15 +1,22 @@
 <header statue="1" title="商品评价"></header>
-<view class="goods_info">
-  <view><image  src="{{goods.imgs[0]}}"></image></view>
-  
-  <view>
-    <view class="title">{{goods.title}}</view>
-    <view class="desc">{{goods.desc}}</view>
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
+<view class="container">
+  <view class="goods_info">
+    <view><image  src="{{goods.imgs[0]}}"></image></view>
+    
+    <view>
+      <view class="title">{{goods.title}}</view>
+      <view class="desc">{{goods.desc}}</view>
+    </view>
   </view>
+  <textarea bindinput="getValue"></textarea>
+  <view class="sub">
+    <t-button theme="primary" bindtap="goCommit" size="large" block="{{true}}">提交</t-button>
+  </view>
+  
+  <t-dialog visible="{{show}}" title="评论成功" confirm-btn="返回" bind:confirm="confirmHandle"> </t-dialog>
+  
 </view>
-<textarea bindinput="getValue"></textarea>
-<view class="sub">
-  <t-button theme="primary" bindtap="goCommit" size="large" block="{{true}}">提交</t-button>
-</view>
-
-<t-dialog visible="{{show}}" title="评论成功" confirm-btn="返回" bind:confirm="confirmHandle"> </t-dialog>

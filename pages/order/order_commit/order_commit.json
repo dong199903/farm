@@ -4,6 +4,7 @@
     "t-button": "tdesign-miniprogram/button/button",
     "t-button-group": "tdesign-miniprogram/button-group/button-group",
     "t-input": "tdesign-miniprogram/input/input",
-    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-loading": "tdesign-miniprogram/loading/loading"
   }
 }

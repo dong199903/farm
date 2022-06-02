@@ -160,10 +160,17 @@ Page({
         desc: '微信授权',
         success: (res) => {
           console.log(res)
+          //保存全局数据
           app.globalData.userInfo = res.userInfo
           that.setData({
             userInfo: app.globalData.userInfo
           })
+          let obj = {}
+          obj.userInfo = res.userInfo
+          obj.openid = app.globalData.openid
+          //缓存用户信息
+          wx.setStorageSync("users", obj);
+          //注册到数据库
           Login(app.globalData.openid, app.globalData.userInfo)
         }
       })

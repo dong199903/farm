@@ -17,23 +17,22 @@ Page({
       wx.reLaunch({
         url: '/pages/usercenter/index',
       })
-    }
-    let goodsList = wx.getStorageSync("cart") || [];
-    //判断全局状态和全局金钱
-    let tmp = true
-    let sum = 0
-    for(let i=0;i<goodsList.length;i++) {
-      if(goodsList[i].checked===false) {
-        tmp = false
+    } else {
+      let goodsList = wx.getStorageSync("cart") || [];
+      //判断全局状态和全局金钱
+      let tmp = true
+      let sum = 0
+      for(let i=0;i<goodsList.length;i++) {
+        if(goodsList[i].checked===false) {
+          tmp = false
+        } else sum += goodsList[i].price
       }
-      sum += goodsList[i].price
+      this.setData({
+        goodsList,
+        allChecked:tmp,
+        totalPrice:sum
+      })
     }
-    
-    this.setData({
-      goodsList,
-      allChecked:tmp,
-      totalPrice:sum
-    })
   },
   // 更新缓存
   setCartStorage: function () {
@@ -152,16 +151,7 @@ Page({
     this.getTotalPrice();
   },
   
-  
-  // handleStepperChange: function (e) {
-  //   let index = e.detail.index
-  //   let goodsList = this.data.goodsList
-  //   console.log(goodsList);
-  //   goodsList[index].count = e.detail.value
-  //   this.setData({
-  //     goodsList: goodsList
-  //   })
-  // },
+
 
   /**结算页面跳转 */
   skipToPay: function () {

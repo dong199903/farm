@@ -75,6 +75,7 @@ Page({
     const {
       id
     } = options
+    console.log("商品id",id)
     let info = await getGoodsInfo(id)
     console.log(info.result.data[0]);
     let commitOne = await getCommitOne(id)

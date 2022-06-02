@@ -1,5 +1,5 @@
 <!--pages/category/category.wxml-->
-<header title="{{title}}" statue="1"></header>
+<header title="分类" statue="1"></header>
 
 <view class="container">
   <view class="search" bindtap="skipToSearch">

@@ -65,11 +65,11 @@
   </view>
   
   <view>
-    <t-input bindblur="getPrice" value="{{price}}" label="货品价格" placeholder="请输入文字" />
+    <t-input bindblur="getPrice" type="number" value="{{price}}" label="货品价格" placeholder="请输入文字" />
   </view>
   
   <view>
-    <t-input bindblur="getNum" value="{{num}}" label="货品库存量" placeholder="请输入文字" />
+    <t-input bindblur="getNum" type="number" value="{{num}}" label="货品库存量" placeholder="请输入文字" />
   </view>
   
   <view bindtap="choiceSort">
