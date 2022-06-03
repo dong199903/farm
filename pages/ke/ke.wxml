@@ -7,7 +7,7 @@
 <view class="container">
 
   <!--搜索框-->
-  <view class="search">
+  <view class="search" bindtap="goKeSearch">
     <text class="iconfont icon-sousuo"></text><text>搜索你需要的农技学堂内容</text>
   </view>
   <view class="image_box">

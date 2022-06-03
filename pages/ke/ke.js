@@ -23,7 +23,12 @@ Page({
     console.log(current, source)
   },
 
-
+  /**跳转搜索课堂界面 */
+  goKeSearch(){
+    wx.navigateTo({
+      url:"/pages/ke/ke_search/index"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
