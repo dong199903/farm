@@ -17,6 +17,12 @@ Page({
       url:"/pages/goods/commit/commit?gid="+this.data.gid
     })
   },
+  /**客服电话 */
+  phone() {
+    wx.makePhoneCall({
+      phoneNumber: this.data.good.phone
+    });
+  },
   handleCartAdd: function () {
     if(!app.globalData.userInfo) {
       wx.reLaunch({

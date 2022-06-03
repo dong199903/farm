@@ -37,13 +37,32 @@
    show-play-btn="{{true}}" 
    controls></video>
 </view>
+<!--顶部tabar-->
 <view class="bot" >
-  <view class="myButton" bindtap="handleCartAdd">
-    加入购物车
+  <view class="bot_left">
+    <view bindtap="phone">
+      <view class="iconfont icon-shouji"></view>
+      <view bindtap="phone">手机</view>
+    </view>
+    <button open-type="contact" class="slot-wrap">
+      <view class="iconfont icon-weixin"></view>
+      <view>微信</view>
+    </button>
+    <!-- <view>
+      <view class="iconfont icon-weixin"></view>
+      <view>微信</view>
+    </view> -->
   </view>
-  <view class="myButton" bindtap="buy" data-gid="{{good._id}}">
-    立即购买
+
+  <view class="bot_right">
+    <view class="myButton" bindtap="handleCartAdd">
+      加入购物车
+    </view>
+    <view class="myButton" bindtap="buy" data-gid="{{good._id}}">
+      立即购买
+    </view>
   </view>
+  
 </view>
 
  

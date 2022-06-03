@@ -1,9 +1,14 @@
 <header title="首页"></header>
 <view class="container">
   <!-- 1. 搜索 -->
-  <view class="search" bindtap="skipToSearch">
-    <text class="txt">搜索，发现更多好物</text>
-  </view>
+  <view class="search_header">
+    <view class="search" bindtap="skipToSearch">
+      <text class="txt">搜索，发现更多好物</text>
+    </view>
+
+    <text class="address" wx:if="{{location}}">{{location}}</text>
+</view>
+  
   <!-- 2. 轮播图 -->
   <view class='banner-wrap'>
     <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000">

@@ -12,17 +12,26 @@ page{
 }
 
 /* 搜索框样式 */
-
+.search_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.address{
+  font-size: 32rpx;
+  margin-left: 10rpx;
+}
 .search {
   height: 80rpx;
-  width: 100%;
+  flex: 1;
   padding: 0 24rpx;
   background: #f3f3f3;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  margin-bottom: 30rpx;
+  
   border-radius: 30rpx;
   border:1rpx solid #ccc;
 }

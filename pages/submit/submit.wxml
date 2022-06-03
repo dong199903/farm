@@ -82,6 +82,9 @@
     <text bindtap="map" class="iconfont icon-daohangdizhi"></text>
   </view>
   
+  <view>
+    <t-input bindblur="getPhone" type="number" value="{{phone}}" label="联系方式" placeholder="请输入手机号" />
+  </view>
   
   <view>
     <t-action-sheet id="t-action-sheet-slot" visible="{{visible}}" bind:selected="onSelect" bind:cancel="onCancel" bind:close="onClose"  bind:visible-change="onVisibleChange">

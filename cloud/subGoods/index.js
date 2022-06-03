@@ -10,11 +10,11 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const {title,address,desc,price,imgs,video,sid,num} = event
+  const {title,address,desc,price,imgs,video,sid,num,phone} = event
   return await db.collection("farm_goods").add({
     data:{
       title,
-      address,desc,price,imgs,video,sid,num,hot:true,show:true
+      address,desc,price,imgs,video,sid,num,hot:true,show:true,phone
     }
   })
 }

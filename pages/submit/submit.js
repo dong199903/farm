@@ -56,7 +56,8 @@ Page({
       title:"",
       desc:"",
       price:"",
-      num:""
+      num:"",
+      phone:""
     })
   },
   /**上传临时图片 */
@@ -143,6 +144,13 @@ Page({
       }
     })
   },
+  /**获取手机号 */
+  getPhone(e){
+    let value = e.detail.value
+    this.setData({
+      phone:parseInt(value)
+    })
+  },
   /**
    * 
    * 选择分类数据
@@ -201,14 +209,16 @@ Page({
       return {statue:404,msg:"图片不能是空"}
     if(!obj.video)
       return {statue:404,msg:"视频不能是空"}
-    if(!obj.price)
-      return {statue:404,msg:"价格不能是空"}
-    if(!obj.num)
-      return {statue:404,msg:"数量不能是空"}
+    if(!obj.price || isNaN(obj.price))
+      return {statue:404,msg:"价格格式错误"}
+    if(!obj.num || isNaN(obj.num))
+      return {statue:404,msg:"数量格式错误"}
     if(!obj.sid)
       return {statue:404,msg:"分类不能是空"}
     if(!obj.address)
       return {statue:404,msg:"地址不能是空"}
+    if(!obj.phone || isNaN(obj.phone) || String(obj.phone).length!==11)
+      return {statue:404,msg:"手机格式错误"}
     return {statue:200,msg:"信息成功"}
   },
   /**发布信息 */
@@ -225,7 +235,8 @@ Page({
     let price = this.data.price
     let num = this.data.num
     let sid = this.data.sorts[this.data.sIndex]?._id
-    let checkInfo = this.check({title,desc,address,imgs,video,price,num,sid})
+    let phone = this.data.phone+""
+    let checkInfo = this.check({title,desc,address,imgs,video,price,num,sid,phone})
     console.log(checkInfo)
     if(checkInfo.statue===404) {
       wx.showToast({
@@ -242,7 +253,7 @@ Page({
     } else {
       //信息合格
       let goods = {
-        title,desc,address,imgs,video,price,sid,num
+        title,desc,address,imgs,video,price,sid,num,phone
       }
       //1.上传图片和视频
       imgs = await this.uploadImgToDatabase(imgs)
@@ -264,7 +275,8 @@ Page({
         imgs:[],
         video:"",
         sValue:"",
-        desc:""
+        desc:"",
+        phone:""
       })
     }
     
