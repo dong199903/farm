@@ -1,0 +1,48 @@
+<header title="问答" statue="1"></header>
+<view class="container">
+    <!--loading加载-->
+  <view class="loading" hover-class="none" hover-stop-propagation="false">
+    <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+  </view>
+
+  <!--问答列表-->
+  <view class="answer">
+    <view>
+      <view class="wen">问</view>
+      <view>如何更好的面对植物死亡</view>
+    </view>
+
+    <view>
+      <view class="da">答</view>
+      <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
+    </view>
+  </view>
+
+  <view class="answer">
+    <view>
+      <view class="wen">问</view>
+      <view>如何更好的面对植物死亡</view>
+    </view>
+
+    <view>
+      <view class="da">答</view>
+      <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
+    </view>
+  </view>
+</view>
+
+
+<!--发布问题提示-->
+<view class="subQuestion" bindtap="subShow">
+  我要提问
+</view>
+
+<!--发布问题输入框-->
+<t-popup
+  visible="{{subBox}}" placement="bottom" >
+  <view class="request">
+    <view><t-input label="问题" placeholder="请输入文字" value="{{value}}" bindchange="input" /></view>
+    <view class="sub" bindtap="subQues">发布问题</view>
+    <view class="close" bindtap="closeSub">x</view>
+  </view>
+</t-popup>

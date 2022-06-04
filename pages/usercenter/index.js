@@ -161,6 +161,7 @@ Page({
         success: (res) => {
           console.log(res)
           //保存全局数据
+          res.userInfo.expert = false
           app.globalData.userInfo = res.userInfo
           that.setData({
             userInfo: app.globalData.userInfo

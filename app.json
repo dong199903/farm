@@ -17,7 +17,8 @@
     "pages/order/order_result/order_result",
     "pages/goods/commit/commit",
     "pages/order/order_commit/order_commit",
-    "pages/ke/ke_search/index"
+    "pages/ke/ke_search/index",
+    "pages/ke/answer/answer"
   ],
   "window": {
     "backgroundTextStyle": "light",

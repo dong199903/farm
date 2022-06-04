@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header":"/components/header/index",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-input": "tdesign-miniprogram/input/input"
+  }
+}

@@ -22,6 +22,26 @@
   </t-swiper>
   <!--轮播消息end-->
 
+  <!--专家问答start-->
+  <view class="expert">
+    <view class="header"><text>专家问答</text><view bindtap="goAnswer">查看更多<text class="iconfont icon-youjiantou1"></text></view></view>
+    <view class="answer">
+      <view>
+        <view class="wen">问</view>
+        <view>如何更好的面对植物死亡</view>
+      </view>
+
+      <view>
+        <view class="da">答</view>
+        <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
+      </view>
+    </view>
+  </view>
+
+  <!--专家问答end-->
+
+
+
   <!--推荐文章-->
   <view class="recommand">
     <view class="header">推荐文章</view>

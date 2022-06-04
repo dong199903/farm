@@ -22,7 +22,12 @@ Page({
     } = e;
     console.log(current, source)
   },
-
+  /**跳转问答专区 */
+  goAnswer(){
+    wx.navigateTo({
+      url:"/pages/ke/answer/answer"
+    })
+  },
   /**跳转搜索课堂界面 */
   goKeSearch(){
     wx.navigateTo({
