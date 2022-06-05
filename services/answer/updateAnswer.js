@@ -2,17 +2,15 @@
  * @description: 
  * @author: 董泽平
  */
-
-
- export default function(goods){
-   let {title,desc,address,price,imgs,video,sid,num,phone,openid} = goods
+/**
+ * 获取第一条问题
+ */
+ export default function({_id,openid,val}){
   return new Promise((resolve,reject)=>{
     wx.cloud.callFunction({
-      name:'subGoods',
+      name:'updateAnswer',
       data:{
-        title,
-        desc,
-        address,price,imgs,video,sid,num,phone,openid
+        openid,_id,val
       }
     }).then(msg=>{
       resolve(msg)

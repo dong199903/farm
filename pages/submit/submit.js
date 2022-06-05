@@ -226,6 +226,7 @@ Page({
     this.setData({
       loading:true
     })
+    let openid = app.globalData.openid
     let that = this
     let title = this.data.title
     let desc = this.data.desc
@@ -253,7 +254,7 @@ Page({
     } else {
       //信息合格
       let goods = {
-        title,desc,address,imgs,video,price,sid,num,phone
+        title,desc,address,imgs,video,price,sid,num,phone,openid
       }
       //1.上传图片和视频
       imgs = await this.uploadImgToDatabase(imgs)

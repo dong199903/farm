@@ -5,11 +5,13 @@
 /**
  * 获取所有的问题
  *  */
- export default function(){
+ export default function(openid){
   return new Promise((resolve,reject)=>{
     wx.cloud.callFunction({
-      name:'getAnswerAll'
-      
+      name:'getAnswerAll',
+      data:{
+        openid
+      }
     }).then(msg=>{
       resolve(msg)
     }).catch(err=>{

@@ -50,6 +50,7 @@ Page({
     this.setData({
       notices:notices.result[0].data,
       aritle:arr,
+      answer:notices.result[2].data[0],
       loading:false
     })
   },

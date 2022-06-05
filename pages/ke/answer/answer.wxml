@@ -6,28 +6,18 @@
   </view>
 
   <!--问答列表-->
-  <view class="answer">
+  <view class="answer" wx:for="{{answers}}" wx:key="index">
     <view>
       <view class="wen">问</view>
-      <view>如何更好的面对植物死亡</view>
+      <view>{{item.request}}</view>
     </view>
 
-    <view>
+    <view wx:if="{{item.answer}}">
       <view class="da">答</view>
-      <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
-    </view>
-  </view>
-
-  <view class="answer">
-    <view>
-      <view class="wen">问</view>
-      <view>如何更好的面对植物死亡</view>
+      <view>{{item.answer}}</view>
     </view>
 
-    <view>
-      <view class="da">答</view>
-      <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
-    </view>
+    <view data-id="{{item._id}}" bindtap="answerShow" class="expert" wx:if="{{expert && !item.answer}}">发布回答</view>
   </view>
 </view>
 
@@ -41,8 +31,18 @@
 <t-popup
   visible="{{subBox}}" placement="bottom" >
   <view class="request">
-    <view><t-input label="问题" placeholder="请输入文字" value="{{value}}" bindchange="input" /></view>
+    <view><t-input label="问题" placeholder="请输入文字" value="{{value1}}" bindchange="input" /></view>
     <view class="sub" bindtap="subQues">发布问题</view>
     <view class="close" bindtap="closeSub">x</view>
+  </view>
+</t-popup>
+
+<!--回答问题框-->
+<t-popup
+  visible="{{answerBox}}" placement="bottom" >
+  <view class="resolve">
+    <view><t-input label="回答" placeholder="请输入文字" value="{{value2}}" bindchange="input2" /></view>
+    <view class="subAnswer" bindtap="updateAnswers">发布回答</view>
+    <view class="closeAnswer" bindtap="closeAnswer">x</view>
   </view>
 </t-popup>

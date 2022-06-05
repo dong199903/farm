@@ -6,9 +6,11 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const  {openid} = event
-  return Promise.all([db.collection("farm_answer").orderBy("time","desc").get(),db.collection("farm_user").where({
-    openid
-  }).get()])
-  return 
+  const {openid,_id,val} = event
+  return await db.collection("farm_answer").doc(_id).update({
+    data:{
+      answer:val,
+      response_id:openid
+    }
+  })
 }

@@ -28,12 +28,12 @@
     <view class="answer">
       <view>
         <view class="wen">问</view>
-        <view>如何更好的面对植物死亡</view>
+        <view>{{answer.request}}</view>
       </view>
 
-      <view>
+      <view wx:if="{{answer.answer}}">
         <view class="da">答</view>
-        <view>爱的卡的卡卡打开的卡卡的卡卡的卡卡大大啊大姐大街酒啊就打的家啊大家啊爱打架埃及大家</view>
+        <view>{{answer.answer}}</view>
       </view>
     </view>
   </view>

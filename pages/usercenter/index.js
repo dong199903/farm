@@ -34,8 +34,8 @@ Page({
         mask: false
       });
     } else {
-      wx.reLaunch({
-        url: '/pages/submit/submit'
+      wx.navigateTo({
+        url:"/pages/usercenter/bussiness/index"
       })
     }
     

@@ -58,22 +58,34 @@
   border-radius: 30rpx;
   box-sizing: border-box;
 }
-.request{
+.request,.resolve{
   background-color: #fff;
   position: relative;
   padding: 40rpx 0 20rpx 0;
 }
-.request .close{
+
+ .close,.closeAnswer{
   position: absolute;
   right: 10rpx;
   top: 5rpx;
   font-weight: bold;
 }
-.sub{
+
+.sub,.subAnswer{
   padding: 20rpx 0;
   background-color: #39bf3e;
   border-radius: 30rpx;
   box-sizing: border-box;
   margin-top: 20rpx;
   text-align: center;
+}
+.expert{
+  margin: 0 auto;
+  background-color: #39bf3e;
+  width: 140rpx;
+  padding: 10rpx 20rpx;
+  color: #fff;
+  border-radius: 20rpx;
+  text-align: center;
+  font-size: 35rpx;
 }

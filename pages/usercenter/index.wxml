@@ -51,7 +51,7 @@
     </view>
     <view class="me-box-center">
       <view class="item" bindtap="address"><view>收货地址</view><text class="iconfont icon-youjiantou1"></text></view>
-      <view class="item" bindtap="farm"><view>发布产品</view><text class="iconfont icon-youjiantou1"></text></view>
+      <view class="item" bindtap="farm"><view>商家管理</view><text class="iconfont icon-youjiantou1"></text></view>
       <view class="item" bindtap="zhengce"><view>农业政策</view><text class="iconfont icon-youjiantou1"></text></view>
     </view>
     <view class="me-box-bot">
