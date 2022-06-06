@@ -1,4 +1,5 @@
 import Login from "./../../services/uses/login"
+
 const app = getApp()
 Page({
   data:{
@@ -175,10 +176,6 @@ Page({
           Login(app.globalData.openid, app.globalData.userInfo)
         }
       })
-    }
-    
+    } 
   },
-
-  
-
 });

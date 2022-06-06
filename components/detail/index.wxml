@@ -7,7 +7,7 @@
     </view>
     <view class="right">
       <view>￥{{price}}</view>
-      <view class="count">x{{num}}</view>
+      <view wx:if="{{num}}" class="count">x{{num}}</view>
     </view>
   </view>
 </view>

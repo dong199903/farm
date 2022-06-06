@@ -17,36 +17,11 @@
     </view>
   </view>
   
-  <view class="control">
+  <view class="control" wx:if="{{!empty}}">
     <view><view><t-radio checked="{{allChecked}}" bind:change="selectAll" label="全选"/></view><view>￥{{totalPrice}}</view></view>
     <view bindtap="skipToPay">去结算</view>
   </view>
+
+
+  <view class="empty" wx:if="{{empty}}">购物车空，请添加商品哦！</view>
 </view>
-
-<!-- <view class="container">
-  <view class="goodslist">
-    <view wx:for="{{goodsList}}" wx:key="index" wx:for-item="item">
-      <view class="good">
-        <t-radio class="checkedbox" checked="{{item.checked}}" bindtap="selectList" data-index="{{index}}" />
-        <image src="{{item.imgs[0]}}"></image>
-        <view class="title">{{item.title}}</view>
-        <view class="price">{{item.price}}</view>
-        <view class="count">
-          <view bindtap="minusCount" data-index="{{index}}">-</view>
-          <view>
-            <input type="number" value="{{item.count}}" bindinput="inputCount" bindblur="bindblur" data-index="{{index}}" />
-          </view>
-          <view bindtap="addCount" data-index="{{index}}">+</view>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="bottom">
-    <view class="checkedbox">
-      <t-radio checked="{{allChecked}}" bindtap="selectAll" data-index="{{index}}" label="全选" />
-    </view>
-    <view class="total">合计：<text>￥{{totalPrice}}</text></view>
-    <view class="pay"><button bindtap="skipToPay">去结算</button></view>
-  </view>
-</view> -->

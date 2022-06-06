@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
   return await db.collection("farm_goods").add({
     data:{
       title,
-      address,desc,price,imgs,video,sid,num,hot:true,show:true,phone,openid
+      address,desc,price,imgs,video,sid,num,hot:true,show:false,phone,openid
     }
   })
 }

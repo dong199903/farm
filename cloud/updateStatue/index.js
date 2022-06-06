@@ -6,11 +6,10 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const {_id} = event
-  return await db.collection("farm_item").doc(_id).update({
+  const {id,statue} = event
+  return await db.collection("farm_item").doc(id).update({
     data:{
-      commit:true,
-      statue:4
+      statue
     }
   })
 }

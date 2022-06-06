@@ -1,2 +1,50 @@
-<!--pages/usercenter/bussiness/index.wxml-->
-<text>pages/usercenter/bussiness/index.wxml</text>
+<header title='我的店铺' statue="1"></header>
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
+<view class="container">
+  <view class="header">
+    <image src="{{user.avatarUrl}}"></image>
+    <text>{{user.nickName}}</text>
+  </view>
+  <view class="other">
+
+    <view>
+      <view><text class="iconfont icon-yingshoubaobiao"></text>营收</view>
+      <view><text>{{total}}元</text></view>
+    </view>
+
+    <view bindtap="goMyGoodsAll" >
+      <view ><text class="iconfont icon-baobeiguanli-wodebaobei"></text>我的宝贝</view>
+      <view><text class="iconfont icon-youjiantou1"></text></view>
+    </view>
+
+    <view bindtap="addGoods">
+      <view ><text class="iconfont icon-shangjia"></text>上架新宝贝</view>
+      <view><text class="iconfont icon-youjiantou1"></text></view>
+    </view>
+
+
+    <view bindtap="goGoodsItem" data-id="1">
+      <view ><text class="iconfont icon-daifahuo1"></text>去发货</view>
+      <view><text class="iconfont icon-youjiantou1"></text></view>
+    </view>
+
+    <view bindtap="goGoodsItem" data-id="2">
+      <view ><text class="iconfont icon-wancheng"></text>已完成</view>
+      <view><text class="iconfont icon-youjiantou1"></text></view>
+    </view>
+
+  </view>
+  
+
+  <!-- <view class="items">
+    <view>
+      <view></view>
+      <view></view>
+      <view>去发货</view>
+      <view>已完成</view>
+    </view>
+  </view> -->
+</view>

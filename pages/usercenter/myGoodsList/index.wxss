@@ -1,0 +1,15 @@
+.container{
+  padding: 0 30rpx;
+}
+.loading{
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.item{
+  padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin-bottom: 30rpx;
+}

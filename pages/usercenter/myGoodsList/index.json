@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "t-loading": "tdesign-miniprogram/loading/loading",
-    "header":"/components/header/index"
+    "header":"/components/header/index",
+    "goods":"/components/detail/index"
   }
 }

@@ -61,3 +61,8 @@
   -webkit-line-clamp:2;
   font-size: 30rpx;
 }
+.empty{
+  text-align: center;
+  padding-top: 250rpx;
+  font-weight: bold;
+}

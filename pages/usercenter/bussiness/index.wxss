@@ -1,1 +1,42 @@
-/* pages/usercenter/bussiness/index.wxss */
+.loading{
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.container{
+  padding: 0 30rpx;
+
+}
+.header{
+  display: flex;
+  align-items: center;
+}
+.header image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 40rpx;
+}
+.other{
+  margin-top: 30rpx;
+}
+.other>view{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ccc;
+  padding: 25rpx 0;
+  align-items: center;
+}
+.other>view>view:first-child{
+  font-weight: bold;
+}
+.other>view>view:first-child text{
+  margin-right: 25rpx;
+  color:#39bf3e;
+}
+.other>view>view:last-child {
+  color: #999;
+}

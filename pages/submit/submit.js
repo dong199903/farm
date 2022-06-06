@@ -167,6 +167,7 @@ Page({
   },
   /**本地图片上传到服务器 */
   uploadImgToDatabase(success){
+    console.log(success)
     let imgs = []
     return new Promise((resolve, reject) => {
       for (let i = 0; i < success.length; i++)
@@ -175,7 +176,9 @@ Page({
           filePath: success[i].url, // 本地文件路径
           success: res => {
             imgs.push(res.fileID)
-            if (imgs.length === success.length) resolve(imgs)
+            if (imgs.length === success.length) {
+              resolve(imgs)
+            }
           },
           fail: function (err) {
             reject(err)
@@ -257,11 +260,11 @@ Page({
         title,desc,address,imgs,video,price,sid,num,phone,openid
       }
       //1.上传图片和视频
-      imgs = await this.uploadImgToDatabase(imgs)
-      video = await this.uploadVideoToDatabase(video)
-      console.log(imgs,video)
-      goods.imgs = imgs
-      goods.video = video
+      
+      let res = await Promise.all([this.uploadImgToDatabase(imgs),this.uploadVideoToDatabase(video)])
+      console.log("res",res)
+      goods.imgs = res[0]
+      goods.video = res[1]
       //2.统一上传到后端
       let info = await sub(goods)
       console.log(info)
@@ -280,7 +283,5 @@ Page({
         phone:""
       })
     }
-    
-
   }
 })

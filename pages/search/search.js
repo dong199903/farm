@@ -68,7 +68,6 @@ Page({
   },
   getGoodsList: async function (keyword) {
     const info = await search(keyword)
-    console.log("dzp",info)
     if (info.result.res.data.length) {
       this.setData({
         goodsList: info.result.res.data,

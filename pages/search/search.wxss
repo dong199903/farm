@@ -6,16 +6,25 @@
 .search-header {
   height: 80rpx;
   line-height: 80rpx;
-  background: #f3f3f3;
-  border-radius: 30rpx;
-  border: 1rpx solid #ccc;
+  /* background: #f3f3f3; */
   font-size: 29rpx;
-  padding: 0 30rpx;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.search_right{
+  background-color: #39bf3e;
+  border-radius: 15rpx;
+  padding: 0 15rpx;
+  color: #fff;
+  line-height: 80rpx;
 }
 .search-header input{
-  width: 100%;
+  flex: 1;
   height: 100%;
+  background: #f3f3f3;
+  border-radius: 30rpx;
+  padding-left: 30rpx;
 }
 
 .search-header .keywrod {

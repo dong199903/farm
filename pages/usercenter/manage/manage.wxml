@@ -1,0 +1,28 @@
+<header title='店铺管理' statue="1"></header>
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
+
+<view class="container">
+  <view class="box" wx:if="{{itm.OrderList.length}}" wx:for="{{items}}" wx:for-index="index1" wx:key="index"  wx:for-item="itm">
+    <view class="content" wx:for="{{itm.OrderList}}" wx:for-index="index2" wx:for-item="itm2">
+      <image src="{{itm.imgs[0]}}"></image>
+      <view class="content_info">
+        <view>
+          <view>{{itm.title}}{{itm.desc}}</view>
+          <view>收获人：{{itm2.addr.userName}}</view>
+          <view>收获地址：{{itm2.addr.address}}{{itm2.addr.detail}}</view>
+        </view>
+        <view>
+          <view class="price">￥{{itm.price}}</view>
+          <view>x{{itm2.num}}</view>
+          <view class="send" wx:if="{{itm2.statue===1}}" bindtap="sendGoods" data-id="{{itm2._id}}">发货</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="tip" wx:if="{{id===1 && empty}}">暂无订单发货</view>
+<view class="tip" wx:if="{{id===2 && empty}}">暂无订单完成</view>

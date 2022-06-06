@@ -34,7 +34,7 @@ Page({
       });
     }else {
       await subCommit({openid,gid,value})
-      //2.评论发布成功，对应订单商品的评论改为true id自动保存对应
+      //2.评论发布成功，对应订单商品的评论改为true 并且状态改变
       await updateCommit(_id)
       //3.提示成功信息
       this.setData({

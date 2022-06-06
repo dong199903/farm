@@ -4,7 +4,7 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 const db = cloud.database()
 // 模拟订单数据的插入
-function addItem (oid,goodsList) {
+function addItem (oid,goodsList,addr) {
   let res = []
   return new Promise((resolve,reject)=>{
     for(let i=0;i<goodsList.length;i++) {
@@ -13,7 +13,9 @@ function addItem (oid,goodsList) {
           oid,
           commit:false,
           num:goodsList[i].count,
-          gid:goodsList[i]._id
+          gid:goodsList[i]._id,
+          addr,
+          statue:1
         }
       }).then(msg=>{
         res.push(msg)
@@ -26,6 +28,6 @@ function addItem (oid,goodsList) {
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const {oid,goodsList} = event
-  return await addItem(oid,goodsList)
+  const {oid,goodsList,addr} = event
+  return await addItem(oid,goodsList,addr)
 }

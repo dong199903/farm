@@ -9,12 +9,13 @@ Page({
    */
   data: {
     value:"",
-    empty:false
+    empty:false,loading:false
   },
   /**获取搜索 */
   async goSearch(){
     this.setData({
-      result:[]
+      result:[],
+      loading:true
     })
     if(this.data.value) {
       let info = await searchList(this.data.value)
@@ -34,7 +35,8 @@ Page({
         })
       }
       this.setData({
-        value:""
+        value:"",
+        loading:false
       })
     }
     

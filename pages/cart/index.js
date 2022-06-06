@@ -27,6 +27,9 @@ Page({
           tmp = false
         } else sum += goodsList[i].price
       }
+      if(goodsList.length===0) this.setData({
+        empty:true
+      })
       this.setData({
         goodsList,
         allChecked:tmp,

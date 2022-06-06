@@ -1,5 +1,6 @@
 // pages/order/order.js
 import OrderList from "./../../services/order/getOrderList"
+import updateStatue from "./../../services/order/updateStatue"
 Page({
   data: {
     loading:true,
@@ -12,6 +13,28 @@ Page({
       {value:"5",content:"待评价"},
       {value:"6",content:"退款/售后"}
     ]
+  },
+  /**确认收获，状态改为3 */
+  async goReceive(e){
+    this.setData({
+      loading:true
+    })
+    let id = e.currentTarget.dataset.id
+    await updateStatue(id,3)
+    this.onShow()
+    wx.showToast({
+      title: '收货成功',
+      icon: 'none',
+      image: '',
+      duration: 1500,
+      mask: false
+    });
+    this.setData({
+      loading:false
+    })
+    //直接修改数据,_id订单的状态修改成为3
+    
+
   },
   /**跳转评价 */
   goCommit(e){
@@ -28,7 +51,45 @@ Page({
     });
   },
   onTabsChange(e) {
-    console.log(e.detail.value)
+    /**
+     * 1.全部订单
+     * 2.待付款 x
+     * 3.待发货
+     * 4.待收货
+     * 5.待评价
+     * 6.退款/售后 x
+     */
+    let val = parseInt(e.detail.value) 
+    //1,2,6特殊处理（暂时做不了，需要物流参与）
+    if(val===2 || val===6) {
+      this.setData({
+        showItem:[]
+      })
+    } 
+    else if(val===1) {
+      this.setData({
+        showItem:this.data.orderList
+      })
+    }
+    else {
+      let nowStatue = val-2
+      console.log("nowStatue",nowStatue)
+      //1.拷贝一份数据，避免污染原始数据
+      let newData = JSON.parse(JSON.stringify(this.data.orderList))
+      for(let i=0;i<newData.length;i++) {
+        let info1 = newData[i].OrderList
+        let info2 = []
+        info1.forEach(item=>{
+          if(item.statue===nowStatue) info2.push(item)
+        })
+        newData[i].OrderList = info2
+      }
+      console.log(newData)
+      this.setData({
+        showItem:newData
+      })
+    }
+    console.log(this.data.showItem)
   },
   /**返回对应商品 */
   findGoods(goods,gid){
@@ -40,7 +101,7 @@ Page({
    * 获取所有的订单
    */
   async onShow(options) {
-    //1.获取用户的openid
+    //1.获取当前用户的所有订单
     let orders = await OrderList(wx.getStorageSync("users").openid)
     console.log(orders)
     let goods = orders.result.goods.data//商品信息
@@ -56,53 +117,10 @@ Page({
       })
     })
     //最终的订单数据
-
     this.setData({
       orderList,
+      showItem:orderList,
       loading:false
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
   }
 })

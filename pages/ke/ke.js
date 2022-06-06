@@ -7,11 +7,8 @@
 import notice from "./../../services/notice/index";
 import {srcUrl} from "./../../utils/imgs"
 import timeTool from "./../../utils/time"
+import getAnswerOne from "./../../services/answer/getAnswerOne"
 Page({
-
-  /**
-   * 页面的初始数据
-   */
    data: {
      loading:true
    },
@@ -39,8 +36,6 @@ Page({
    */
   async onLoad(options) {
     let notices = await notice()
-    console.log(notices)
-
     //添加时间和img属性
     let arr = notices.result[1].data
     for(let i=0;i<arr.length;i++) {
@@ -50,8 +45,14 @@ Page({
     this.setData({
       notices:notices.result[0].data,
       aritle:arr,
-      answer:notices.result[2].data[0],
       loading:false
+    })
+  },
+  /**显示问题和回答 */
+  async onShow(){
+    let info = await getAnswerOne()
+    this.setData({
+      answer:info.result.data[0]
     })
   },
   write(e){

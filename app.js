@@ -7,6 +7,7 @@ import checkLogin from "./services/uses/checkLogin"
  * 4.如果注册，获取信息，缓存起来
  * 5.没有注册，正常注册，缓存起来
  * 6.注销是，清空全局数据
+ * 
  */
 App({
   /**

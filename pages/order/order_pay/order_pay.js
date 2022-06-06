@@ -70,7 +70,7 @@ Page({
     let info = "具体情况，请前往小程序查看"
     console.log(this.data.goodsList)
     //订单的保存
-    dealOrders(wx.getStorageSync("users").openid,this.data.goodsList)
+    dealOrders(wx.getStorageSync("users").openid,this.data.goodsList,this.data.addr)
 
     subMessage(title,price,info)
     //清空缓存购物车中选中的商品

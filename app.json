@@ -19,7 +19,9 @@
     "pages/order/order_commit/order_commit",
     "pages/ke/ke_search/index",
     "pages/ke/answer/answer",
-    "pages/usercenter/bussiness/index"
+    "pages/usercenter/bussiness/index",
+    "pages/usercenter/manage/manage",
+    "pages/usercenter/myGoodsList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
