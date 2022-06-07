@@ -82,14 +82,13 @@ page{
 .catalog-wrap .item {
   width: 100%;
   box-sizing: border-box;
-  padding: 0 30rpx;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
 }
 
 .catalog-wrap .icon-navi {
-  width: 100rpx;
+  max-width: 120rpx;
   /* height: 160rpx; */
   display: flex;
   flex-direction: column;
@@ -98,8 +97,8 @@ page{
 }
 
 .catalog-wrap .icon-img {
-  height: 100rpx;
-  width: 100rpx;
+  height: 100rpx!important;
+  max-width: 100rpx;
 }
 
 .catalog-wrap .icon-text {

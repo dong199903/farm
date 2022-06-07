@@ -1,5 +1,9 @@
 
 <header statue="1" title="我的发布"></header>
+<!--loading加载-->
+<view class="loading" hover-class="none" hover-stop-propagation="false">
+  <t-loading theme="spinner" size="40rpx" loading="{{loading}}"></t-loading>
+</view>
 <view class="container">
   <view class="item" wx:for="{{goods}}" data-id="{{item._id}}" bindtap="goGoodsDetail">
     <goods img="{{item.imgs[0]}}" wx:key="index" title="{{item.title}}" desc="{{item.desc}}" price="{{item.price}}"></goods>

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "header":"/components/header/index",
+    "t-loading": "tdesign-miniprogram/loading/loading",
     "t-input": "tdesign-miniprogram/input/input",
     "t-upload": "tdesign-miniprogram/upload/upload",
     "t-dialog": "tdesign-miniprogram/dialog/dialog"

@@ -22,9 +22,9 @@ Page({
     let arr = info.result.data
     arr.unshift({name:"全部"})
     this.setData({
-      sorts:arr
+      sorts:arr,
+      loading:false
     })
-    console.log(this.data.sorts)
   },  
   /**输入框聚焦时触发 筛选框隐藏 */
   focus(){

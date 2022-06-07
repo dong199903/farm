@@ -24,7 +24,8 @@ Page({
   data: {
     originFiles: [],
     gridConfig: {},
-    uploadImgs:[null,null,null]
+    uploadImgs:[null,null,null],
+    loading:false
   },
   getInfo(e) {
     this.setData({
@@ -100,6 +101,9 @@ Page({
     info.phone = this.data.phone
     info.info = this.data.info
     info.imgs = res
+    this.setData({
+      loading:true
+    })
     let msg = await suggest(app.globalData.openid, info)
     if (msg.code === 103)
       Dialog.alert({
@@ -109,5 +113,8 @@ Page({
       }).then(() => {
         wx.navigateBack()
       });
+    this.setData({
+      loading:false
+    })
   }
 })
