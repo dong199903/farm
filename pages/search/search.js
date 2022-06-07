@@ -1,21 +1,72 @@
 // pages/search/search.js
 import search from '../../services/search/index'
-import Toast from 'tdesign-miniprogram/toast/index';
+import getSort from "../../services/sort/index"
 Page({
   /**
-   * 页面的初始数据
+   * 1.用户按下输入框，筛选条件置为全部
+   * 2.输入框有内容，筛选条件筛选时才有用
    */
   data: {
-    searchStatus: false,
+    loading:true,
+    selectBox:false,
+    value:"",
+    empty:false,
     index1: 0,
     index2: 0,
-    array1: ['全部', '蔬菜', '水果', '小吃', '美食', '鲜肉'],
-    array2: ['全部', '0~100', '100~300', '300~500', '500~'],
-    sid: ['16db756f627f521e02a4315750125c70', '0ab5303b627f53b9037d3286620071bb', '6d85a2b9627f53ed04119fd9482d8b38', 'f6e08a64627f54270309b95f294f50b2', 'f6e08a64627f54410309c59818b94b7e'],
-    goodsList: [],
-    showList: [],
+    array2: ['全部', '0~100', '100~300', '300~500', '500~']
   },
-  /**获取商品的信息 */
+  /**获取分类内容 */
+  async onLoad(){
+    let info = await getSort()
+    //数组第一项添加全部
+    let arr = info.result.data
+    arr.unshift({name:"全部"})
+    this.setData({
+      sorts:arr
+    })
+    console.log(this.data.sorts)
+  },  
+  /**输入框聚焦时触发 筛选框隐藏 */
+  focus(){
+    this.setData({
+      selectBox:false,
+      value:"",
+      index1:0,
+      index2:0
+    })
+  },
+  /**获取输入框的内容 */
+  input(e){
+    this.setData({
+      value:e.detail.value
+    })
+  },
+  /**获取搜索的结果 */
+  async searchRes(){
+    if(!this.data.value) {
+      wx.showToast({
+        title: "请输入内容",
+        icon: 'error', //图标，支持"success"、"loading" 
+        mask: true, //是否显示透明蒙层，防止触摸穿透，默认：false 
+      })
+      return 
+    }
+    this.setData({
+      loading:true
+    })
+    const info = await search(this.data.value)
+    this.setData({
+      showList:info.result.res.data,
+      goodsList:info.result.res.data,
+      selectBox:true,
+      loading:false,
+      value:""
+    })
+    if(!this.data.showList.length) this.setData({empty:true})
+  },
+
+
+  /**跳转商品详情 */
   getGoods(e){
     let _id = e.currentTarget.dataset.id
     console.log(_id)
@@ -23,6 +74,21 @@ Page({
       url:"/pages/goods/goods?id="+_id
     })
   },
+  /**商品分类条件选择 */
+  bindPickerChange1: function (e) {
+    this.setData({
+      index1: e.detail.value
+    })
+    this.changeGoodsShow()
+  },
+  /*商品价格条件选择 */
+  bindPickerChange2: function (e) {
+    this.setData({
+      index2: e.detail.value
+    })
+    this.changeGoodsShow()
+  },
+  /**筛选符合条件的商品 */
   changeGoodsShow: function () {
     let temp = []
     if (this.data.index1 == 0 && this.data.index2 == 0) {
@@ -41,7 +107,7 @@ Page({
       })
     } else if (this.data.index2 == 0) {
       temp = this.data.goodsList.filter(i => {
-        if (i.sid == this.data.sid[this.data.index1 - 1]) {
+        if (i.sid == this.data.sorts[this.data.index1 - 1]._id) {
           return true
         }
       })
@@ -66,118 +132,5 @@ Page({
       showList: temp
     })
   },
-  getGoodsList: async function (keyword) {
-    const info = await search(keyword)
-    if (info.result.res.data.length) {
-      this.setData({
-        goodsList: info.result.res.data,
-        showList: info.result.res.data,
-        searchStatus: true
-      })
-    } else {
-      this.setData({
-        goodsList: [],
-        showList: [],
-        searchStatus: false
-      })
-      this.showErrorToast()
-    }
-  },
-  getSearchResult: function (keyword) {
-    if (keyword == '') {
-      this.setData({
-        searchStatus: false
-      })
-      this.showErrorToast()
-      return false
-    }
-    this.setData({
-      keyword: keyword,
-      goodsList: []
-    });
-    this.getGoodsList(keyword);
-  },
-  onKeywordConfirm: function (e) {
-    console.log(e)
-    this.getSearchResult(e.detail.value);
-    this.setData({
-      index1: 0,
-      index2: 0
-    })
-  },
-  bindPickerChange1: function (e) {
-    this.setData({
-      index1: e.detail.value
-    })
-    this.changeGoodsShow()
-  },
-  bindPickerChange2: function (e) {
-    this.setData({
-      index2: e.detail.value
-    })
-    this.changeGoodsShow()
-  },
-  showErrorToast: function () {
-    wx.showToast({
-      title: "没有查询结果",
-      icon: 'error', //图标，支持"success"、"loading" 
-      mask: true, //是否显示透明蒙层，防止触摸穿透，默认：false 
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-    this.setData({
-      index: 0
-    })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
+  
 })
